@@ -1,0 +1,9 @@
+.navbar {
+    background-color: #0088D2;
+}
+
+@media screen and (max-width:768px) {
+    .navbar>.container {
+        all: unset;
+    }
+}

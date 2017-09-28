@@ -9,12 +9,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavComponent } from './container/nav/nav.component';
 import { HomeComponent } from './container/home/home.component';
+import { FooterComponent } from './container/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
