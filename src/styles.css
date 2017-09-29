@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('./css/bg-color.css');
 body {
     padding-top: 2rem;
+    font-size: 14px;
+    line-height: 1.428571429;
+    color: #333;
+    background-color: #fff;
 }
