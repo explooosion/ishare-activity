@@ -1,10 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import url('./css/button.css');
 @import url('./css/bg-color.css');
+@import url('./css/text-color.css');
 body {
-    padding-top: 2rem;
-    font-size: 14px;
-    line-height: 1.428571429;
-    color: #333;
-    background-color: #fff;
+  padding-top: 2rem;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #333;
+  background-color: #fff;
 }

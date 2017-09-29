@@ -11,6 +11,8 @@ import { NavComponent } from './container/nav/nav.component';
 import { HomeComponent } from './container/home/home.component';
 import { FooterComponent } from './container/footer/footer.component';
 import { UserComponent } from './container/user/user.component';
+import { LoginComponent } from './component/modal/login/login.component';
+import { SignupComponent } from './component/modal/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { UserComponent } from './container/user/user.component';
     HomeComponent,
     FooterComponent,
     UserComponent,
+    LoginComponent,
+    SignupComponent,
   ],
   imports: [
     BrowserModule,

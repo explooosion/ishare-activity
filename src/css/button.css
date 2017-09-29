@@ -1,0 +1,15 @@
+/*
+
+  按鈕客製化
+
+  使用方法如同 bootstrap 的 btn-lg
+
+  bootstrap 預設：
+  class="btn-lg"
+  class="btn-sm"
+
+*/
+
+.btn-maxw {
+  width: 100%;
+}
