@@ -1,0 +1,98 @@
+/* 使用者基本資訊 */
+
+.user-profile {
+    padding-bottom: 0;
+}
+
+.user-profile .user-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+}
+
+
+/* tab 選單 */
+
+.user-tab {}
+
+
+/* tab content 選單內容*/
+
+.user-tab-content {
+    margin-top: 1.4rem;
+}
+
+.user-tab-content .card {
+    display: inline-block;
+    margin-right: 1.4rem;
+    margin-bottom: 1.4rem;
+    width: 340px;
+    border: 1px solid #ccc;
+}
+
+.user-tab-content .card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.user-tab-content .card-body {
+    padding: 1.2rem;
+}
+
+.card-body .card-title {
+    overflow: hidden;
+    margin: 0 0 10px;
+    max-height: 48px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #212121;
+}
+
+.card-body .card-time {
+    font-size: 14px;
+    line-height: 20px;
+    color: #bdbdbd;
+}
+
+.card-body .card-text {
+    font-size: 14px;
+    color: #888;
+}
+
+.card-body .btn {
+    width: 140px;
+}
+
+.card-body .card-control .col-sm-6 {
+    line-height: 35px;
+}
+
+.card-body .card-control .card-text {
+    padding: 0 0.4rem;
+}
+
+.card-body .card-control .card-text::after {
+    content: '人喜歡';
+    padding: 0 0.4rem;
+}
+
+.card-body .card-control .img-thumbnail {
+    padding: 0.4rem 0.6rem 0.3rem;
+    width: 50px;
+    height: 50px;
+    color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    border-radius: 100%;
+}
+
+.card-body .card-control .img-thumbnail:hover {
+    color: #767676;
+    border: 1px solid #767676;
+}
+
+.card-body .card-control .img-thumbnail:active,
+.card-body .card-control .img-thumbnail:focus {
+    color: #FF5258;
+    border: 1px solid #FF5258;
+}

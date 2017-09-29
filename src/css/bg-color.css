@@ -1,0 +1,16 @@
+/*
+
+  物件背景顏色
+
+  使用方法如同 bootstrap 的 bg-color
+
+  bootstrap 預設：
+  class="bg-info"
+  class="bg-danger"
+  class="bg-primary"
+
+*/
+
+.bg-white {
+    background-color: #fff !important;
+}
