@@ -1,13 +1,9 @@
-.navbar {
-  background-color: #0088D2;
-}
-
 .form-inline a:hover {
-  color: #222 !important;
+    color: #222 !important;
 }
 
 @media screen and (max-width:768px) {
-  .navbar>.container {
-    all: unset;
-  }
+    .navbar>.container {
+        all: unset;
+    }
 }
