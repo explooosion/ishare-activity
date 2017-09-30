@@ -14,7 +14,6 @@ import { FooterComponent } from './container/footer/footer.component';
 import { UserComponent } from './container/user/user.component';
 import { LoginComponent } from './component/modal/login/login.component';
 import { SignupComponent } from './component/modal/signup/signup.component';
-import { SearchComponent } from './container/search/search.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +24,6 @@ import { SearchComponent } from './container/search/search.component';
     UserComponent,
     LoginComponent,
     SignupComponent,
-    SearchComponent,
   ],
   imports: [
     BrowserModule,
