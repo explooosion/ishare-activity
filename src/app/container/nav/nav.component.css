@@ -2,6 +2,14 @@
     color: #222 !important;
 }
 
+.navbar-group i {
+    margin-right: 3px;
+}
+
+.navbar-group .user-menu img {
+    border-radius: 100%;
+}
+
 @media screen and (max-width:768px) {
     .navbar>.container {
         all: unset;
