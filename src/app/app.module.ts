@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { SweetAlert2Module } from '@toverux/ngsweetalert2';
 
 // Component
 import { AppComponent } from './app.component';
@@ -29,7 +30,13 @@ import { SignupComponent } from './component/modal/signup/signup.component';
     FormsModule,
     HttpModule,
     JsonpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SweetAlert2Module.forRoot({
+      buttonsStyling: false,
+      customClass: 'modal-content',
+      confirmButtonClass: 'btn btn-lg btn-primary',
+      cancelButtonClass: 'btn btn-lg'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
