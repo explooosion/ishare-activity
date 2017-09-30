@@ -18,18 +18,17 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "app",
     "styles": [
-      "styles.css",
-      "./plugin/font-awesome/css/font-awesome.min.css",
-      "./plugin/bootstrap/css/bootstrap.min.css",
-      "./plugin/datatables/dataTables.bootstrap4.css"
+      "../node_modules/font-awesome/css/font-awesome.min.css",
+      "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "../node_modules/sweetalert2/dist/sweetalert2.css",
+      "styles.css"
     ],
     "scripts": [
-      "./plugin/tether/tether.min.js",
-      "./plugin/jquery/jquery.min.js",
-      "./plugin/bootstrap/js/bootstrap.min.js",
-      "./plugin/datatables/jquery.dataTables.js",
-      "./plugin/datatables/dataTables.bootstrap4.js",
-      "./plugin/chart.js/Chart.bundle.min.js"
+      "../node_modules/jquery/dist/jquery.min.js",
+      "../node_modules/popper.js/dist/umd/popper.min.js",
+      "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+      "../node_modules/moment/min/moment.min.js",
+      "../node_modules/sweetalert2/dist/sweetalert2.min.js"
     ],
     "environmentSource": "environments/environment.ts",
     "environments": {

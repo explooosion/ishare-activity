@@ -10,6 +10,10 @@
 
 */
 
+.btn {
+    border: 0;
+}
+
 .btn-maxw {
-  width: 100%;
+    width: 100%;
 }

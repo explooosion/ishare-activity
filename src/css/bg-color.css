@@ -12,9 +12,21 @@
 */
 
 .bg-white {
-  background-color: #fff !important;
+    background-color: #fff !important;
 }
 
 .bg-inherit {
-  background-color: inherit;
+    background-color: inherit;
+}
+
+.bg-info {
+    background-color: #2AB3FC !important;
+}
+
+.bg-blue {
+    background-color: #0088D2 !important;
+}
+
+.bg-gray {
+    background-color: #E2E6EA !important;
 }
