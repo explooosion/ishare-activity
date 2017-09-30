@@ -1,0 +1,171 @@
+a {
+    text-decoration:none;
+}
+b {
+    color: #757575;
+}
+.search-data{
+    padding-bottom: 0
+}
+
+.col-xs-12{
+    width: 100%;
+}
+.hot-tagbox{
+    margin: 0 2px;
+    white-space: nowrap;
+    height: 40px;
+    line-height: 20px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.hot-tagbox-item{
+    margin-left: 8px;
+    color:#1fb0ff;
+}
+.hot-tagbox-item:hover{
+    margin-left: 8px;
+    color:#0088d2;
+}
+.dl-data-dt{
+    width: 8%;
+    float: left;
+    margin: 0 14px;
+}
+.dl-data-item{
+    display: inline-block;
+    margin: 0 0 5px;
+    padding: 2px 5px;
+    vertical-align: top;
+    color: #757575;
+}
+.dl-data-item:hover{
+    color: #fff;
+    background-color: #0088d2;
+}
+.dl-data-item-active{
+    display: inline-block;
+    margin: 0 0 5px;
+    padding: 2px 5px;
+    vertical-align: top;
+    color: #fff;
+    background-color: #0088d2;
+}
+.btn-group{
+    margin: 0 14px;
+}
+.search-group-btn{
+    background-image: none;
+    color: #333;
+    background-color: #fff;
+    border-color:#ccc;
+}
+.search-group-btn:hover{
+    background-image: none;
+    color: #fff;
+    background-color: #0088d2;
+    border-color:#0088d2;
+}
+.search-group-btn-active{
+    background-image: none;
+    color: #fff;
+    background-color: #0088d2;
+    border-color:#0088d2;
+}
+.search-tab-content {
+    margin-top: 1.4rem;
+}
+
+.search-tab-content .card {
+    display: inline-block;
+    margin-right: 1.4rem;
+    margin-bottom: 1.4rem;
+    width: 340px;
+    border: 1px solid #ccc;
+}
+
+.search-tab-content .card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.search-tab-content .card-body {
+    padding: 1.2rem;
+}
+
+.card-body .card-title {
+    overflow: hidden;
+    margin: 0 0 10px;
+    max-height: 48px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #212121;
+}
+
+.card-body .card-time {
+    font-size: 14px;
+    line-height: 20px;
+    color: #bdbdbd;
+}
+
+.card-body .card-text {
+    font-size: 14px;
+    color: #888;
+}
+
+.card-body .btn {
+    width: 140px;
+}
+
+.card-body .card-control .col-sm-6 {
+    line-height: 35px;
+}
+
+.card-body .card-control .card-text {
+    padding: 0 0.4rem;
+}
+
+.card-body .card-control .card-text::after {
+    content: '人喜歡';
+    padding: 0 0.4rem;
+}
+
+.card-body .card-control .img-thumbnail {
+    padding: 0.4rem 0.6rem 0.3rem;
+    width: 50px;
+    height: 50px;
+    color: #E0E0E0;
+    border: 1px solid #E0E0E0;
+    border-radius: 100%;
+}
+
+.card-body .card-control .img-thumbnail:hover {
+    color: #767676;
+    border: 1px solid #767676;
+}
+
+.card-body .card-control .img-thumbnail:active,
+.card-body .card-control .img-thumbnail:focus {
+    color: #FF5258;
+    border: 1px solid #FF5258;
+}
+.center {
+    text-align: center;
+}
+.pagination {
+    display: inline-block;
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+.pagination a.active {
+    background-color: #0088d2;
+    color: white;
+}
+
