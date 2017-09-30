@@ -1,0 +1,46 @@
+.pic-text{
+    background-color: green;
+    height: 300px;
+}
+.btn-all{
+    width: 100%;
+}
+.imgbig{
+    height: 250px;
+}
+.imgsmall{
+    height: 100px;
+
+}
+.img-set{
+    width: 100%;
+    height: 120px;
+}
+.text-set{
+    top: 30px;
+}
+.text-setex{
+    top:40px;
+}
+.set-hei{
+    top: 60px;
+}
+.img-setax{
+    width: 80px;
+    height: 140px;
+}
+.set-back{
+    right: 20px;
+    margin: 0px;
+    background-color: #FFFFFF;
+}
+.star-set{
+    width: 20px;
+    height: 20px;
+}
+.row {
+    display: flex;
+  }
+.text-top{
+    margin-top: 10px;
+}
