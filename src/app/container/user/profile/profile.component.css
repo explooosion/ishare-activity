@@ -1,0 +1,12 @@
+#profile { 
+    margin-top: 2rem;
+}
+
+#profile .navbar{
+  padding: 0;
+}
+
+#profile .navbar-nav .active a{
+  color: #555;
+  background-color: #e7e7e7;
+}

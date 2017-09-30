@@ -12,6 +12,9 @@ import { NavComponent } from './container/nav/nav.component';
 import { HomeComponent } from './container/home/home.component';
 import { FooterComponent } from './container/footer/footer.component';
 import { UserComponent } from './container/user/user.component';
+import { ProfileComponent } from './container/user/profile/profile.component'
+
+// Component;
 import { LoginComponent } from './component/modal/login/login.component';
 import { SignupComponent } from './component/modal/signup/signup.component';
 
@@ -24,6 +27,7 @@ import { SignupComponent } from './component/modal/signup/signup.component';
     UserComponent,
     LoginComponent,
     SignupComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
