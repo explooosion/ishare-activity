@@ -1,46 +1,42 @@
-.pic-text{
+.home-pictext{
     background-color: green;
     height: 300px;
 }
-.btn-all{
+.home-btn{
     width: 100%;
 }
-.imgbig{
+.home-imgbig{
     height: 250px;
 }
-.imgsmall{
+.home-imgsmall{
     height: 100px;
 
 }
-.img-set{
+.home-settext{
+    top: 30px;
+}
+.home-setimg{
     width: 100%;
     height: 120px;
 }
-.text-set{
-    top: 30px;
-}
-.text-setex{
+
+.home-sethightext{
     top:40px;
 }
-.set-hei{
-    top: 60px;
+.home-setmiddleheight{
+    top: 50px;
 }
-.img-setax{
+.home-setbottomhei{
+    margin-top: 70px;
+}
+.home-setfooterimg{
     width: 80px;
     height: 140px;
 }
-.set-back{
-    right: 20px;
-    margin: 0px;
+.home-setfooterbackg{
     background-color: #FFFFFF;
 }
-.star-set{
-    width: 20px;
-    height: 20px;
-}
-.row {
-    display: flex;
-  }
-.text-top{
+
+.home-setmiddletext{
     margin-top: 10px;
 }
