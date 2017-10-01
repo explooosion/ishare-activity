@@ -1,4 +1,15 @@
-.set-footop{
-    top:80px;
-    
+
+.home-setfooterbackgr{
+    background-color: #262626;
+}
+.footer-settoptext{
+    color: white;
+    margin-top: 30px;
+}
+.footer-setmiddletext{
+    color: white;
+    font-size: 15px;
+}
+.footer-setbtn{
+    width: 100%;
 }
