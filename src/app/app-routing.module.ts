@@ -7,7 +7,7 @@ import { UserComponent } from './container/user/user.component';
 import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
-import { SportComponent} from './container/mission/sport/sport.component';
+import { SportComponent } from './container/mission/sport/sport.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,7 +15,8 @@ const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'mission/sport',component:SportComponent}
+  { path: 'mission/sport', component: SportComponent },
+  { path: '**', component: HomeComponent },
 
 
 ];
