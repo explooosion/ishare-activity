@@ -12,7 +12,8 @@ import { NavComponent } from './container/nav/nav.component';
 import { HomeComponent } from './container/home/home.component';
 import { FooterComponent } from './container/footer/footer.component';
 import { UserComponent } from './container/user/user.component';
-import { ProfileComponent } from './container/user/profile/profile.component'
+import { ProfileComponent } from './container/user/profile/profile.component';
+import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
 // Component;
@@ -29,6 +30,7 @@ import { SignupComponent } from './component/modal/signup/signup.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
+    PointComponent,
     SearchComponent
   ],
   imports: [

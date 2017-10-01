@@ -10,10 +10,9 @@
 }
 
 body {
-    padding-top: 2rem;
-    line-height: 1.428571429;
-    font-size: 14px;
-    font-family: Lantinghei TC Extralight, Microsoft JhengHei, Arial;
-    color: #333;
-    background-color: #fff;
+  padding-top: 2rem;
+  line-height: 1.428571429;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
 }
