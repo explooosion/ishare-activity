@@ -1,30 +1,32 @@
 #profile {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 #profile .navbar {
-    padding: 0;
+  padding: 0;
 }
 
 #profile .navbar-nav a {
-    padding: 1.2rem;
-    color: #777;
+  padding: 1.2rem;
+  color: #777;
 }
 
 #profile .navbar-nav a:hover {
-    color: #555;
+  color: #555;
 }
 
 #profile .navbar-nav .active a {
-    color: #555;
-    background-color: #e7e7e7;
+  color: #555;
+  background-color: #e7e7e7;
 }
 
 #profile .group-title {
-    margin-top: 2rem;
-    color: #666;
+  margin: 2rem 0 1rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #666;
 }
 
 #profile .alert {
-    margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
