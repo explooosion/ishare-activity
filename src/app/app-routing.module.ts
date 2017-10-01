@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
-  { path: 'search', component: SearchComponent }
+  { path: 'search', component: SearchComponent },
   { path: 'mission/sport',component:SportComponent}
 
 
