@@ -24,7 +24,8 @@
 
       <div class="modal-footer">
         <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-        <button type="submit" class="btn btn-info bg-info btn-maxw">成為會員</button>
+        <swal #dialogSuccess title="註冊成功" type="success"></swal>
+        <button type="submit" class="btn btn-info bg-info btn-maxw" (click)="signup()">成為會員</button>
       </div>
 
     </div>
