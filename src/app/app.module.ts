@@ -18,6 +18,7 @@ import { SearchComponent } from './container/search/search.component';
 // Component;
 import { LoginComponent } from './component/modal/login/login.component';
 import { SignupComponent } from './component/modal/signup/signup.component';
+import { SportComponent } from './container/mission/sport/sport.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { SignupComponent } from './component/modal/signup/signup.component';
     LoginComponent,
     SignupComponent,
     ProfileComponent,
-    SearchComponent
+    SearchComponent,
+    SportComponent
   ],
   imports: [
     BrowserModule,

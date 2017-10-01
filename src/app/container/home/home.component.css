@@ -1,9 +1,13 @@
 .home-pictext{
-    background-color: green;
+    margin-top: 30px;
+    width: 100%;
     height: 300px;
 }
 .home-btn{
     width: 100%;
+}
+.home-setcounterhigh{
+    margin-top: 20px;
 }
 .home-imgbig{
     height: 250px;
@@ -45,5 +49,8 @@
     height: 50px;
 }
 .home-setfootertop{
-    margin-top: 50px;
+    margin-top: 20px;
+}
+.home-setfooterbottom{
+    margin-bottom:30px; 
 }

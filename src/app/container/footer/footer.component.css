@@ -1,15 +1,31 @@
 
-.home-setfooterbackgr{
-    background-color: #262626;
+.footer-setfooterbackgr{
+    background-color: #737373;
 }
 .footer-settoptext{
-    color: white;
+    color: bfbfbf;
     margin-top: 30px;
 }
 .footer-setmiddletext{
-    color: white;
     font-size: 15px;
+    color: #f2f2f2;
+}
+.footer-setbottomtext{
+    font-size: 15px;
+    color: #f2f2f2;
+}
+.footer-setmiddletext:hover{
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
 }
 .footer-setbtn{
+    width: 100%;
+}
+.footer-setmiddlehigh{
+    background-color: #737373;
+    border-top-style: solid 5px bold #000;
+}
+.footer-setbottomwidth{
     width: 100%;
 }
