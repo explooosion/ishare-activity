@@ -4,10 +4,13 @@
     <div class="container collapse navbar-collapse">
       <ul class="navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="#" routerLink="user/profile">個人資訊 <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" [routerLink]="['/user/profile']">個人資訊</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">任務點數</a>
+          <a class="nav-link">社群帳號</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" [routerLink]="['/user/point']">任務點數</a>
         </li>
       </ul>
     </div>
@@ -15,8 +18,95 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-lg-6">12</div>
-      <div class="col-lg-6">12</div>
+      <div class="col-lg-12">
+        <h2 class="group-title">個人資訊</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true" ng-click="userProfile.close()">×</button>
+          <strong>貼心提醒：</strong>務必注意資料的完整和正確性哦！
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-4">
+        <figure class="figure">
+          <img src="./assets/img/profile.png" width="200" class="figure-img img-fluid rounded" alt="This is you.">
+        </figure>
+      </div>
+      <div class="col-lg-8">
+        <form>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">我的帳號：</label>
+            <div class="col-sm-10">
+              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">電子信箱：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="staticEmail" value="email@example.com">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label">登入密碼：</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">我的姓名：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="inputName" value="王小明">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputName" class="col-sm-2 col-form-label">我的性別：</label>
+            <div class="col-sm-10">
+              <select class="custom-select">
+                    <option>請選擇性別</option>
+                    <option value="1" selected>我是男生</option>
+                    <option value="0">我是女生</option>
+                  </select>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="userBirth" class="col-sm-2 col-form-label">我的生日：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userBirth" value="2000-06-24">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="userAddr" class="col-sm-2 col-form-label">住家地址：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userAddr" value="台北市中正區重慶南路一段122號">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="userTel" class="col-sm-2 col-form-label">住家電話</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userTel" value="02-2311-3731">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="userBirth" class="col-sm-2 col-form-label">監護人姓名：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userBirth" value="王爸爸">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="userBirth" class="col-sm-2 col-form-label">監護人電話：</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="userBirth" value="0912-456-789">
+            </div>
+          </div>
+          <div class="form-group pull-right">
+            <button type="submit" class="btn btn-info bg-info">儲存</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 

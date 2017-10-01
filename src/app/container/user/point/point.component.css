@@ -1,0 +1,61 @@
+#point {
+  margin-top: 2rem;
+}
+
+#point .navbar {
+  padding: 0;
+}
+
+#point .navbar-nav a {
+  padding: 1.2rem;
+  color: #777;
+}
+
+#point .navbar-nav a:hover {
+  color: #555;
+}
+
+#point .navbar-nav .active a {
+  color: #555;
+  background-color: #e7e7e7;
+}
+
+
+/* tab 選單區塊 */
+
+#point .point-tab {
+  margin: 2rem 0 1rem;
+}
+
+#point .point-tab-content .row {
+  padding: 0.8rem 0;
+  color: #999;
+}
+
+#point .point-tab-content .row:not(:first-child) {
+  border-top: 0 !important;
+}
+
+.point-item .point-title {
+  margin-bottom: 1rem;
+  color: #005685;
+  font-size: 1.2rem;
+  font-weight: 300;
+  text-decoration: unset;
+}
+
+.point-item .point-title:hover {
+  color: #00679f;
+}
+
+.point-item p {
+  margin: 0.6rem 0;
+}
+
+.point-item .point-info {
+  float: right;
+  padding: 1.6rem 0.6rem;
+  margin-right: 0.4rem;
+  line-height: 1rem;
+  color: #666;
+}

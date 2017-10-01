@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { SwalComponent } from '@toverux/ngsweetalert2';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
+  @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
+
   constructor() { }
 
   ngOnInit() {
   }
 
+  public signup() {
+    this.swalDialogSuccess
+      .show()
+      .then((value) => { window.location.reload(); });
+  }
 }
