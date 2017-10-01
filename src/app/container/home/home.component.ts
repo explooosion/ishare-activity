@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 declare let jquery: any;
 declare let $: any;
@@ -10,10 +11,15 @@ declare let $: any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit() {
 
   }
 
+  public btnMission() {
+    this.router.navigate(['mission']);
+  }
 }
