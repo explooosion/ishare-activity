@@ -1,10 +1,52 @@
-.home-pictext{
-    margin-top: 30px;
+
+#home .pictext{
+    margin-top: 80px;
     width: 100%;
     height: 300px;
 }
-.home-btn{
+#home .row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#home .card{
+    height: 100%;
+}
+#home .button{
     width: 100%;
+    margin-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+#home .setcardtop{
+    top: 20px;
+}
+#home .setheight{
+    overflow: hidden;
+}
+#home .home-btn{
+    width: 100%;
+}
+#home .settop-bottom{
+    margin-bottom: -10px;
+}
+#home .settop-top{
+    margin-top: 10px;
+}
+#home .setleftpadding{
+    padding-left: 0px;
+}
+#home .setrightpadding{
+    padding-right: 0px;
+}
+#home .setbetweentop{
+    margin-top: 20px;
+}
+#home .setpadding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#home .setborder{
+    border: 1px solid #E0E0E0;
 }
 .home-setcounterhigh{
     margin-top: 20px;
@@ -15,17 +57,9 @@
 .home-imgsmall{
     height: 100px;
 }
-
-.home-settext{
-    top: 30px;
-}
 .home-setimg{
     width: 100%;
     height: 120px;
-}
-
-.home-sethightext{
-    top:40px;
 }
 .home-setmiddleheight{
     top: 50px;
@@ -48,7 +82,7 @@
     width: 50px;
     height: 50px;
 }
-.home-setfootertop{
+#home .setfootertop{
     margin-top: 20px;
 }
 .home-setfooterbottom{
