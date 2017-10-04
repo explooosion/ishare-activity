@@ -13,6 +13,11 @@ import { SearchComponent } from './container/search/search.component';
 
 // Component - Mission
 import { SportComponent } from './container/mission/sport/sport.component';
+import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
+import { InformationComponent } from './container/mission/information/information.component';
+import { ArtComponent } from './container/mission/art/art.component';
+import { CleanComponent } from './container/mission/clean/clean.component';
+import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,14 +25,12 @@ const routes: Routes = [
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
   { path: 'search', component: SearchComponent },
-  {
-    path: 'mission', component: SportComponent,
-    children: [
-      // 任務底下的路由（請加入在這）
-      { path: 'sport', component: SportComponent }
-    ]
-  },
-
+  { path: 'mission/sport', component:SportComponent},
+  { path: 'mission/bicycle', component:BicycleComponent},
+  { path: 'mission/information', component:InformationComponent},
+  { path: 'mission/art', component:ArtComponent},
+  { path: 'mission/clean', component:CleanComponent},
+  { path: 'mission/outclean', component:OutcleanComponent},
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

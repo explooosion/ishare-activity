@@ -20,6 +20,11 @@ import { SearchComponent } from './container/search/search.component';
 import { LoginComponent } from './component/modal/login/login.component';
 import { SignupComponent } from './component/modal/signup/signup.component';
 import { SportComponent } from './container/mission/sport/sport.component';
+import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
+import { InformationComponent } from './container/mission/information/information.component';
+import { ArtComponent } from './container/mission/art/art.component';
+import { CleanComponent } from './container/mission/clean/clean.component';
+import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +38,12 @@ import { SportComponent } from './container/mission/sport/sport.component';
     ProfileComponent,
     PointComponent,
     SearchComponent,
-    SportComponent
+    SportComponent,
+    BicycleComponent,
+    InformationComponent,
+    ArtComponent,
+    CleanComponent,
+    OutcleanComponent
   ],
   imports: [
     BrowserModule,

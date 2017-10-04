@@ -16,10 +16,30 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
+    $('.carousel').carousel({
+      interval: 2500
+    })
   }
 
-  public btnMission() {
-    this.router.navigate(['mission']);
+  public btnMissionbicycle() {
+    this.router.navigate(['mission/bicycle']);
+  }
+  public btnMissionsport() {
+    this.router.navigate(['mission/sport']);
+  }
+  public btnSearch(){
+    this.router.navigate(['search']);
+  }
+  public btnMissioninformation(){
+    this.router.navigate(['mission/information']);
+  }
+  public btnMissionart(){
+    this.router.navigate(['mission/art']);
+  }
+  public btnMissionclean(){
+    this.router.navigate(['mission/clean']);
+  }
+  public btnMissionoutclean(){
+    this.router.navigate(['mission/outclean']);
   }
 }
