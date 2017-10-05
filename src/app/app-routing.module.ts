@@ -18,12 +18,17 @@ import { InformationComponent } from './container/mission/information/informatio
 import { ArtComponent } from './container/mission/art/art.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
+import { PlaytourComponent } from './container/mission/playtour/playtour.component';
+import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
+import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
+import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
+
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent },
   { path: 'user/profile', component: ProfileComponent },
-  { path: 'user/point', component: PointComponent },
+  { path: 'user/point', component: PointComponent }, 
   { path: 'search', component: SearchComponent },
   { path: 'mission/sport', component:SportComponent},
   { path: 'mission/bicycle', component:BicycleComponent},
@@ -31,6 +36,10 @@ const routes: Routes = [
   { path: 'mission/art', component:ArtComponent},
   { path: 'mission/clean', component:CleanComponent},
   { path: 'mission/outclean', component:OutcleanComponent},
+  { path: 'mission/playtour', component:PlaytourComponent},
+  { path: 'mission/tourplay', component:TourplayComponent},
+  { path: 'mission/join-exhibition', component:JoinExhibitionComponent},
+  { path: 'mission/visit-exhibition', component:VisitExhibitionComponent},
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

@@ -25,6 +25,10 @@ import { InformationComponent } from './container/mission/information/informatio
 import { ArtComponent } from './container/mission/art/art.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
+import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
+import { PlaytourComponent } from './container/mission/playtour/playtour.component';
+import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
+import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { OutcleanComponent } from './container/mission/outclean/outclean.compone
     InformationComponent,
     ArtComponent,
     CleanComponent,
-    OutcleanComponent
+    OutcleanComponent,
+    TourplayComponent,
+    PlaytourComponent,
+    VisitExhibitionComponent,
+    JoinExhibitionComponent
   ],
   imports: [
     BrowserModule,

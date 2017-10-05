@@ -42,4 +42,16 @@ export class HomeComponent implements OnInit {
   public btnMissionoutclean(){
     this.router.navigate(['mission/outclean']);
   }
+  public btnMissionoutourplay(){
+    this.router.navigate(['mission/tourplay']);
+  }
+  public btnMissionouplaytour(){
+    this.router.navigate(['mission/playtour']);
+  }
+  public btnMissionoujoinexhibition(){
+    this.router.navigate(['mission/join-exhibition']);
+  }
+  public btnMissionovisithibition(){
+    this.router.navigate(['mission/visit-exhibition']);
+  }
 }
