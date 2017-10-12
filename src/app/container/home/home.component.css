@@ -43,7 +43,12 @@
     padding-right: 0px;
 }
 #home .setborder{
+    border-radius: 1em;
     border: 2px solid #E0E0E0;
+}
+#home .setradius{
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
 }
 #home .setmargin-left{
     margin-left: 15px;
@@ -69,6 +74,28 @@
 #home .setmargin-bottom{
     margin-top: 10px;
     margin-bottom: 10px;
+}
+#home .textfont{
+    /* 活動標題文字設定 */
+    font-size: 15px; 
+    font-weight: bold;
+}
+#home .img-thumbnail{
+    color: #FF5258;
+    border: 1px solid #FF5258;
+    border-radius: 99em;
+}
+#home .img-thumbnail:hover{
+    color: #ff0000;
+}
+#home .btnheight{
+    height: 100%;
+}
+#home .hottext{
+    /* 愛心圖案文字的設定 */
+    font-size: 18px;
+    color:  #ff6666;
+    margin-left: 10px;
 }
 .home-setcounterhigh{
     margin-top: 20px;
