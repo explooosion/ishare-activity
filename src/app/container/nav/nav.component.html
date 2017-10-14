@@ -26,9 +26,9 @@
       <form class="form-inline user-menu">
         <!-- <input class="form-control mr-sm-2" type="text" placeholder="找任務"> -->
 
-        <a href="#" class="btn bg-inherit text-white" data-toggle="modal" data-target="#loginModal">登入</a>
-        <a href="#" class="btn bg-inherit text-white" data-toggle="modal" data-target="#signupModal">註冊</a>
-        <div class="btn-group">
+        <a  href="#" *ngIf="readyLogin" class="btn bg-inherit text-white" data-toggle="modal" data-target="#loginModal">登入</a>
+        <a href="#" *ngIf="readyLogin" class="btn bg-inherit text-white" data-toggle="modal" data-target="#signupModal">註冊</a>
+        <div *ngIf="IsLogin" class="btn-group">
           <a href="#" class="btn text-white dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="img-thumbnail" width="36" src="./assets/activity/profile.png" alt=""></a>
           <div class="dropdown-menu">
             <h6 class="dropdown-header">參加任務</h6>
@@ -39,10 +39,10 @@
             <a class="dropdown-item" href="#" [routerLink]="['user/profile']">修改個人資料</a>
             <a class="dropdown-item" href="#" [routerLink]="['user/point']">任務點數</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">登出</a>
+            <a class="dropdown-item" href="#" (click)="LoginOut();" >登出</a>
           </div>
         </div>
-        <button class="btn btn-info bg-info" type="submit">建立任務</button>
+        <button *ngIf="IsLogin" class="btn btn-info bg-info" type="submit" (click)="btnMissioncreate();">建立任務</button>
       </form>
     </div>
   </div>

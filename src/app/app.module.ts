@@ -29,6 +29,7 @@ import { TourplayComponent } from './container/mission/tourplay/tourplay.compone
 import { PlaytourComponent } from './container/mission/playtour/playtour.component';
 import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
 import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
+import { CreateComponent } from './container/mission/create/create.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { JoinExhibitionComponent } from './container/mission/join-exhibition/joi
     TourplayComponent,
     PlaytourComponent,
     VisitExhibitionComponent,
-    JoinExhibitionComponent
+    JoinExhibitionComponent,
+    CreateComponent
   ],
   imports: [
     BrowserModule,

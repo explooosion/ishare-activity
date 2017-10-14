@@ -1,0 +1,56 @@
+#create{
+    margin-top: 80px;
+}
+#create .titletext{
+    font-size: 35px;
+}
+#create .setbar{
+    margin-bottom: 25px;
+}
+#create .setpadding{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+#create .setnopadding{
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+#create .settop{
+    margin-top: 20px;
+}   
+#create .setcontenttext{
+    font-size: 18px;
+    color: #1f1f14;
+}
+#create .setbord{
+    height: 100px;
+    border: 2px solid #E0E0E0;
+}
+#create .setheight{
+    height: 120px;
+}
+#create .setbtn{
+    width: 100%;
+}
+#create .settext{
+    color: #1f1f14;
+}
+#create .form-group .col-form-label{
+    color: #1f1f14;
+}
+#create .setbtw{
+    margin-left: 19px;
+}
+#create .setrightpadding{
+    padding-right: 0px;
+    margin-right:34px;
+}
+#create .setbackgr{
+    background-color: #f5f5ef;
+}
+#create .setmargi{
+    margin-right: 68px;
+}
+input::placeholder{ 
+    color: #1f1f14;
+ }

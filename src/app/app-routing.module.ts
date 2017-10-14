@@ -22,7 +22,7 @@ import { PlaytourComponent } from './container/mission/playtour/playtour.compone
 import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
 import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
 import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
-
+import { CreateComponent } from './container/mission/create/create.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -40,6 +40,7 @@ const routes: Routes = [
   { path: 'mission/tourplay', component:TourplayComponent},
   { path: 'mission/join-exhibition', component:JoinExhibitionComponent},
   { path: 'mission/visit-exhibition', component:VisitExhibitionComponent},
+  { path: 'mission/create', component:CreateComponent},
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
