@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MissionService } from '../../service/mission/mission.service';
 
 declare let jquery: any;
 declare let $: any;
@@ -7,19 +8,61 @@ declare let $: any;
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.css'],
+  providers: [MissionService]
 })
 export class HomeComponent implements OnInit {
 
+  public missionpic: Object = [];
+  public missiontitle: Object = [];
+  public missiontype: Object = [];
+  public result: any = "";
+  public missions: any = [];
+
   constructor(
-    private router: Router
+    private router: Router,
+    private missionService: MissionService
   ) { }
 
   ngOnInit() {
+    this.missioncheck();
     $('.carousel').carousel({
       interval: 2500
     })
   }
+
+  public async missioncheck() {
+    let body = {
+      missionname: this.missiontitle,
+      missiontype: this.missiontype
+    };
+
+    await this.missionService.Getmission(body).subscribe(
+      result => {
+        let x = [
+          '展演講座',
+          '影片任務',
+          '展演任務',
+          '旅遊任務',
+          '清潔任務',
+          '運動任務',
+          '美術任務',
+        ];
+        let temp =[];
+        console.log(result);
+        x.forEach(element => {
+          temp.push(result.filter(function (x) {
+            return x.missiontype == element;
+          }));
+
+        });
+        this.missions = temp;
+
+        console.log(this.missions);
+      }
+    )
+  }
+
 
   public btnMissionbicycle() {
     this.router.navigate(['mission/bicycle']);
@@ -27,31 +70,31 @@ export class HomeComponent implements OnInit {
   public btnMissionsport() {
     this.router.navigate(['mission/sport']);
   }
-  public btnSearch(){
+  public btnSearch() {
     this.router.navigate(['search']);
   }
-  public btnMissioninformation(){
+  public btnMissioninformation() {
     this.router.navigate(['mission/information']);
   }
-  public btnMissionart(){
+  public btnMissionart() {
     this.router.navigate(['mission/art']);
   }
-  public btnMissionclean(){
+  public btnMissionclean() {
     this.router.navigate(['mission/clean']);
   }
-  public btnMissionoutclean(){
+  public btnMissionoutclean() {
     this.router.navigate(['mission/outclean']);
   }
-  public btnMissionoutourplay(){
+  public btnMissionoutourplay() {
     this.router.navigate(['mission/tourplay']);
   }
-  public btnMissionouplaytour(){
+  public btnMissionouplaytour() {
     this.router.navigate(['mission/playtour']);
   }
-  public btnMissionoujoinexhibition(){
+  public btnMissionoujoinexhibition() {
     this.router.navigate(['mission/join-exhibition']);
   }
-  public btnMissionovisithibition(){
+  public btnMissionovisithibition() {
     this.router.navigate(['mission/visit-exhibition']);
   }
 }

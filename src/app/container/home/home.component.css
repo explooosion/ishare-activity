@@ -1,4 +1,10 @@
 
+#home {
+    background-color: #f5f5f0;    
+}
+#home .backgroundwhite{
+    background-color: #FFFFFF;
+}
 #home .pictext{
     margin-top: 80px;
     width: 100%;
@@ -27,7 +33,7 @@
     width: 100%;
 }
 #home .settop-top{
-    margin-top: 10px;
+    margin-top: 30px;
 }
 #home .setleftpadding{
     padding-left: 0px;
@@ -71,14 +77,26 @@
 #home .sethight{
     height: 350px;
 }
+#home .setbottom-bottom{
+    margin-bottom:  20px;
+}
 #home .setmargin-bottom{
     margin-top: 10px;
     margin-bottom: 10px;
 }
 #home .textfont{
     /* 活動標題文字設定 */
-    font-size: 15px; 
-    font-weight: bold;
+    font-size: 25px; 
+    margin-left: 10px;
+    text-overflow : ellipsis;
+    width: 90%;;
+    overflow : hidden;
+    display : inline-block ;
+}
+#home .text-font{
+    overflow: hidden;
+    font-size: 18px;
+    color: #94b8b8;
 }
 #home .img-thumbnail{
     color: #FF5258;
@@ -97,8 +115,27 @@
     color:  #ff6666;
     margin-left: 10px;
 }
+#home .text-title{
+    font-size: 35px;
+    text-overflow : ellipsis;
+    width: 90%;;
+    overflow : hidden;
+}
+#home .text-time{
+    font-size: 20px;
+    color: #94b8b8;
+}
+#home .sameheight{
+    height: 100%;
+}
+#home .text-text{
+    font-size: 25px;
+    text-overflow : ellipsis;
+    width: 90%;;
+    overflow : hidden;
+}
 .home-setcounterhigh{
-    margin-top: 20px;
+    margin-top:68px;
 }
 .home-imgbig{
     height: 250px;
@@ -108,13 +145,16 @@
 }
 .home-setimg{
     width: 100%;
-    height: d120px;
+    height: 220px;
 }
 .home-setmiddleheight{
     top: 50px;
 }
 .home-setbottomhei{
     margin-top: 70px;
+}
+#home a{
+    cursor: pointer;
 }
 
 

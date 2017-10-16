@@ -21,36 +21,35 @@ export class LoginComponent implements OnInit {
 
   public userAccount: String = '';
   public userPassword: String = '';
-  public userloginbar: Number;
+  public userloginbar: string = '';
   public result: any = "";
   constructor(
     private userService: UserService
   ) { }
 
   ngOnInit() {
-    
+
   }
   /**
    * 使用者登入
    *
    * @memberof LoginComponent
    */
-  public userLogin() {
+  public async userLogin() {
 
     const vailid = this.userAccount == 'user' && this.userPassword == '123456' ? true : false;
 
     let body = {
-      loginbar: 2,
       userId: this.userAccount,
       userPwd: this.userPassword,
+      logingroup: 2
     };
-    this.userService.Login(body).subscribe(
+    await this.userService.Login(body).subscribe(
       result => {
         this.result = result[0];
-        console.log(this.userloginbar);
+        console.log(result);
         if (this.result) {
           Cookie.set('userCookie', JSON.stringify(this.result))
-
           this.swalDialogSuccess
             .show()
             .then((value) => { window.location.reload(); });
@@ -59,13 +58,5 @@ export class LoginComponent implements OnInit {
         }
       }
     )
-
-
-
-
-
-
   }
-
-
 }

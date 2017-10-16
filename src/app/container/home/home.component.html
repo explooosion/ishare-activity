@@ -48,61 +48,87 @@
     </div>
   </div>
   <div class="container setpadding">
-    <div class="row">
-      <div class="col-md">
-        <div class="card row align-items-end">
-          <img class="card-img-top home-imgbig" src="./assets/activity/activity1.png">
-          <div class="card-body">
-            <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-            <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-            <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
-          </div>
-          <div class="button">
-            <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+    <div class="row setpadding">
+      <div class="col-md-6 setpadding">
+        <div class="col-md-12 sameheight " *ngFor="let mission of missions[0];let i =index">
+          <div class="card" *ngIf="i<1">
+            <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
+            <div class="card-body">
+              <p class="text-title">{{mission.missionname}}</p>
+              <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+              <p class="text-text">{{mission.missioncontent}}</p>
+            </div>
+            <div class="button">
+              <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col-md">
+      <div class="col-md-6  setpadding">
         <div class="col-md-12 row setpadding">
-          <div class="col-md setleftpadding">
-            <div class="card ">
-              <img class="card-img-top home-imgsmall " src="./assets/activity/activity1.png">
-              <div class="card-body">
-                <h4 class="card-title">限時團購！【 我貼，故我在 】</h4>
-                <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-                <p class="card-text">【 我貼，故我在 】系列第一波：</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md row setrightpadding">
-            <div class="card">
-              <img class="card-img-top home-imgsmall " src="./assets/activity/activity1.png">
-              <div class="card-body">
-                <h4 class="card-title">限時團購！【 我貼，故我在 】</h4>
-                <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-                <p class="card-text">【 我貼，故我在 】系列第一波：</p>
+          <div class="col-md-12 row setpadding">
+            <div class="col-md-6" ng-init="index='0'" *ngFor="let mission of missions[0];let i =index">
+              <div class="card "  *ngIf="i<2">
+                <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+                <div class="card-body">
+                  <h4 class="card-title">{{mission.missionname}}</h4>
+                  <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+                  <p class="card-text">{{mission.missioncontent}}</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-md-12 row setpadding setbetweentop">
-          <div class="col-md setleftpadding">
-            <div class="card">
-              <img class="card-img-top home-imgsmall " src="./assets/activity/activity1.png">
-              <div class="card-body">
-                <h4 class="card-title">限時團購！【 我貼，故我在 】</h4>
-                <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-                <p class="card-text">【 我貼，故我在 】系列第一波：</p>
+        <div class="col-md-12 row setpadding home-setcounterhigh">
+            <div class="col-md-12 row setpadding">
+              <div class="col-md-6" ng-init="index='0'" *ngFor="let mission of missions[0];let i =index">
+                <div class="card "  *ngIf="i<2">
+                  <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+                  <div class="card-body">
+                    <h4 class="card-title">{{mission.missionname}}</h4>
+                    <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+                    <p class="card-text">{{mission.missioncontent}}</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="col-md row setrightpadding">
-            <div class="card">
-              <img class="card-img-top home-imgsmall " src="./assets/activity/activity1.png">
-              <div class="card-body">
-                <h4 class="card-title">限時團購！【 我貼，故我在 】</h4>
-                <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-                <p class="card-text">【 我貼，故我在 】系列第一波：</p>
+      </div>
+    </div>
+  </div>
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
+      <div class="col-md-12 row setpadding">
+        <div class="col-md ">
+          <h2>影片任務</h2>
+        </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        </div>
+      </div>
+      <div class="col-md-12 row setpadding">
+        <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissioninformation();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
+            </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
+            </div>
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+              </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
@@ -110,99 +136,39 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>影片任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
+        <div class="col-md ">
+          <h2>展演任務</h2>
         </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissioninformation();">挑戰</button>
-                </div>
-              </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        </div>
+      </div>
+      <div class="col-md-12 row setpadding">
+        <div class="col-md-4 " *ngFor="let mission of missions[2] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissionoujoinexhibition();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
             </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissioninformation();">挑戰</button>
-                </div>
-              </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissioninformation();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissioninformation();">挑戰</button>
-                </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
@@ -210,99 +176,39 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>展演任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
+        <div class="col-md ">
+          <h2>旅遊任務</h2>
         </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoujoinexhibition();">挑戰</button>
-                </div>
-              </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        </div>
+      </div>
+      <div class="col-md-12 row setpadding">
+        <div class="col-md-4 " *ngFor="let mission of missions[3] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissionouplaytour();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
             </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoujoinexhibition();">挑戰</button>
-                </div>
-              </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionovisithibition();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionovisithibition();">挑戰</button>
-                </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
@@ -310,99 +216,39 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>旅遊任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
+        <div class="col-md ">
+          <h2>清潔任務</h2>
         </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoutourplay();">挑戰</button>
-                </div>
-              </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        </div>
+      </div>
+      <div class="col-md-12 row setpadding">
+        <div class="col-md-4 " *ngFor="let mission of missions[4] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissionclean();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
             </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoutourplay();">挑戰</button>
-                </div>
-              </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionouplaytour();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionouplaytour();">挑戰</button>
-                </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
@@ -410,99 +256,39 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>清潔任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
+        <div class="col-md ">
+          <h2>運動任務</h2>
         </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionclean();">挑戰</button>
-                </div>
-              </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        </div>
+      </div>
+      <div class="col-md-12 row setpadding">
+        <div class="col-md-4 " *ngFor="let mission of missions[5] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissionsport();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
             </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionclean();">挑戰</button>
-                </div>
-              </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoutclean();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionoutclean();">挑戰</button>
-                </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
@@ -510,199 +296,39 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
+  <div class="container setpadding settop-top">
+    <div class="col-md-12 row setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>運動任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
+        <div class="col-md ">
+          <h2>美術任務</h2>
         </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionbicycle();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionbicycle();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionsport();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionsport();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div class="col-md text-right ">
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
         </div>
       </div>
-    </div>
-  </div>
-  <div class="container setpadding">
-    <div class="row col-md-12 setbetweentop setpadding">
       <div class="col-md-12 row setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md ">
-            <h2>美術任務</h2>
-          </div>
-          <div class="col-md text-right ">
-            <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-          </div>
-        </div>
-        <div class="col-md-12 row setpadding">
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第一波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionart();">挑戰</button>
-                </div>
-              </div>
+        <div class="col-md-4 " *ngFor="let mission of missions[6] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+            <div class="setpadding col-md-12">
+              <a (click)="btnMissionart();">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
+
             </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第二波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionart();">挑戰</button>
-                </div>
-              </div>
+            <div class="setpadding col-md-12 setbetweentop">
+              <a (click)="btnMissioninformation();">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
-          </div>
-          <div class="col-md ">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
+            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+              <div class="col-md-9 ">
+                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第三波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionart();">挑戰</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md">
-            <div class="setpadding setborder row justify-content-center">
-              <div class="setpadding">
-                <img src="./assets/activity/h1.jpg" class="home-setimg setradius">
-              </div>
-              <div class="setpadding col-md-12 setbetweentop">
-                <span class="textfont">【 我貼，故我在 】系列第四波：</span>
-              </div>
-              <div class="row col-md-11 setmargin-bottom setpadding">
-                <div class="col-md-6 setpadding row align-items-center">
-                  <a>
-                    <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                  </a>
-                  <span class="hottext">6</span>
-                </div>
-                <div class="col-md-6 text-right setpadding row align-items-center justify-content-end">
-                  <button type="button" class="btn btn-info btn-sm btnheight" (click)="btnMissionart();">挑戰</button>
-                </div>
+              <div class="col-md-3 setpadding">
+                <a>
+                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                </a>
+                <span class="hottext">6</span>
               </div>
             </div>
           </div>
