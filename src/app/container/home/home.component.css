@@ -32,6 +32,9 @@
 #home .home-btn{
     width: 100%;
 }
+#home .setbottompadding{
+    padding-bottom: 0px;
+}
 #home .settop-top{
     margin-top: 30px;
 }
@@ -109,6 +112,9 @@
 #home .btnheight{
     height: 100%;
 }
+#home .setmarginbotttom{
+    margin-bottom: 20px;;
+}
 #home .hottext{
     /* 愛心圖案文字的設定 */
     font-size: 18px;
@@ -127,6 +133,9 @@
 }
 #home .sameheight{
     height: 100%;
+}
+#home .setmiddlehegiht{
+    height: 45.7%;
 }
 #home .text-text{
     font-size: 25px;

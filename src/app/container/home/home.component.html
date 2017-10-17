@@ -10,19 +10,19 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100 sethight" src="./assets/activity/h1.jpg" alt="First slide">
+          <img class="d-block w-100 sethight" src="./assets/activity/pic1.jpg" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 sethight" src="./assets/activity/h2.jpg" alt="Second slide">
+          <img class="d-block w-100 sethight" src="./assets/activity/pic2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 sethight" src="./assets/activity/h3.jpg" alt="Third slide">
+          <img class="d-block w-100 sethight" src="./assets/activity/pic3.jpg" alt="Third slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 sethight" src="./assets/activity/h4.jpg" alt="Four slide">
+          <img class="d-block w-100 sethight" src="./assets/activity/pic4.jpg" alt="Four slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 sethight" src="./assets/activity/h5.jpg" alt="Five slide">
+          <img class="d-block w-100 sethight" src="./assets/activity/pic5.jpg" alt="Five slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -47,15 +47,17 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding">
-    <div class="row setpadding">
+  <div class="container setpadding sameheight">
+    <div class="row setpadding sameheight">
       <div class="col-md-6 setpadding">
-        <div class="col-md-12 sameheight " *ngFor="let mission of missions[0];let i =index">
-          <div class="card" *ngIf="i<1">
+        <div class="col-md-12" *ngFor="let mission of missions[0];let i =index">
+          <div class="card" *ngIf="i<=0">
             <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
-            <div class="card-body">
+            <div class="card-body ">
               <p class="text-title">{{mission.missionname}}</p>
-              <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+              <p class="text-time">開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+              <p class="text-time">結束時間：{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
+              <p class="text-text">地區：{{mission.missionlocation}}</p>
               <p class="text-text">{{mission.missioncontent}}</p>
             </div>
             <div class="button">
@@ -64,35 +66,21 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6  setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md-12 row setpadding">
-            <div class="col-md-6" ng-init="index='0'" *ngFor="let mission of missions[0];let i =index">
-              <div class="card "  *ngIf="i<2">
-                <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
-                <div class="card-body">
-                  <h4 class="card-title">{{mission.missionname}}</h4>
-                  <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
-                  <p class="card-text">{{mission.missioncontent}}</p>
-                </div>
+      <div class="col-md-6 setpadding">
+        <div class="col-md-12 row setpadding sameheight">
+          <div class="col-md-6 setmarginbotttom setmiddlehegiht" *ngFor="let mission of missions[0] ;let i =index">
+            <div class="card " *ngIf="i>=0 && i<=3">
+              <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              <div class="card-body setbottompadding">
+                <h4 class="card-title">{{mission.missionname}}</h4>
+                <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+                <p class="card-text">{{mission.missioncontent}}</p>
+                <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
               </div>
+
             </div>
           </div>
         </div>
-        <div class="col-md-12 row setpadding home-setcounterhigh">
-            <div class="col-md-12 row setpadding">
-              <div class="col-md-6" ng-init="index='0'" *ngFor="let mission of missions[0];let i =index">
-                <div class="card "  *ngIf="i<2">
-                  <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
-                  <div class="card-body">
-                    <h4 class="card-title">{{mission.missionname}}</h4>
-                    <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
-                    <p class="card-text">{{mission.missioncontent}}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
       </div>
     </div>
   </div>
@@ -110,13 +98,13 @@
         <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissioninformation();">
+              <a [routerLink]="['/mission/information']">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
 
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
+              <a [routerLink]="['/mission/information']">
                 <span class="textfont"> {{ mission.missionname }}</span>
               </a>
             </div>
@@ -147,16 +135,15 @@
         </div>
       </div>
       <div class="col-md-12 row setpadding">
-        <div class="col-md-4 " *ngFor="let mission of missions[2] ; let i= index">
+        <div class="col-md-4" *ngFor="let mission of missions[2] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissionoujoinexhibition();">
+              <a [routerLink]="['/mission/join-exhibition']">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
-
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
+              <a [routerLink]="['/mission/join-exhibition']">
                 <span class="textfont"> {{ mission.missionname }}</span>
               </a>
             </div>
@@ -190,13 +177,12 @@
         <div class="col-md-4 " *ngFor="let mission of missions[3] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissionouplaytour();">
+              <a [routerLink]="['/mission/playtour']">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
-
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
+              <a [routerLink]="['/mission/playtour']">
                 <span class="textfont"> {{ mission.missionname }}</span>
               </a>
             </div>
@@ -230,13 +216,12 @@
         <div class="col-md-4 " *ngFor="let mission of missions[4] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissionclean();">
+              <a [routerLink]="['/mission/outclean']">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
-
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
+              <a [routerLink]="['/mission/outclean']">
                 <span class="textfont"> {{ mission.missionname }}</span>
               </a>
             </div>
@@ -270,15 +255,14 @@
         <div class="col-md-4 " *ngFor="let mission of missions[5] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissionsport();">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
-
+                <a [routerLink]="['/mission/sport']">
+              <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                </a>
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
-                <span class="textfont"> {{ mission.missionname }}</span>
-              </a>
+                <a [routerLink]="['/mission/sport']">
+              <span class="textfont"> {{ mission.missionname }}</span>
+                </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
@@ -310,15 +294,14 @@
         <div class="col-md-4 " *ngFor="let mission of missions[6] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="btnMissionart();">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
-
+                <a [routerLink]="['/mission/art']">
+              <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                </a>
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-              <a (click)="btnMissioninformation();">
-                <span class="textfont"> {{ mission.missionname }}</span>
-              </a>
+                <a [routerLink]="['/mission/art']">
+              <span class="textfont"> {{ mission.missionname }}</span>
+                </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
