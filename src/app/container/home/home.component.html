@@ -1,5 +1,5 @@
 <div id="home">
-  <div class="container">
+  <div class="container settoptop">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -38,7 +38,7 @@
   <div class="container setpadding">
     <div class="row align-items-center setbetweentop">
       <div class="col-md">
-        <h1>展演講座</h1>
+        <span class="title-text">展演講座</span>
       </div>
       <div class="col-md text-right setrightpadding">
         <div class="col-md-12">
@@ -47,10 +47,10 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding sameheight">
-    <div class="row setpadding sameheight">
+  <div class="container setpadding ">
+    <div class="row setpadding ">
       <div class="col-md-6 setpadding">
-        <div class="col-md-12" *ngFor="let mission of missions[0];let i =index">
+        <div class="col-md-12 setmarginbotttom" *ngFor="let mission of missions[0];let i =index">
           <div class="card" *ngIf="i<=0">
             <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
             <div class="card-body ">
@@ -67,15 +67,21 @@
         </div>
       </div>
       <div class="col-md-6 setpadding">
-        <div class="col-md-12 row setpadding sameheight">
-          <div class="col-md-6 setmarginbotttom setmiddlehegiht" *ngFor="let mission of missions[0] ;let i =index">
+        <div class="col-md-12 row setpadding">
+          <div class="col-md-6 setmarginbotttom" *ngFor="let mission of missions2 ;let i =index">
             <div class="card " *ngIf="i>=0 && i<=3">
               <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
               <div class="card-body setbottompadding">
-                <h4 class="card-title">{{mission.missionname}}</h4>
-                <p class="card-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
-                <p class="card-text">{{mission.missioncontent}}</p>
-                <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+                <h4 class="text-title">{{mission.missionname}}</h4>
+                <p class="text-text">{{mission.missioncontent}}</p>
+                <div class="col-md-12 row setpadding">
+                  <div class="col-md-6 setpadding">
+                    <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+                  </div>
+                  <div class="col-md-6 setpadding">
+                    <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+                  </div>
+                </div>
               </div>
 
             </div>
@@ -255,14 +261,14 @@
         <div class="col-md-4 " *ngFor="let mission of missions[5] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-                <a [routerLink]="['/mission/sport']">
-              <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-                </a>
+              <a [routerLink]="['/mission/sport']">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-                <a [routerLink]="['/mission/sport']">
-              <span class="textfont"> {{ mission.missionname }}</span>
-                </a>
+              <a [routerLink]="['/mission/sport']">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
@@ -294,14 +300,14 @@
         <div class="col-md-4 " *ngFor="let mission of missions[6] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-                <a [routerLink]="['/mission/art']">
-              <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-                </a>
+              <a [routerLink]="['/mission/art']">
+                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+              </a>
             </div>
             <div class="setpadding col-md-12 setbetweentop">
-                <a [routerLink]="['/mission/art']">
-              <span class="textfont"> {{ mission.missionname }}</span>
-                </a>
+              <a [routerLink]="['/mission/art']">
+                <span class="textfont"> {{ mission.missionname }}</span>
+              </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">

@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
     const vailid = this.userAccount == 'user' && this.userPassword == '123456' ? true : false;
 
     let body = {
-      userId: this.userAccount,
-      userPwd: this.userPassword,
+      userId: 'carie8655',
+      userPwd: 'popo123',
       logingroup: 2
     };
     await this.userService.Login(body).subscribe(
