@@ -48,6 +48,10 @@
 #home .setleftpadding{
     padding-left: 0px;
 }
+#home .settopbottom{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 #home .setrightpadding{
     padding-right: 0px;
 }

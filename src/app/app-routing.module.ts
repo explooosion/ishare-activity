@@ -23,6 +23,7 @@ import { TourplayComponent } from './container/mission/tourplay/tourplay.compone
 import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
 import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
 import { CreateComponent } from './container/mission/create/create.component';
+import { InterduceComponent } from './container/mission/interduce/interduce.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'mission/join-exhibition', component:JoinExhibitionComponent},
   { path: 'mission/visit-exhibition', component:VisitExhibitionComponent},
   { path: 'mission/create', component:CreateComponent},
+  { path: 'mission/interduce', component:InterduceComponent},
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
