@@ -20,7 +20,8 @@ export class HomeComponent implements OnInit {
   public organizerimg : object =[];  
   public result: any = "";
   public missions: any = [];
-  public missions2:any =[];
+  public missionssit:any =[];
+  public missionssit2:any =[];
   constructor(
     private router: Router,
     private missionService: MissionService
@@ -61,14 +62,11 @@ export class HomeComponent implements OnInit {
         x.forEach(element => {
           temp.push(result.filter(function (x) {
             return x.missiontype == element;
-
           }));
         });
         this.missions = temp;
-        this.missions2 =this.missions[0].splice(1,this.missions[0].length-1);
-        console.log(this.missions2);
-
-        console.log(this.missions);
+        this.missionssit = temp[0].slice(0,1);
+        this.missionssit2 = temp[0].slice(1,5);
       }
     )
   }

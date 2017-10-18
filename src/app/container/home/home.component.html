@@ -36,9 +36,9 @@
     </div>
   </div>
   <div class="container setpadding">
-    <div class="row align-items-center setbetweentop">
+    <div class="row align-items-center">
       <div class="col-md">
-        <span class="title-text">展演講座</span>
+        <h2>展演講座</h2>
       </div>
       <div class="col-md text-right setrightpadding">
         <div class="col-md-12">
@@ -47,91 +47,108 @@
       </div>
     </div>
   </div>
-  <div class="container setpadding ">
-    <div class="row setpadding ">
-      <div class="col-md-6 setpadding">
-        <div class="col-md-12 setmarginbotttom" *ngFor="let mission of missions[0];let i =index">
-          <div class="card" *ngIf="i<=0">
-            <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
-            <div class="card-body ">
-              <p class="text-title">{{mission.missionname}}</p>
-              <p class="text-time">開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
-              <p class="text-time">結束時間：{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
-              <p class="text-text">地區：{{mission.missionlocation}}</p>
-              <p class="text-text">{{mission.missioncontent}}</p>
-            </div>
-            <div class="button">
-              <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
-            </div>
+  <div class="container">
+    <div class="row setpadding">
+      <div class="col-md-6 setleftpadding" *ngFor="let mission of missionssit; let i =index">
+        <div class="card" *ngIf="i==0">
+          <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
+          <div class="card-body">
+            <p class="text-title">{{mission.missionname}}</p>
+            <p class="text-time">開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+            <p class="text-time">結束時間：{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
+            <p class="text-text">地區：{{mission.missionlocation}}</p>
+            <p class="text-text">{{mission.missioncontent}}</p>
+          </div>
+          <div class="button">
+            <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
           </div>
         </div>
       </div>
       <div class="col-md-6 setpadding">
-        <div class="col-md-12 row setpadding">
-          <div class="col-md-6 setmarginbotttom" *ngFor="let mission of missions2 ;let i =index">
-            <div class="card " *ngIf="i>=0 && i<=3">
+        <div class="row setpadding">
+          <div class="col-md-6 setmarginbotttom setrightpadding" *ngFor="let mission of missionssit2.slice(0,2);let i =index">
+            <div class="card" *ngIf="i<=1">
               <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
               <div class="card-body setbottompadding">
-                <h4 class="text-title">{{mission.missionname}}</h4>
+                <p class="text-title">{{mission.missionname}}</p>
                 <p class="text-text">{{mission.missioncontent}}</p>
-                <div class="col-md-12 row setpadding">
-                  <div class="col-md-6 setpadding">
+                <div class="col-md-12 setpadding">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
+                    </div>
+                    <div class="col-md-6 setmarginbotttom setpadding">
+                      <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 setrightpadding" *ngFor="let mission of missionssit2.slice(2,4);let i =index">
+            <div class="card" *ngIf="i<=1">
+              <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              <div class="card-body setbottompadding">
+                <p class="text-title">{{mission.missionname}}</p>
+                <p class="text-text">{{mission.missioncontent}}</p>
+                <div class="row">
+                  <div class="col-md-6">
                     <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
                   </div>
-                  <div class="col-md-6 setpadding">
+                  <div class="col-md-6 setmarginbotttom setpadding">
                     <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
 
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container setpadding">
+    <!-- <div class="col-md-12 row setpadding"> -->
+    <div class="col-md-12 row setpadding">
+      <div class="col-md ">
+        <h2>影片任務</h2>
+      </div>
+      <div class="col-md text-right ">
+        <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+      </div>
+    </div>
+    <div class="col-md-12 row setpadding">
+      <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
+        <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+          <div class="setpadding col-md-12">
+            <a [routerLink]="['/mission/information']">
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
+
+          </div>
+          <div class="setpadding col-md-11 setbetweentop">
+            <a [routerLink]="['/mission/information']">
+              <p class="textfont"> {{ mission.missionname }}</p>
+            </a>
+          </div>
+          <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
+            <div class="col-md-9 ">
+              <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+            </div>
+            <div class="col-md-3 setpadding">
+              <a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
+              <span class="hottext">6</span>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
-      <div class="col-md-12 row setpadding">
-        <div class="col-md ">
-          <h2>影片任務</h2>
-        </div>
-        <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
-        </div>
-      </div>
-      <div class="col-md-12 row setpadding">
-        <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
-          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
-            <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/information']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+    <!-- </div> -->
 
-            </div>
-            <div class="setpadding col-md-12 setbetweentop">
-              <a [routerLink]="['/mission/information']">
-                <span class="textfont"> {{ mission.missionname }}</span>
-              </a>
-            </div>
-            <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
-              <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
-              </div>
-              <div class="col-md-3 setpadding">
-                <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
-                <span class="hottext">6</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
+    <div class="container setpadding">
+      <!-- <div class="col-md-12 row setpadding"> -->
       <div class="col-md-12 row setpadding">
         <div class="col-md ">
           <h2>展演任務</h2>
@@ -145,12 +162,12 @@
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
               <a [routerLink]="['/mission/join-exhibition']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
             </div>
-            <div class="setpadding col-md-12 setbetweentop">
+            <div class="setpadding col-md-11 setbetweentop">
               <a [routerLink]="['/mission/join-exhibition']">
-                <span class="textfont"> {{ mission.missionname }}</span>
+                <p class="textfont"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
@@ -159,18 +176,18 @@
               </div>
               <div class="col-md-3 setpadding">
                 <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
                 <span class="hottext">6</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
+    <div class="container setpadding">
+      <!-- <div class="col-md-12 row setpadding"> -->
       <div class="col-md-12 row setpadding">
         <div class="col-md ">
           <h2>旅遊任務</h2>
@@ -180,16 +197,16 @@
         </div>
       </div>
       <div class="col-md-12 row setpadding">
-        <div class="col-md-4 " *ngFor="let mission of missions[3] ; let i= index">
-          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+        <div class="col-md-3 " *ngFor="let mission of missions[3] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4">
             <div class="setpadding col-md-12">
               <a [routerLink]="['/mission/playtour']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
             </div>
-            <div class="setpadding col-md-12 setbetweentop">
+            <div class="setpadding col-md-11 setbetweentop">
               <a [routerLink]="['/mission/playtour']">
-                <span class="textfont"> {{ mission.missionname }}</span>
+                <p class="textfont"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
@@ -198,18 +215,17 @@
               </div>
               <div class="col-md-3 setpadding">
                 <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
                 <span class="hottext">6</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
+    <div class="container setpadding">
       <div class="col-md-12 row setpadding">
         <div class="col-md ">
           <h2>清潔任務</h2>
@@ -223,12 +239,12 @@
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
               <a [routerLink]="['/mission/outclean']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
             </div>
-            <div class="setpadding col-md-12 setbetweentop">
+            <div class="setpadding col-md-11 setbetweentop">
               <a [routerLink]="['/mission/outclean']">
-                <span class="textfont"> {{ mission.missionname }}</span>
+                <p class="textfont"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
@@ -237,8 +253,8 @@
               </div>
               <div class="col-md-3 setpadding">
                 <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
                 <span class="hottext">6</span>
               </div>
             </div>
@@ -246,9 +262,8 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
+    <div class="container setpadding">
+      <!-- <div class="col-md-12 row setpadding"> -->
       <div class="col-md-12 row setpadding">
         <div class="col-md ">
           <h2>運動任務</h2>
@@ -262,12 +277,12 @@
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
               <a [routerLink]="['/mission/sport']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
             </div>
-            <div class="setpadding col-md-12 setbetweentop">
+            <div class="setpadding col-md-11 setbetweentop">
               <a [routerLink]="['/mission/sport']">
-                <span class="textfont"> {{ mission.missionname }}</span>
+                <p class="textfont"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
@@ -276,8 +291,8 @@
               </div>
               <div class="col-md-3 setpadding">
                 <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
                 <span class="hottext">6</span>
               </div>
             </div>
@@ -285,11 +300,11 @@
         </div>
       </div>
     </div>
-  </div>
-  <div class="container setpadding settop-top">
-    <div class="col-md-12 row setpadding">
-      <div class="col-md-12 row setpadding">
-        <div class="col-md ">
+    <!-- </div> -->
+    <div class="container setpadding">
+      <!-- <div class="col-md-12 row setpadding"> -->
+      <div class="col-md-12 row setpadding ">
+        <div class="col-md">
           <h2>美術任務</h2>
         </div>
         <div class="col-md text-right ">
@@ -297,16 +312,16 @@
         </div>
       </div>
       <div class="col-md-12 row setpadding">
-        <div class="col-md-4 " *ngFor="let mission of missions[6] ; let i= index">
-          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
+        <div class="col-md-3 " *ngFor="let mission of missions[6] ; let i= index">
+          <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4 ">
             <div class="setpadding col-md-12">
               <a [routerLink]="['/mission/art']">
-                <img src="{{mission.missionpicture}}" class="home-setimg setradius">
-              </a>
+                    <img src="{{mission.missionpicture}}" class="home-setimg setradius">
+                  </a>
             </div>
-            <div class="setpadding col-md-12 setbetweentop">
+            <div class="setpadding col-md-11 setbetweentop">
               <a [routerLink]="['/mission/art']">
-                <span class="textfont"> {{ mission.missionname }}</span>
+                <p class="textfont"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
@@ -315,134 +330,135 @@
               </div>
               <div class="col-md-3 setpadding">
                 <a>
-                  <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
-                </a>
+                      <i class="fa fa-heart fa-1g img-thumbnail" aria-hidden="true"></i>
+                    </a>
                 <span class="hottext">6</span>
               </div>
             </div>
           </div>
         </div>
       </div>
+      <!-- </div> -->
     </div>
-  </div>
 
-  <div class="container">
-    <div class="row justify-content-center home-setbottomhei">
-      <div class="row col-md-10 setleftpadding setrightpadding">
-        <div class="col-md setleftpadding">
-          <h1>主辦單位</h1>
-        </div>
-        <div class="col-md text-right setrightpadding">
-          <div class="col-md-12 setrightpadding">
-            <button type="button" class="btn btn-secondary">更多</button>
+    <div class="container">
+      <div class="row justify-content-center home-setbottomhei">
+        <div class="row col-md-10 setleftpadding setrightpadding">
+          <div class="col-md setleftpadding">
+            <h1>主辦單位</h1>
+          </div>
+          <div class="col-md text-right setrightpadding">
+            <div class="col-md-12 setrightpadding">
+              <button type="button" class="btn btn-secondary">更多</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-10 row setpadding">
-        <div class="col-md setborder setfootermargin-right">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple1.jpg" class="setfooterimg">
+        <div class="col-md-10 row setpadding">
+          <div class="col-md setborder setfootermargin-right">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple1.jpg" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">台北青年職涯</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom ">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">台北青年職涯</p>
+          <div class="col-md setborder setfootermargin-right">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple2.png" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">五倍紅寶石</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-          <div class="col-md-12 setfootermargin-bottom ">
-            <button type="button" class="btn btn-info">+追蹤</button>
+          <div class="col-md setborder setfootermargin-right">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple3.png" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">地下連雲企業</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-        </div>
-        <div class="col-md setborder setfootermargin-right">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple2.png" class="setfooterimg">
+          <div class="col-md setborder setfootermargin-right">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple4.jpg" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">93巷人文空間</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">五倍紅寶石</p>
+          <div class="col-md setborder setfootermargin-right">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple5.jpg" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">餘白藝廊</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-          <div class="col-md-12 setfootermargin-bottom">
-            <button type="button" class="btn btn-info">+追蹤</button>
+          <div class="col-md setborder">
+            <div class="col-md-12">
+              <img src="./assets/activity/apple6.jpg" class="setfooterimg">
+            </div>
+            <div class="col-md-12">
+              <p class="d-inline-block text-truncate" style="max-width: 80px;">天下雜誌</p>
+            </div>
+            <div class="col-md-12 setfootermargin-bottom">
+              <button type="button" class="btn btn-info">+追蹤</button>
+            </div>
           </div>
-        </div>
-        <div class="col-md setborder setfootermargin-right">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple3.png" class="setfooterimg">
-          </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">地下連雲企業</p>
-          </div>
-          <div class="col-md-12 setfootermargin-bottom">
-            <button type="button" class="btn btn-info">+追蹤</button>
-          </div>
-        </div>
-        <div class="col-md setborder setfootermargin-right">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple4.jpg" class="setfooterimg">
-          </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">93巷人文空間</p>
-          </div>
-          <div class="col-md-12 setfootermargin-bottom">
-            <button type="button" class="btn btn-info">+追蹤</button>
-          </div>
-        </div>
-        <div class="col-md setborder setfootermargin-right">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple5.jpg" class="setfooterimg">
-          </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">餘白藝廊</p>
-          </div>
-          <div class="col-md-12 setfootermargin-bottom">
-            <button type="button" class="btn btn-info">+追蹤</button>
-          </div>
-        </div>
-        <div class="col-md setborder">
-          <div class="col-md-12">
-            <img src="./assets/activity/apple6.jpg" class="setfooterimg">
-          </div>
-          <div class="col-md-12">
-            <p class="d-inline-block text-truncate" style="max-width: 80px;">天下雜誌</p>
-          </div>
-          <div class="col-md-12 setfootermargin-bottom">
-            <button type="button" class="btn btn-info">+追蹤</button>
-          </div>
-        </div>
 
+        </div>
       </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-12 row justify-content-center">
-        <div class="col-md-3 setfootertop " style="text-align:center">
-          <h2>合作夥伴</h2>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-12 row justify-content-center">
+          <div class="col-md-3 setfootertop " style="text-align:center">
+            <h2>合作夥伴</h2>
+          </div>
         </div>
-      </div>
-      <div class="col-md-12 home-setfootertop"></div>
-      <div class="col-md-1 home-setfooterbottom">
-        <img src="./assets/activity/home3.jpg" class="home-setbottompic ">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/h2.png" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/h3.png" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/h4.png" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/h6.jpg" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/home1.jpg" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/home1.png" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/h6.jpg" class="home-setbottompic">
-      </div>
-      <div class="col-md-1">
-        <img src="./assets/activity/home2.jpg" class="home-setbottompic">
+        <div class="col-md-12 home-setfootertop"></div>
+        <div class="col-md-1 home-setfooterbottom">
+          <img src="./assets/activity/home3.jpg" class="home-setbottompic ">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/h2.png" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/h3.png" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/h4.png" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/h6.jpg" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/home1.jpg" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/home1.png" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/h6.jpg" class="home-setbottompic">
+        </div>
+        <div class="col-md-1">
+          <img src="./assets/activity/home2.jpg" class="home-setbottompic">
+        </div>
       </div>
     </div>
   </div>
