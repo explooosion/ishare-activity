@@ -1,6 +1,11 @@
 #interduce{
     margin-top:22px;
     background-color: #f5f5f0;  
+    padding-bottom: 50px;
+}
+#interduce .setpadding{
+    padding-right: 0px;
+    padding-left: 0px;
 }
 #interduce .setpicwidth{
     width: 100%;
@@ -12,14 +17,15 @@
 }
 #interduce .right-body{
     font-size: 20px;
-    color: #6b6b47;
+    color: #758abb;
 }
+
 #MyBlog{
-    width:auto;
     position: fixed;  /*固定在網頁上不隨卷軸移動，若要隨卷軸移動用absolute*/
-    background: #e0e0d1;  /*背景顏色*/
+    background-color: #fdfdfd;  /*背景顏色*/
     border-radius: 10px;  /*圓角*/
     -moz-border-radius: 10px;
+    width: 18%;
     -webkit-border-radius: 10px;
 }
 #interduce .setmarginbottom{
@@ -43,7 +49,7 @@
     margin-top: 20px;
 }
 #interduce .text-timemin{
-    color:   #33ffd6;
+    color:   #757575;
 }
 #interduce .setsize{
     height: 25px;
@@ -52,9 +58,15 @@
 #interduce .settop{
     margin-top: 10px;
 }
-#interduce .setwidth{
-    width: 100%;
+#interduce .settext{
+    overflow: hidden;
+    font-size: 20px;
+    font-weight: bold;
 }
 #interduce .text-body{
     font-size: 16px;
+}
+#interduce .btn{
+    background-color: #2ab3fc;
+    color: #ffffff;
 }

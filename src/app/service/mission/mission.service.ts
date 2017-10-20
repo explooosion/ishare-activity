@@ -15,7 +15,7 @@ export class MissionService {
   private api2: string = 'api/mission/';
   public GetmissionId(index) {
     console.log(index)
-    return this.http.get(this.api+index)
+    return this.http.get(this.api2+index)
       .map((mis) => {
         return mis.json() || {}
       });
