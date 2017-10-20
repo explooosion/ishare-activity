@@ -1,54 +1,55 @@
 <div id="interduce">
   <div class="container">
-    <div class="row" *ngFor="let mission of missions">
-      <div class="col-md-12">
-        <img class="setpicwidth" src="{{mission.missionpicture}}" alt="">
-      </div>
-
-      <div class="col-md-12 row settop">
-        <div class="col-md-9">
+    <div class="row col-md-12 " *ngFor="let mission of missions">
+      <div class="col-md-12 setpadding setback">
           <div class="col-md-12 setpadding">
-            <span class="text-title">{{mission.missionname}}</span>
-          </div>
-          <div class="col-md-12 settop setpadding">
-            <p class="text-time">
-              <i class="fa fa-calendar setsize " aria-hidden="true"></i>活動時間</p>
-          </div>
-          <div class="col-md-12 setpadding">
-            <span class="text-timemin">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}~{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</span>
-          </div>
-          <div class="col-md-12 settop setpadding">
-            <p class="text-time">
-              <i class="fa fa-map-marker setsize" aria-hidden="true"></i>活動地點</p>
-          </div>
-          <div class="col-md-12 setpadding">
-            <span class="text-timemin">{{mission.missionlocation}}</span>
-          </div>
-          <div class="col-md-12 settop setpadding">
-            <p class="text-time">
-              <i class="fa fa-scribd setsize" aria-hidden="true"></i> 活動描述</p>
-          </div>
-          <div class="col-md-12 setpadding">
-            <p class="text-body">{{mission.missioncontent}}</p>
-            <p class="text-body">{{mission.missioncontent}}</p>
-          </div>
-        </div>
-        <div class="col-md-3 ">
-          <div id="MyBlog" class="setpadding">
-            <div class="col-md-12 texttitle setmarginbottom ">
-              <span class="settext">{{mission.missionname}}</span>
+              <img class="setpicwidth" src="{{mission.missionpicture}}" alt="">
             </div>
-            <div class="col-md-12 setmarginbottom">
-              <span class="right-body">快來參加活動哦</span>
+            <div class="col-md-12 row settop setpadding">
+              <div class="col-md-9">
+                <div class="col-md-12">
+                  <span class="text-title">{{mission.missionname}}</span>
+                </div>
+                <div class="col-md-12 settop ">
+                  <p class="text-time">
+                    <i class="fa fa-calendar setsize " aria-hidden="true"></i>活動時間</p>
+                </div>
+                <div class="col-md-12">
+                  <span class="text-timemin">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}~{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</span>
+                </div>
+                <div class="col-md-12 settop ">
+                  <p class="text-time">
+                    <i class="fa fa-map-marker setsize" aria-hidden="true"></i>活動地點</p>
+                </div>
+                <div class="col-md-12">
+                  <span class="text-timemin">{{mission.missionlocation}}</span>
+                </div>
+                <div class="col-md-12 settop ">
+                  <p class="text-time">
+                    <i class="fa fa-scribd setsize" aria-hidden="true"></i> 活動描述</p>
+                </div>
+                <div class="col-md-12">
+                  <p class="text-body">{{mission.missioncontent}}</p>
+                  <p class="text-body">{{mission.missioncontent}}</p>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div id="MyBlog" class="setpadding">
+                  <div class="col-md-12 texttitle setmarginbottom ">
+                    <span class="settext">{{mission.missionname}}</span>
+                  </div>
+                  <div class="col-md-12 setmarginbottom">
+                    <span class="right-body">快來參加活動哦</span>
+                  </div>
+                  <div class="col-md-12 setmarginbottom">
+                    <p class="right-body">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}~{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
+                  </div>
+                  <div class="col-md-12  setmarginbottom">
+                    <button class="setbtn btn btn-info btn-maxw">參加活動</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="col-md-12 setmarginbottom">
-              <p class="right-body">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}~{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
-            </div>
-            <div class="col-md-12  setmarginbottom">
-              <button class="setbtn btn">參加活動</button>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
