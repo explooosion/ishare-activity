@@ -132,7 +132,7 @@
       <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
         <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
           <div class="setpadding col-md-12">
-            <a (click)="GetmissionId(mission)">
+            <a (click)="GetmissionId(mission)" >
               <img src="{{mission.missionpicture}}" class="home-setimg setradius">
             </a>
 

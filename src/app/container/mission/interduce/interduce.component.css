@@ -21,11 +21,10 @@
 }
 
 #MyBlog{
-    position: fixed;  /*固定在網頁上不隨卷軸移動，若要隨卷軸移動用absolute*/
+    position: absolute;  /*固定在網頁上不隨卷軸移動，若要隨卷軸移動用absolute*/
     background-color: #fdfdfd;  /*背景顏色*/
     border-radius: 10px;  /*圓角*/
     -moz-border-radius: 10px;
-    width: 18%;
     -webkit-border-radius: 10px;
 }
 #interduce .setmarginbottom{
