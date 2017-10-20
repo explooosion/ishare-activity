@@ -51,12 +51,12 @@
     <div class="row setpadding">
       <div class="col-md-6 setleftpadding" *ngFor="let mission of missionssit; let i =index">
         <div class="card" *ngIf="i==0">
-          <a (click)="GetmissionId(mission)">
+          <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
               <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
           </a>
           <div class="card-body">
-            <a (click)="GetmissionId(mission)">
-              <p class="text-title">{{mission.missionname}}</p>
+            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <p class="text-title" >{{mission.missionname}}</p>
             </a>
             <p class="text-time">開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
             <p class="text-time">結束時間：{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
@@ -64,7 +64,7 @@
             <p class="text-text">{{mission.missioncontent}}</p>
           </div>
           <div class="button">
-            <button  class="btn btn-info home-btn" (click)="GetmissionId(mission)">瞭解詳情</button>
+            <a  class="btn btn-info home-btn" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">了解詳情</a>
           </div>
         </div>
       </div>
@@ -72,11 +72,11 @@
         <div class="row setpadding">
           <div class="col-md-6 setmarginbotttom setrightpadding" *ngFor="let mission of missionssit2.slice(0,2);let i =index">
             <div class="card" *ngIf="i<=1">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                   <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
               </a>
               <div class="card-body setbottompadding">
-                <a (click)="GetmissionId(mission)">
+                <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                     <p class="text-title">{{mission.missionname}}</p>
                 </a>
                 <p class="text-text">{{mission.missioncontent}}</p>
@@ -86,7 +86,7 @@
                       <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
                     </div>
                     <div class="col-md-6 setmarginbotttom setpadding">
-                      <button class="btn btn-info home-btn" (click)="GetmissionId(mission)" style="color:white">瞭解詳情</button>
+                      <a class="btn btn-info home-btn" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}" style="color:white">了解詳情</a>
                     </div>
                   </div>
                 </div>
@@ -95,11 +95,11 @@
           </div>
           <div class="col-md-6 setrightpadding" *ngFor="let mission of missionssit2.slice(2,4);let i =index">
             <div class="card" *ngIf="i<=1">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
               </a>
               <div class="card-body setbottompadding">
-                <a (click)="GetmissionId(mission)">
+                <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                   <p class="text-title">{{mission.missionname}}</p>               
                 </a>
                 <p class="text-text">{{mission.missioncontent}}</p>
@@ -108,7 +108,7 @@
                     <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
                   </div>
                   <div class="col-md-6 setmarginbotttom setpadding">
-                    <button class="btn btn-info home-btn" (click)="GetmissionId(mission)">瞭解詳情</button>
+                    <a class="btn btn-info home-btn" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">了解詳情</a>
                   </div>
                 </div>
               </div>
@@ -132,13 +132,13 @@
       <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
         <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
           <div class="setpadding col-md-12">
-            <a (click)="GetmissionId(mission)" >
+            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}" >
               <img src="{{mission.missionpicture}}" class="home-setimg setradius">
             </a>
 
           </div>
           <div class="col-md setbetweentop">
-            <a (click)="GetmissionId(mission)">
+            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
               <p class="text-title"> {{ mission.missionname }}</p>
             </a>
           </div>
@@ -170,12 +170,12 @@
         <div class="col-md-4" *ngFor="let mission of missions[2] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
             <div class="col-md setbetweentop">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
@@ -207,12 +207,12 @@
         <div class="col-md-3 " *ngFor="let mission of missions[3] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4">
             <div class="setpadding col-md-12">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
             <div class="col-md setbetweentop">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
@@ -244,12 +244,12 @@
         <div class="col-md-4 " *ngFor="let mission of missions[4] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
             <div class="col-md setbetweentop">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
@@ -281,12 +281,12 @@
         <div class="col-md-4 " *ngFor="let mission of missions[5] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
             <div class="col-md setbetweentop">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
@@ -318,12 +318,12 @@
         <div class="col-md-3 " *ngFor="let mission of missions[6] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4 ">
             <div class="setpadding col-md-12">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
             <div class=" col-md setbetweentop">
-              <a (click)="GetmissionId(mission)">
+              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
                 <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>

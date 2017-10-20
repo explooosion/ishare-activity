@@ -12,7 +12,6 @@ declare let $: any;
   providers: [MissionService]
 })
 export class HomeComponent implements OnInit {
-  public missionId: any;
   public missionpic: Object = [];
   public missiontitle: Object = [];
   public missiontype: Object = [];
@@ -66,11 +65,6 @@ export class HomeComponent implements OnInit {
         this.missionssit2 = temp[0].slice(1, 5);
       }
     )
-  }
-  public GetmissionId(data: any) {
-    this.missionId = data.id;
-    console.log(this.missionId);
-    this.router.navigate(['mission/interduce'], { queryParams: { id:this.missionId} });
   }
 
   public btnMissionbicycle() {

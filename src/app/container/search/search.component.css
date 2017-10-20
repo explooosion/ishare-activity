@@ -5,9 +5,12 @@ b {
     color: #757575;
 }
 .search-data{
-    padding-bottom: 0
+    padding-bottom: 0;
+    
 }
-
+.search{
+    margin-bottom: 50px;
+}
 .col-xs-12{
     width: 100%;
 }
@@ -75,7 +78,9 @@ b {
 .search-tab-content {
     margin-top: 1.4rem;
 }
-
+.setpadding{
+    padding-right: 0px;
+}
 .search-tab-content .card {
     display: inline-block;
     margin-right: 1.4rem;
@@ -83,7 +88,9 @@ b {
     width: 340px;
     border: 1px solid #ccc;
 }
-
+.setbottom{
+    margin-bottom: 20px;
+}
 .search-tab-content .card-img-top {
     max-width: 100%;
     height: auto;
