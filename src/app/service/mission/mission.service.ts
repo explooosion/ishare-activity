@@ -12,4 +12,12 @@ export class MissionService {
         return mis.json() || {}
       });
   }
+  private api2: string = 'api/mission/';
+  public GetmissionId(index) {
+    console.log(index)
+    return this.http.get(this.api+index)
+      .map((mis) => {
+        return mis.json() || {}
+      });
+  }
 }

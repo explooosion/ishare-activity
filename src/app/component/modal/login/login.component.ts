@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
 
-  public userAccount: String = '';
-  public userPassword: String = '';
+  public userAccount: String = 'carie8655';
+  public userPassword: String = 'popo123';
   public userloginbar: string = '';
   public result: any = "";
   constructor(
@@ -37,11 +37,10 @@ export class LoginComponent implements OnInit {
    */
   public async userLogin() {
 
-    const vailid = this.userAccount == 'user' && this.userPassword == '123456' ? true : false;
 
     let body = {
-      userId: 'carie8655',
-      userPwd: 'popo123',
+      userId: this.userAccount,
+      userPwd: this.userPassword,
       logingroup: 2
     };
     await this.userService.Login(body).subscribe(

@@ -12,40 +12,38 @@ declare let $: any;
   providers: [MissionService]
 })
 export class HomeComponent implements OnInit {
-
+  public missionId: any;
   public missionpic: Object = [];
   public missiontitle: Object = [];
   public missiontype: Object = [];
-  public organizertitle :object =[];
-  public organizerimg : object =[];  
+  public organizertitle: object = [];
+  public organizerimg: object = [];
   public result: any = "";
   public missions: any = [];
-  public missionssit:any =[];
-  public missionssit2:any =[];
+  public missionssit: any = [];
+  public missionssit2: any = [];
   constructor(
     private router: Router,
-    private missionService: MissionService
+    private missionService: MissionService,
   ) { }
 
   ngOnInit() {
+
     this.missioncheck();
     $('.carousel').carousel({
       interval: 2500
     })
   }
   // 主辦單位
-  public async organizer(){
-    let body ={
-      organizertitle :this.organizertitle,      
+  public async organizer() {
+    let body = {
+      organizertitle: this.organizertitle,
     };
   }
-  
+
   public async missioncheck() {
     let body = {
-      missionname: this.missiontitle,
-      missiontype: this.missiontype
     };
-
     await this.missionService.Getmission(body).subscribe(
       result => {
         let x = [
@@ -57,20 +55,23 @@ export class HomeComponent implements OnInit {
           '運動任務',
           '美術任務',
         ];
-        let temp =[];
-        console.log(result);
+        let temp = [];
         x.forEach(element => {
           temp.push(result.filter(function (x) {
             return x.missiontype == element;
           }));
         });
         this.missions = temp;
-        this.missionssit = temp[0].slice(0,1);
-        this.missionssit2 = temp[0].slice(1,5);
+        this.missionssit = temp[0].slice(0, 1);
+        this.missionssit2 = temp[0].slice(1, 5);
       }
     )
   }
-
+  public GetmissionId(data: any) {
+    this.missionId = data.id;
+    console.log(this.missionId);
+    this.router.navigate(['mission/interduce'], { queryParams: { id:this.missionId} });
+  }
 
   public btnMissionbicycle() {
     this.router.navigate(['mission/bicycle']);

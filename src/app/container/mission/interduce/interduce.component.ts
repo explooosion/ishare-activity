@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MissionService } from '../../../service/mission/mission.service';
 @Component({
   selector: 'app-interduce',
@@ -13,11 +13,13 @@ export class InterduceComponent implements OnInit {
   public missiontype: Object = [];
   public result: any = "";
   public missions: any = [];
+  public missionid: any;
   constructor(
     private router: Router,
     private missionService: MissionService) { }
 
   ngOnInit() {
+    this.missionid = this.router.url.substring(this.router.url.indexOf("=") + 1, this.router.url.length);
   }
 
   public async missioncheck() {
