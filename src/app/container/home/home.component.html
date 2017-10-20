@@ -51,16 +51,20 @@
     <div class="row setpadding">
       <div class="col-md-6 setleftpadding" *ngFor="let mission of missionssit; let i =index">
         <div class="card" *ngIf="i==0">
-          <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
+          <a (click)="GetmissionId(mission)">
+              <img class="card-img-top home-imgbig" src="{{mission.missionpicture}}">
+          </a>
           <div class="card-body">
-            <p class="text-title">{{mission.missionname}}</p>
+            <a (click)="GetmissionId(mission)">
+              <p class="text-title">{{mission.missionname}}</p>
+            </a>
             <p class="text-time">開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
             <p class="text-time">結束時間：{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
             <p class="text-text">地區：{{mission.missionlocation}}</p>
             <p class="text-text">{{mission.missioncontent}}</p>
           </div>
           <div class="button">
-            <button href="#" class="btn btn-info home-btn" (click)="GetmissionId(mission)">瞭解詳情</button>
+            <button  class="btn btn-info home-btn" (click)="GetmissionId(mission)">瞭解詳情</button>
           </div>
         </div>
       </div>
@@ -68,17 +72,21 @@
         <div class="row setpadding">
           <div class="col-md-6 setmarginbotttom setrightpadding" *ngFor="let mission of missionssit2.slice(0,2);let i =index">
             <div class="card" *ngIf="i<=1">
-              <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              <a (click)="GetmissionId(mission)">
+                  <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              </a>
               <div class="card-body setbottompadding">
-                <p class="text-title">{{mission.missionname}}</p>
+                <a (click)="GetmissionId(mission)">
+                    <p class="text-title">{{mission.missionname}}</p>
+                </a>
                 <p class="text-text">{{mission.missioncontent}}</p>
                 <div class="col-md-12 setpadding">
                   <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 setpadding">
                       <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
                     </div>
                     <div class="col-md-6 setmarginbotttom setpadding">
-                      <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+                      <button class="btn btn-info home-btn" (click)="GetmissionId(mission)" style="color:white">瞭解詳情</button>
                     </div>
                   </div>
                 </div>
@@ -87,16 +95,20 @@
           </div>
           <div class="col-md-6 setrightpadding" *ngFor="let mission of missionssit2.slice(2,4);let i =index">
             <div class="card" *ngIf="i<=1">
-              <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              <a (click)="GetmissionId(mission)">
+                <img class="card-img-top home-imgsmall " src="{{mission.missionpicture}}">
+              </a>
               <div class="card-body setbottompadding">
-                <p class="text-title">{{mission.missionname}}</p>
+                <a (click)="GetmissionId(mission)">
+                  <p class="text-title">{{mission.missionname}}</p>               
+                </a>
                 <p class="text-text">{{mission.missioncontent}}</p>
                 <div class="row">
-                  <div class="col-md-6">
+                  <div class="col-md-6 setpadding">
                     <p class="text-time">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
                   </div>
                   <div class="col-md-6 setmarginbotttom setpadding">
-                    <a href="#" class="btn btn-info home-btn">瞭解詳情</a>
+                    <button class="btn btn-info home-btn" (click)="GetmissionId(mission)">瞭解詳情</button>
                   </div>
                 </div>
               </div>
@@ -120,19 +132,19 @@
       <div class="col-md-4 " *ngFor="let mission of missions[1] ; let i= index">
         <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
           <div class="setpadding col-md-12">
-            <a [routerLink]="['/mission/information']">
+            <a (click)="GetmissionId(mission)">
               <img src="{{mission.missionpicture}}" class="home-setimg setradius">
             </a>
 
           </div>
-          <div class="setpadding col-md-11 setbetweentop">
-            <a [routerLink]="['/mission/information']">
-              <p class="textfont"> {{ mission.missionname }}</p>
+          <div class="col-md setbetweentop">
+            <a (click)="GetmissionId(mission)">
+              <p class="text-title"> {{ mission.missionname }}</p>
             </a>
           </div>
           <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
             <div class="col-md-9 ">
-              <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+              <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
             </div>
             <div class="col-md-3 setpadding">
               <a>
@@ -158,18 +170,18 @@
         <div class="col-md-4" *ngFor="let mission of missions[2] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/join-exhibition']">
+              <a (click)="GetmissionId(mission)">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
-            <div class="setpadding col-md-11 setbetweentop">
-              <a [routerLink]="['/mission/join-exhibition']">
-                <p class="textfont"> {{ mission.missionname }}</p>
+            <div class="col-md setbetweentop">
+              <a (click)="GetmissionId(mission)">
+                <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+                <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
               <div class="col-md-3 setpadding">
                 <a>
@@ -195,18 +207,18 @@
         <div class="col-md-3 " *ngFor="let mission of missions[3] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4">
             <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/playtour']">
+              <a (click)="GetmissionId(mission)">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
-            <div class="setpadding col-md-11 setbetweentop">
-              <a [routerLink]="['/mission/playtour']">
-                <p class="textfont"> {{ mission.missionname }}</p>
+            <div class="col-md setbetweentop">
+              <a (click)="GetmissionId(mission)">
+                <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+                <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
               <div class="col-md-3 setpadding">
                 <a>
@@ -232,18 +244,18 @@
         <div class="col-md-4 " *ngFor="let mission of missions[4] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/outclean']">
+              <a (click)="GetmissionId(mission)">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
-            <div class="setpadding col-md-11 setbetweentop">
-              <a [routerLink]="['/mission/outclean']">
-                <p class="textfont"> {{ mission.missionname }}</p>
+            <div class="col-md setbetweentop">
+              <a (click)="GetmissionId(mission)">
+                <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+                <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
               <div class="col-md-3 setpadding">
                 <a>
@@ -269,18 +281,18 @@
         <div class="col-md-4 " *ngFor="let mission of missions[5] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<3 ">
             <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/sport']">
+              <a (click)="GetmissionId(mission)">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
-            <div class="setpadding col-md-11 setbetweentop">
-              <a [routerLink]="['/mission/sport']">
-                <p class="textfont"> {{ mission.missionname }}</p>
+            <div class="col-md setbetweentop">
+              <a (click)="GetmissionId(mission)">
+                <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+                <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
               <div class="col-md-3 setpadding">
                 <a>
@@ -306,18 +318,18 @@
         <div class="col-md-3 " *ngFor="let mission of missions[6] ; let i= index">
           <div class="setpadding setborder row justify-content-center backgroundwhite" *ngIf="i<4 ">
             <div class="setpadding col-md-12">
-              <a [routerLink]="['/mission/art']">
+              <a (click)="GetmissionId(mission)">
                 <img src="{{mission.missionpicture}}" class="home-setimg setradius">
               </a>
             </div>
-            <div class="setpadding col-md-11 setbetweentop">
-              <a [routerLink]="['/mission/art']">
-                <p class="textfont"> {{ mission.missionname }}</p>
+            <div class=" col-md setbetweentop">
+              <a (click)="GetmissionId(mission)">
+                <p class="text-title"> {{ mission.missionname }}</p>
               </a>
             </div>
             <div class="setpadding row col-md-12 setbetweentop setbottom-bottom">
               <div class="col-md-9 ">
-                <span class="text-font">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
+                <span class="text-text">{{ mission.missioncreatetime | date: 'yyyy/MM/dd'}} </span>
               </div>
               <div class="col-md-3 setpadding">
                 <a>

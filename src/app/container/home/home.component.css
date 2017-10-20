@@ -95,20 +95,6 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
-#home .textfont{
-    /* 活動標題文字設定 */
-    font-size: 25px; 
-    margin-left: 10px;
-    overflow : hidden;
-    white-space:nowrap;
-
-}
-
-#home .text-font{
-    overflow: hidden;
-    font-size: 18px;
-    color: #94b8b8;
-}
 #home .img-thumbnail{
     color: #adad85;
     /* color: #FF5258; */
@@ -127,12 +113,11 @@
 }
 #home .hottext{
     /* 愛心圖案文字的設定 */
-    font-size: 18px;
+    font-size: 14px;
     color:  #ff6666;
-    margin-left: 10px;
 }
 #home .text-title{
-    font-size: 18px;
+    font-size: 16px;
     white-space:nowrap;
     overflow : hidden;
 }
@@ -141,11 +126,11 @@
     color: #94b8b8;
 }
 #home .text-text{
-    font-size: 16px;
+    font-size: 14px;
     text-overflow : ellipsis;
     overflow : hidden;
     white-space:nowrap;
-    
+    line-height: 14px;
 }
 #home .sameheight{
     height: 100%;
@@ -172,10 +157,8 @@
 }
 #home a{
     cursor: pointer;
+    color: black;
 }
-
-
-
 .home-setmiddletext{
     margin-top: 10px;
 }
