@@ -13,21 +13,20 @@
         <div class="modal-body">
           <div class="form-group">
             <label for="userAccount">帳號</label>
-            <input type="text" class="form-control" id="userAccount" name="userAccount" placeholder="請輸入帳號 carie8655" [(ngModel)]="userAccount"
+            <input type="text" class="form-control" id="userAccount" name="userAccount" placeholder="請輸入帳號 jack123" [(ngModel)]="userAccount"
               required>
           </div>
           <div class="form-group">
             <label for="userPassword">密碼</label>
-            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="請輸入密碼 popo123" [(ngModel)]="userPassword"
+            <input type="password" class="form-control" id="userPassword" name="userPassword" placeholder="請輸入密碼 jack321" [(ngModel)]="userPassword"
               required>
           </div>
-          <!-- <div class="form-group">
-            <label for="">身分</label>
-              <select class="form-control">
-                <option value="1" >學生</option>
-                <option value="2" >老師</option>
-              </select>
-          </div> -->
+          <div class="form-group">
+              <label for="userPassword">選擇身分</label>
+            <select class="form-control" #t (change)="callType(t.value)">
+              <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            </select>
+          </div>
           <div class="form-group">
             <label class="custom-control custom-checkbox">
               <input type="checkbox" class="custom-control-input">
@@ -46,11 +45,11 @@
                 <button type="submit" class="btn btn-info bg-info btn-maxw" (click)="userLogin();">登入</button>
               </div>
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col-lg-12 form-group">
                 <button type="button" class="btn btn-light bg-gray btn-maxw" data-dismiss="modal" data-toggle="modal" data-target="#signupModal">註冊</button>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
 

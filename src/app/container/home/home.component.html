@@ -1,4 +1,4 @@
-<div id="home">
+<div id="home" class ="seheightop" >
   <div class="container settoptop">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -35,14 +35,21 @@
       </a>
     </div>
   </div>
+  <div class="container home-setcounterhigh" *ngIf="!islogin">
+    <div class="col-md-12 row justify-content-center">
+      <div class="col-md-2">
+        <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
   <div class="container setpadding">
     <div class="row align-items-center settopbottom">
       <div class="col-md">
-        <h2>展演講座</h2>
+        <h2 *ngIf="islogin">展演講座</h2>
       </div>
       <div class="col-md text-right setrightpadding">
         <div class="col-md-12">
-          <button type="button" class="btn btn-secondary">前往</button>
+          <button type="button" class="btn btn-secondary" *ngIf="islogin">前往</button>
         </div>
       </div>
     </div>
@@ -114,7 +121,6 @@
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -122,10 +128,10 @@
   <div class="container setpadding">
     <div class="col-md-12 row setpadding settopbottom">
       <div class="col-md ">
-        <h2>影片任務</h2>
+        <h2 *ngIf="islogin">影片任務</h2>
       </div>
       <div class="col-md text-right ">
-        <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+        <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
       </div>
     </div>
     <div class="col-md-12 row setpadding">
@@ -160,10 +166,10 @@
     <div class="container setpadding">
       <div class="col-md-12 row setpadding settopbottom">
         <div class="col-md ">
-          <h2>展演任務</h2>
+          <h2 *ngIf="islogin">展演任務</h2>
         </div>
         <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
         </div>
       </div>
       <div class="col-md-12 row setpadding">
@@ -197,10 +203,10 @@
     <div class="container setpadding">
       <div class="col-md-12 row setpadding settopbottom">
         <div class="col-md ">
-          <h2>旅遊任務</h2>
+          <h2 *ngIf="islogin">旅遊任務</h2>
         </div>
         <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
         </div>
       </div>
       <div class="col-md-12 row setpadding">
@@ -234,10 +240,10 @@
     <div class="container setpadding">
       <div class="col-md-12 row setpadding settopbottom">
         <div class="col-md ">
-          <h2>清潔任務</h2>
+          <h2 *ngIf="islogin">清潔任務</h2>
         </div>
         <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
         </div>
       </div>
       <div class="col-md-12 row setpadding">
@@ -271,10 +277,10 @@
     <div class="container setpadding">
       <div class="col-md-12 row setpadding settopbottom">
         <div class="col-md ">
-          <h2>運動任務</h2>
+          <h2 *ngIf="islogin">運動任務</h2>
         </div>
         <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
         </div>
       </div>
       <div class="col-md-12 row setpadding">
@@ -308,10 +314,10 @@
     <div class="container setpadding">
       <div class="col-md-12 row setpadding settopbottom">
         <div class="col-md">
-          <h2>美術任務</h2>
+          <h2 *ngIf="islogin">美術任務</h2>
         </div>
         <div class="col-md text-right ">
-          <button type="button" class="btn btn-secondary" (click)="btnSearch();">更多</button>
+          <button type="button" class="btn btn-secondary" (click)="btnSearch();" *ngIf="islogin">更多</button>
         </div>
       </div>
       <div class="col-md-12 row setpadding">
@@ -344,14 +350,14 @@
     </div>
 
     <div class="container">
-      <div class="row justify-content-center home-setbottomhei">
-        <div class="row col-md-10 setleftpadding setrightpadding">
+      <div class="row justify-content-center ">
+        <div class="row col-md-10 setleftpadding setrightpadding setbetop">
           <div class="col-md setleftpadding">
-            <h1>主辦單位</h1>
+            <h1 *ngIf="islogin">主辦單位</h1>
           </div>
           <div class="col-md text-right setrightpadding">
             <div class="col-md-12 setrightpadding">
-              <button type="button" class="btn btn-secondary">更多</button>
+              <button type="button" class="btn btn-secondary" *ngIf="islogin">更多 </button>
             </div>
           </div>
         </div>
@@ -426,14 +432,14 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-12 row justify-content-center">
+    <div class="container ">
+      <div class="row justify-content-center ">
+        <div class="col-md-12 row justify-content-center setbetop">
           <div class="col-md-3 setfootertop " style="text-align:center">
-            <h2>合作夥伴</h2>
+            <h2 *ngIf="islogin">合作夥伴</h2>
           </div>
         </div>
-        <div class="col-md-12 home-setfootertop"></div>
+        <div class="col-md-12"></div>
         <div class="col-md-1 home-setfooterbottom">
           <img src="./assets/activity/home3.jpg" class="home-setbottompic ">
         </div>

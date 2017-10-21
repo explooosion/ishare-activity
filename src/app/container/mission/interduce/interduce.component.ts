@@ -8,27 +8,31 @@ import { MissionService } from '../../../service/mission/mission.service';
   providers: [MissionService]
 })
 export class InterduceComponent implements OnInit {
-  public missionpic: Object = [];
-  public missiontitle: Object = [];
-  public missiontype: Object = [];
-  public result: any = "";
   public missions: any = [];
   public missionid: any;
+  public data: any = [];
+  public ischeck: boolean = false;
   constructor(
     private router: Router,
-    private missionService: MissionService) { }
+    private missionService: MissionService,
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit() {
-    this.missionid = this.router.url.substring(this.router.url.indexOf("=") + 1, this.router.url.length);
+    this.route.queryParamMap.subscribe(params => {
+      this.data = params;
+    })
+
     this.missioncheck();
   }
 
   public async missioncheck() {
-    let body = this.missionid;
-    await this.missionService.GetmissionId(body).subscribe(
+    let body = this.data.params.id;
+    await this.missionService.Getmission(body).subscribe(
       result => {
+
+        this.ischeck = true;
         this.missions = result;
-        console.log(this.missions);
       }
     )
   }

@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   public organizertitle: object = [];
   public organizerimg: object = [];
   public result: any = "";
+  public islogin: boolean = false;
   public missions: any = [];
   public missionssit: any = [];
   public missionssit2: any = [];
@@ -33,6 +34,12 @@ export class HomeComponent implements OnInit {
       interval: 2500
     })
   }
+  ngAfterContentInit(){
+    window.scrollTo(0,0);
+  }
+  // ngDoCheck(){
+  //   window.scrollTo(0,0);    
+  // }
   // 主辦單位
   public async organizer() {
     let body = {
@@ -41,8 +48,7 @@ export class HomeComponent implements OnInit {
   }
 
   public async missioncheck() {
-    let body = {
-    };
+    let body = "";
     await this.missionService.Getmission(body).subscribe(
       result => {
         let x = [
@@ -55,6 +61,7 @@ export class HomeComponent implements OnInit {
           '美術任務',
         ];
         let temp = [];
+        this.islogin = true;  
         x.forEach(element => {
           temp.push(result.filter(function (x) {
             return x.missiontype == element;

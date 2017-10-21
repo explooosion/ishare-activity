@@ -11,7 +11,6 @@ export class UserService {
   public Login(body: object) {
     return this.http.post(this.api, body)
       .map((res) => {
-        console.log(res.json());
         return res.json() || {}
 
       });

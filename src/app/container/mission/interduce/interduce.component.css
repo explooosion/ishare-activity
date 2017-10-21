@@ -11,6 +11,12 @@
     width: 100%;
     height: 250px;
 }
+#interduce .setrightpadding{
+    padding-right: 0px;
+}
+#interduce .setmargin-top{
+    padding-top: 80px;
+}
 #interduce .righttitle{
     font-size: 25px;
     font-weight: bold;

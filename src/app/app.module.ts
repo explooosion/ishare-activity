@@ -31,6 +31,8 @@ import { VisitExhibitionComponent } from './container/mission/visit-exhibition/v
 import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
+import { CheckComponent } from './component/modal/check/check.component';
+import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { InterduceComponent } from './container/mission/interduce/interduce.comp
     VisitExhibitionComponent,
     JoinExhibitionComponent,
     CreateComponent,
-    InterduceComponent
+    InterduceComponent,
+    CheckComponent,
+    CheckjoinComponent
   ],
   imports: [
     BrowserModule,
