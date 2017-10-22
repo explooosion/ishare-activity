@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MissionService } from '../../../service/mission/mission.service';
 @Component({
@@ -12,6 +12,10 @@ export class InterduceComponent implements OnInit {
   public missionid: any;
   public data: any = [];
   public ischeck: boolean = false;
+  @Input() isyes: boolean;
+  onChangeVar(variable: boolean) {
+    this.isyes = variable;
+  }
   constructor(
     private router: Router,
     private missionService: MissionService,
@@ -22,7 +26,6 @@ export class InterduceComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       this.data = params;
     })
-
     this.missioncheck();
   }
 

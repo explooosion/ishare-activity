@@ -47,8 +47,6 @@ export class LoginComponent implements OnInit {
   }
 
   public async userLogin() {
-
-
     let body = {
       userId: this.userAccount,
       userPwd: this.userPassword,
