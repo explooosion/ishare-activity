@@ -5,7 +5,7 @@
         <img class="user-photo img-thumbnail" src="./assets/activity/profile.png" alt="">
       </div>
       <div class="col-sm-10">
-        <h2>王小明</h2>
+        <h2>{{userdata.childname}}</h2>
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@
       <a class="nav-link active" id="mission-like-tab" data-toggle="tab" href="#like-tab" role="tab" aria-controls="like-tab" aria-expanded="true">喜歡的任務(5)</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-join-tab" data-toggle="tab" href="#join-tab" role="tab" aria-controls="join-tab">參加的任務(1)</a>
+      <a class="nav-link" id="mission-join-tab" data-toggle="tab" href="#join-tab" role="tab" aria-controls="join-tab">參加的任務({{missionlist.length}})</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" id="mission-track-tab" data-toggle="tab" href="#track-tab" role="tab" aria-controls="track-tab">追蹤的主辦單位(0)</a>
@@ -41,72 +41,21 @@
           </div>
         </div>
       </div>
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity.png" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
-          <div class="row card-control">
-            <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
-              <span class="card-text">5</span>
-            </div>
-            <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity.png" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
-          <div class="row card-control">
-            <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
-              <span class="card-text">5</span>
-            </div>
-            <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity.png" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
-          <div class="row card-control">
-            <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
-              <span class="card-text">5</span>
-            </div>
-            <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <div class="tab-pane fade" id="join-tab" role="tabpanel" aria-labelledby="mission-join-tab">
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity1.png" alt="Card image cap">
+      <div class="card" *ngFor="let mission of missionlist;let i = index">
+        <img class="card-img-top" src="{{mission.missionpicture}}" alt="Card image cap">
         <div class="card-body">
-          <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
+          <h4 class="card-title">{{mission.missionname}}</h4>
+          <p class="card-time">{{mission.missioncreatetime}}</p>
+          <p class="card-text">{{mission.missioncontent}}</p>
           <div class="row card-control">
             <div class="col-sm-6">
               <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
+              <a href="#" class="btn btn-info">{{missions[i].status}}</a>
             </div>
           </div>
         </div>

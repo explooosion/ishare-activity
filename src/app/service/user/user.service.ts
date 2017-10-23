@@ -15,4 +15,18 @@ export class UserService {
 
       });
   }
+  private api2: string = 'api/mission/join?';
+  public Getmission(body) {
+    return this.http.get(this.api2 + body)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+  private api3: string = 'api/mission/';
+  public Getmissionlist(body) {
+    return this.http.get(this.api3 + body)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
 }
