@@ -29,7 +29,6 @@ export class UserComponent implements OnInit {
     await this.userService.Getmission(body).subscribe(
       result => {
         this.missions = result;
-        console.log(this.missions)
         this.missionadd()            
       }
     )

@@ -12,7 +12,6 @@ export class UserService {
     return this.http.post(this.api, body)
       .map((res) => {
         return res.json() || {}
-
       });
   }
   private api2: string = 'api/mission/join?';
