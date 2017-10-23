@@ -12,4 +12,11 @@ export class MissionService {
         return mis.json() || {}
       });
   }
+  private api2 :string ='api/mission/join/update';
+  public update(index) {
+    return this.http.post(this.api2 ,index)
+      .map((mis) => {
+        return mis.json() || {}
+      });
+  }
 }

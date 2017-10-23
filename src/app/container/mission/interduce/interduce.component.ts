@@ -12,10 +12,6 @@ export class InterduceComponent implements OnInit {
   public missionid: any;
   public data: any = [];
   public ischeck: boolean = false;
-  @Input() isyes: boolean;
-  onChangeVar(variable: boolean) {
-    this.isyes = variable;
-  }
   constructor(
     private router: Router,
     private missionService: MissionService,
@@ -25,6 +21,7 @@ export class InterduceComponent implements OnInit {
   ngOnInit() {
     this.route.queryParamMap.subscribe(params => {
       this.data = params;
+      this.missionid =this.data.params.id;
     })
     this.missioncheck();
   }
@@ -33,7 +30,6 @@ export class InterduceComponent implements OnInit {
     let body = this.data.params.id;
     await this.missionService.Getmission(body).subscribe(
       result => {
-
         this.ischeck = true;
         this.missions = result;
       }

@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
 
-  public userAccount: String = 'jack123';
-  public userPassword: String = 'jack321';
+  public userAccount: String = 'jason123';
+  public userPassword: String = '123456';
   public userlogingroup: any;
   public types: any;
   public order: any;

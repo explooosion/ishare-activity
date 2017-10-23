@@ -23,8 +23,8 @@
           </div>
           <div class="form-group">
             <label for="userPassword">選擇身分</label>
-            <select class="form-control" #t (change)="callType(t.value)">
-              <option *ngFor="let type of types" [value]="type">{{type}}</option>
+            <select class="form-control lineheight" #t (change)="callType(t.value)" style="text-align:center">
+              <option  *ngFor="let type of types" [value]="type">{{type}}</option>
             </select>
           </div>
           <div class="form-group">
