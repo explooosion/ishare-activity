@@ -52,7 +52,6 @@ export class LoginComponent implements OnInit {
       userPwd: this.userPassword,
       logingroup: this.userlogingroup
     };
-
     await this.userService.Login(body).subscribe(
       result => {
         this.result = result[0];

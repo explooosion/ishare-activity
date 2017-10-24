@@ -1,0 +1,39 @@
+<div id="art">
+    <div class="container">
+      <div class="col-md-12 row justify-content-center">
+        <img src="./assets/activity/setpic.jpg" alt="" class="sport-settoppic col-md-8 row justify-content-center sport-settophigh">
+      </div>
+      <div class="col-md-12">
+        <div class="col-md row justify-content-center">
+          <h4>心得填寫</h4>
+        </div>
+      </div>
+      <div class="sport-settopborder">
+      </div>
+    </div>
+    <div class="container">
+      <form>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">照片上傳：</label>
+          <button type="submit" class="btn btn-secondary col-sm-1">選擇檔案</button>
+          <small class="form-text text-muted col-sm-2">未選擇任何檔案</small>
+          <small class="form-text text-muted col-sm-2">(至少一張圖片)</small>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">預覽：</label>
+          <img src="./assets/activity/h4.jpg" alt="" class="col-sm-3 setpadding setimgsize">
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-2 col-form-label">心得填寫：</label>
+          <div class="col-md-8 setpadding">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="exp" [(ngModel)]="experience"></textarea>
+          </div>
+        </div>
+        <div class="form-group col-md-12 row justify-content-center">
+          <div class="col-md row justify-content-center">
+            <button type="button" class="btn btn-info" (click)="UpdateExperience()">繳交</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>

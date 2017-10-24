@@ -22,7 +22,6 @@ import { SignupComponent } from './component/modal/signup/signup.component';
 import { SportComponent } from './container/mission/sport/sport.component';
 import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
 import { InformationComponent } from './container/mission/information/information.component';
-import { ArtComponent } from './container/mission/art/art.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
@@ -32,6 +31,7 @@ import { JoinExhibitionComponent } from './container/mission/join-exhibition/joi
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
+import { ExperienceComponent } from './container/mission/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,6 @@ import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.compon
     SportComponent,
     BicycleComponent,
     InformationComponent,
-    ArtComponent,
     CleanComponent,
     OutcleanComponent,
     TourplayComponent,
@@ -57,7 +56,8 @@ import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.compon
     JoinExhibitionComponent,
     CreateComponent,
     InterduceComponent,
-    CheckjoinComponent
+    CheckjoinComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,

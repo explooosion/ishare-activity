@@ -7,7 +7,7 @@ export class JoinService {
 
   constructor(private http: Http) { }
   private api1: string = 'api/mission/join/update';
-  public update(index) {
+  public update(index:object) {
     return this.http.post(this.api1, index)
       .map((mis) => {
         return mis.json() || {}
@@ -15,11 +15,11 @@ export class JoinService {
   }
   private api2: string = 'api/mission/join?';
   public joinfind(body) {
+    console.log(this.api2 + body)
     return this.http.get(this.api2 + body)
       .map((mis) => {
         return mis.json() || {}
       });
-
   }
   private api3: string = 'api/mission/join/add';
   public add(body) {
@@ -36,5 +36,4 @@ export class JoinService {
         return mis.json() || {}
       });
   }
-
 }

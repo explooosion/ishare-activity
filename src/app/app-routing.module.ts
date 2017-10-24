@@ -15,7 +15,7 @@ import { SearchComponent } from './container/search/search.component';
 import { SportComponent } from './container/mission/sport/sport.component';
 import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
 import { InformationComponent } from './container/mission/information/information.component';
-import { ArtComponent } from './container/mission/art/art.component';
+import { ExperienceComponent } from './container/mission/experience/experience.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 import { PlaytourComponent } from './container/mission/playtour/playtour.component';
@@ -34,7 +34,7 @@ const routes: Routes = [
   { path: 'mission/sport', component:SportComponent},
   { path: 'mission/bicycle', component:BicycleComponent},
   { path: 'mission/information', component:InformationComponent},
-  { path: 'mission/art', component:ArtComponent},
+  { path: 'mission/experience', component:ExperienceComponent},
   { path: 'mission/clean', component:CleanComponent},
   { path: 'mission/outclean', component:OutcleanComponent},
   { path: 'mission/playtour', component:PlaytourComponent},
