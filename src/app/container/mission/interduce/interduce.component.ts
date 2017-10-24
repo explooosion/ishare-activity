@@ -57,26 +57,32 @@ export class InterduceComponent implements OnInit {
     }
     await this.joinService.joinfind(body).subscribe(
       result => {
-        let temp :any;
-        this.result=result;
-        result.forEach(element=>{
-          temp.push(result.filter(this.missionid == result.missionid))
-        })
+        let temp = [];
+        this.result = result;
         console.log(this.result);
+        result.forEach(element => {
+          if (body.missionid == element.missionid && element.childusername == body.childusername) {
+            temp.push(element);
+            if (temp[0].status == '已參加' || temp[0].status == '已審核') {
+              this.isJoin = true;
+              console.log(this.isJoin);
+            }
+          }
+        })
         // let temp = [];
         // result.forEach(element => {
         //   temp.push(result.filter(function(a){
         //     console.log(this.missionid);
         //   }));
         // });
-        if (this.status == "已參加" || this.status == "已審核") {
-          console.log(1);
-          this.isJoin = true;
-        }
-        else {
-          console.log(2);
-          this.isJoin = false;
-        }
+        // if (this.status == "已參加" || this.status == "已審核") {
+        //   console.log(1);
+        //   this.isJoin = true;
+        // }
+        // else {
+        //   console.log(2);
+        //   this.isJoin = false;
+        // }
       })
   }
 

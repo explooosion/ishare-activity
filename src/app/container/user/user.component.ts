@@ -44,6 +44,5 @@ export class UserComponent implements OnInit {
     }
     
     //this.missionlist = temp;
-    console.log(this.missionlist)
   }
 }
