@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MissionService } from '../../service/mission/mission.service';
+import { JoinService } from '../../service/join/join.service';
 
 declare let jquery: any;
 declare let $: any;
@@ -9,7 +9,7 @@ declare let $: any;
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  providers: [MissionService]
+  providers: [JoinService]
 })
 export class HomeComponent implements OnInit {
   public missionpic: Object = [];
@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   public missionssit2: any = [];
   constructor(
     private router: Router,
-    private missionService: MissionService,
+    private joinService: JoinService,
   ) { }
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class HomeComponent implements OnInit {
 
   public async missioncheck() {
     let body = "";
-    await this.missionService.Getmission(body).subscribe(
+    await this.joinService.Getmission(body).subscribe(
       result => {
         let x = [
           '展演講座',

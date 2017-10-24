@@ -13,7 +13,7 @@
           <img class="setpicwidth" src="{{mission.missionpicture}}" alt="">
         </div>
         <div class="col-md-12 row settop setpadding">
-          <div class="col-md-9">
+          <div class="col-md-9 row">
             <div class="col-md-12">
               <span class="text-title">{{mission.missionname}}</span>
             </div>
@@ -37,7 +37,6 @@
             </div>
             <div class="col-md-12">
               <p class="text-body">{{mission.missioncontent}}</p>
-              <p class="text-body">{{mission.missioncontent}}</p>
             </div>
           </div>
           <div class="col-md-3">
@@ -52,8 +51,14 @@
                 <p class="right-body">{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}~{{mission.missionexperiencetime | date: 'yyyy/MM/dd'}}</p>
               </div>
               <div class="col-md-12  setmarginbottom">
-                <button type="button" class="btn btn-info btn-maxw" data-toggle="modal" data-target="#exampleModal">
+                <button *ngIf="!isJoin" type="button" class="btn btn-info btn-maxw" data-toggle="modal" data-target="#exampleModal">
                   參加活動
+                </button>
+                <button *ngIf="isJoin" type="button" class="form-group btn btn-warning btn-maxw" data-toggle="modal">
+                  參加中
+                </button>
+                <button *ngIf="isJoin" type="button" class="form-group btn btn-info btn-maxw" data-toggle="modal">
+                  前往填寫心得
                 </button>
               </div>
             </div>
@@ -63,4 +68,4 @@
     </div>
   </div>
 </div>
-<app-checkjoin [missionid]="missionid"></app-checkjoin>
+<app-checkjoin [missionid]="missionid" (onJoin)="onJoin($event)"></app-checkjoin>
