@@ -12,46 +12,44 @@ declare let $: any;
   providers: [JoinService]
 })
 export class HomeComponent implements OnInit {
-  public missionpic: Object = [];
-  public missiontitle: Object = [];
+
   public missiontype: Object = [];
-  public organizertitle: object = [];
-  public organizerimg: object = [];
-  public result: any = "";
-  public islogin: boolean = false;
-  public missions: any = [];
-  public missionssit: any = [];
-  public missionssit2: any = [];
+
+  public isLoading: Boolean = true;
+  public missions: Object = [];
+  public missionssit: Object = [];
+  public missionssit2: Object = [];
+
   constructor(
     private router: Router,
     private joinService: JoinService,
   ) { }
 
   ngOnInit() {
-
-    this.missioncheck();
+    this.missionLoad();
     $('.carousel').carousel({
       interval: 2500
-    })
-  }
-  ngAfterContentInit(){
-    window.scrollTo(0,0);
-  }
-  // ngDoCheck(){
-  //   window.scrollTo(0,0);    
-  // }
-  // 主辦單位
-  public async organizer() {
-    let body = {
-      organizertitle: this.organizertitle,
-    };
+    });
+
   }
 
-  public async missioncheck() {
+  ngAfterContentInit() {
+    window.scrollTo(0, 0);
+  }
+
+  /**
+   * 載入所有任務
+   *
+   * @memberof HomeComponent
+   */
+  public async missionLoad() {
+
     let body = "";
+
     await this.joinService.Getmission(body).subscribe(
       result => {
-        let x = [
+
+        let arr = [
           '展演講座',
           '影片任務',
           '展演任務',
@@ -60,51 +58,23 @@ export class HomeComponent implements OnInit {
           '運動任務',
           '美術任務',
         ];
+
         let temp = [];
-        this.islogin = true;  
-        x.forEach(element => {
-          temp.push(result.filter(function (x) {
-            return x.missiontype == element;
+
+        arr.forEach(element => {
+          temp.push(result.filter(function (r) {
+            return r.missiontype == element;
           }));
         });
+
         this.missions = temp;
         this.missionssit = temp[0].slice(0, 1);
         this.missionssit2 = temp[0].slice(1, 5);
+
+        this.isLoading = false;
+
       }
     )
   }
 
-  public btnMissionbicycle() {
-    this.router.navigate(['mission/bicycle']);
-  }
-  public btnMissionsport() {
-    this.router.navigate(['mission/sport']);
-  }
-  public btnSearch() {
-    this.router.navigate(['search']);
-  }
-  public btnMissioninformation() {
-    this.router.navigate(['mission/information']);
-  }
-  public btnMissionart() {
-    this.router.navigate(['mission/art']);
-  }
-  public btnMissionclean() {
-    this.router.navigate(['mission/clean']);
-  }
-  public btnMissionoutclean() {
-    this.router.navigate(['mission/outclean']);
-  }
-  public btnMissionoutourplay() {
-    this.router.navigate(['mission/tourplay']);
-  }
-  public btnMissionouplaytour() {
-    this.router.navigate(['mission/playtour']);
-  }
-  public btnMissionoujoinexhibition() {
-    this.router.navigate(['mission/join-exhibition']);
-  }
-  public btnMissionovisithibition() {
-    this.router.navigate(['mission/visit-exhibition']);
-  }
 }

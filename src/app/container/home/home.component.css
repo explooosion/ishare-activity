@@ -1,211 +1,74 @@
-
 #home {
-    background-color: #f5f5f5;  
-    padding-top: 28px;  
+    padding-top: 20px;
     padding-bottom: 50px;
 }
-#home .setbetop{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-#home .row{
-    margin-left: 0px;
-    margin-right: 0px;
-}
-#home .card{
-    height: 100%;
-}
-#home .button{
-    width: 100%;
-    margin-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-}
-#home .title-text{
-    font-size: 25px;
-}
-#home .home-btn{
-    width: 100%;
-}
-#home .setbottompadding{
-    padding-bottom: 0px;
-}
-#home .settop-top{
-    margin-top: 30px;
-}
-#home .setleftpadding{
-    padding-left: 0px;
-}
-#home .settopbottom{
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-#home .setrightpadding{
-    padding-right: 0px;
-}
-#home .setpadding{
-    padding-left: 0px;
-    padding-right: 0px;
-}
-#home .setborder{
-    border-radius: 1em;
-    border: 2px solid #E0E0E0;
-}
-#home .setradius{
-    border-top-left-radius: 1em;
-    border-top-right-radius: 1em;
-}
-#home .setmargin-left{
-    margin-left: 15px;
-}
-#home .setfooterimg{
-    display: table;
-    margin-top: 10px;
-    max-height: 80px;
-    object-fit: cover;
-    margin-left: auto;
-    margin-right: auto;
-}
-.home-setfooterbackg{
-    background-color: #adad85;
-}
-#home .setfootermargin-right{
-    margin-right: 5px;
-}
-#home .setfootermargin-bottom{
-    margin-bottom: 10px;
-    margin-left: 10px;
-}
-#home .sethight{
-    height: 350px;
-}
-#home .setbottom-bottom{
-    margin-bottom:  20px;
-}
-#home .setmargin-bottom{
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-#home .img-thumbnail{
-    color: #adad85;
-    /* color: #FF5258; */
-    border: 1px solid #adad85;
-    border-radius: 99em;
-}
-#home .img-thumbnail:hover{
-    color: #ff0000;
-    border: 1px solid #FF5258;
-}
-#home .btnheight{
-    height: 100%;
-}
-#home .setmarginbotttom{
-    margin-bottom: 20px;
-}
-#home .hottext{
-    /* 愛心圖案文字的設定 */
-    font-size: 14px;
-    color:  #ff6666;
-}
-#home .text-title{
-    font-size: 16px;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-    overflow : hidden;
-}
-#home .text-time{
-    font-size: 12px;
-    color: #94b8b8;
-}
-#home .text-text{
-    font-size: 14px;
-    text-overflow : ellipsis;
-    overflow : hidden;
-    white-space:nowrap;
-    line-height: 14px;
-}
-#home .sameheight{
-    height: 100%;
+
+
+/* 輪播圖 */
+
+
+/* 下方控制按鈕 */
+
+#carouselSlider .carousel-indicators li {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 100%;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
 }
 
-.home-setcounterhigh{
-    margin-top:68px;
+#carouselSlider .carousel-indicators li:hover,
+#carouselSlider .carousel-indicators li.active {
+    background: #fff;
 }
-.card-big-img{
+
+
+/* Global */
+
+.card .card-block {
+    padding: 1rem;
+}
+
+.card .card-title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card .card-text>* {
+    margin-top: 0.6rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.card .card-text p {
+    color: #799c9c;
+}
+
+.card .card-text span {
+    display: block;
+}
+
+.card .img-thumbnail {
+    padding: 0;
+    border: 0;
+    width: 100%;
+    height: 120px;
+    border-radius: 0;
+    object-fit: cover;
+}
+
+
+/* 展演講座 */
+
+
+/* 大圖示 */
+
+#mission-talk .img-main {
     height: 250px;
     width: 100%;
     object-fit: cover;
-}
-.card-small-img{
-    height: 140px;
-    width: 100%;
-    object-fit: cover;
-}
-.home-setimg{
-    width: 100%;
-    height: 220px;
-}
-.home-setmiddleheight{
-    top: 50px;
-}
-.home-setbottomhei{
-    margin-top: 70px;
-}
-#home a{
-    cursor: pointer;
-}
-.home-setmiddletext{
-    margin-top: 10px;
-}
-.home-setbottompic{
-    max-height: 50px;
-}
-#home .setfootertop{
-    margin-top: 20px;
-}
-.home-setfooterbottom{
-    margin-bottom:30px; 
-}
-
-
-
-
-
-
-.card-img-top{
-    width: 100%;
-}
-.card-title{
-    display: block;
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-    overflow : hidden;
-    line-height: 30px;
-}
-.card-text{
-    display: block;
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-    text-overflow: ellipsis;
-    white-space:nowrap;
-    overflow : hidden;
-    font-size: 16px;
-}
-.card-text-time{
-    font-size: 14px;
-    color: #94b8b8;
-    display: block;
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-}
-#home .logotext{
-    display: table;
-    margin-left: auto;
-    margin-right: auto;
-}
-#home .setlr{
-    padding-left: 50px;
-    margin-right: 50px;
 }
