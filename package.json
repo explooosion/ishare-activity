@@ -5,10 +5,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.config.json",
-    "build": "ng build",
+    "build": "ng build --build-optimizer -prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "node deploy.js"
   },
   "private": true,
   "dependencies": {
@@ -27,10 +28,12 @@
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
+    "jquery-easing": "0.0.1",
     "moment": "^2.19.1",
     "ng2-charts": "^1.6.0",
     "ng2-cookies": "^1.0.12",
     "popper.js": "^1.12.5",
+    "reset-css": "^2.2.1",
     "rxjs": "^5.4.3",
     "sweetalert2": "^6.10.0",
     "zone.js": "^0.8.18"
@@ -43,6 +46,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.0.31",
     "codelyzer": "~3.2.0",
+    "copy": "^0.3.1",
     "jasmine-core": "~2.8.0",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~1.7.1",
@@ -52,6 +56,7 @@
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
     "protractor": "~5.1.2",
+    "replace-in-file": "^3.0.0-beta.2",
     "ts-node": "~3.3.0",
     "tslint": "~5.7.0",
     "typescript": "^2.3.0"

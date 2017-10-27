@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "dasboard"
+    "name": "activity"
   },
   "apps": [{
     "root": "src",
@@ -10,7 +10,7 @@
       "assets",
       "favicon.ico"
     ],
-    "index": "index.html",
+    "index": "activity.html",
     "main": "main.ts",
     "polyfills": "polyfills.ts",
     "test": "test.ts",
@@ -18,7 +18,7 @@
     "testTsconfig": "tsconfig.spec.json",
     "prefix": "app",
     "styles": [
-      "./plugin/reset/reset.min.css",
+      "../node_modules/reset-css/reset.css",
       "../node_modules/font-awesome/css/font-awesome.min.css",
       "../node_modules/bootstrap/dist/css/bootstrap.min.css",
       "../node_modules/sweetalert2/dist/sweetalert2.css",
@@ -26,6 +26,7 @@
     ],
     "scripts": [
       "../node_modules/jquery/dist/jquery.min.js",
+      "../node_modules/jquery-easing/dist/jquery.easing.1.3.umd.min.js",
       "../node_modules/popper.js/dist/umd/popper.min.js",
       "../node_modules/bootstrap/dist/js/bootstrap.min.js",
       "../node_modules/moment/min/moment.min.js",
