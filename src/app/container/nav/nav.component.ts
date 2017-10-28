@@ -13,15 +13,18 @@ declare let $: any;
 })
 export class NavComponent implements OnInit {
 
-  public IsLogin: boolean = false;
-  public readyLogin:boolean =true;
+  public IsLogin: Boolean = false;
+  public readyLogin: Boolean = true;
+
+  public auth: Number;
+
   constructor(
     private router: Router
   ) { }
 
   ngOnInit() {
-    this.readyLogin=true;
-    this.IsLogin=false;
+    this.readyLogin = true;
+    this.IsLogin = false;
     this.CheckLogin();
   }
 
@@ -29,17 +32,17 @@ export class NavComponent implements OnInit {
     let cookies = JSON.parse(Cookie.get('userCookie'));
     if (cookies) {
       this.IsLogin = true;
-      this.readyLogin=false;
+      this.readyLogin = false;
     }
     else {
       this.IsLogin = false;
-      this.readyLogin=true;
+      this.readyLogin = true;
     }
   }
-  public LoginOut(){
+  public LoginOut() {
     Cookie.delete('userCookie');
-    this.IsLogin=false;
-    this.readyLogin=true;
+    this.IsLogin = false;
+    this.readyLogin = true;
     this.router.navigate(["/storelogin"]);
   }
   public btnMissioncreate() {
