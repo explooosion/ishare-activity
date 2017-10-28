@@ -1,56 +1,68 @@
-#create{
+#create {
     margin-top: 80px;
 }
-#create .titletext{
+
+#create .titletext {
     font-size: 35px;
 }
-#create .setbar{
+
+#create .setbar {
     margin-bottom: 25px;
 }
-#create .setpadding{
+
+#create .setpadding {
     padding-left: 0px;
     padding-right: 0px;
 }
-#create .setnopadding{
+
+#create .setnopadding {
     padding-top: 0px;
     padding-bottom: 0px;
 }
-#create .settop{
+
+#create .settop {
     margin-top: 20px;
-}   
-#create .setcontenttext{
+}
+
+#create .setcontenttext {
     font-size: 18px;
     color: #1f1f14;
 }
-#create .setbord{
+
+#create .setbord {
     height: 100px;
     border: 2px solid #E0E0E0;
 }
-#create .setheight{
+
+#create .setheight {
     height: 120px;
 }
-#create .setbtn{
+
+#create .setbtn {
     width: 100%;
 }
-#create .settext{
+
+#create .settext {
     color: #1f1f14;
 }
-#create .form-group .col-form-label{
+
+#create .form-group .col-form-label {
     color: #1f1f14;
 }
-#create .setbtw{
+
+#create .setbtw {
     margin-left: 19px;
 }
-#create .setrightpadding{
+
+#create .setrightpadding {
     padding-right: 0px;
-    margin-right:34px;
+    margin-right: 34px;
 }
-#create .setbackgr{
+
+#create .setbackgr {
     background-color: #f5f5ef;
 }
-#create .setmargi{
+
+#create .setmargi {
     margin-right: 68px;
 }
-input::placeholder{ 
-    color: #1f1f14;
- }
