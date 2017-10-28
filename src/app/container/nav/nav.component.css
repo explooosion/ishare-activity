@@ -1,5 +1,10 @@
+.form-inline h6,
+.form-inline a {
+    font-size: 1rem;
+}
+
 .form-inline a:hover {
-    color: #222 !important;
+    color: #2ab3fc;
 }
 
 .navbar-group i {
