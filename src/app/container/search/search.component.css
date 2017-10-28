@@ -1,20 +1,24 @@
 a {
-    text-decoration:none;
+    text-decoration: none;
 }
+
 b {
     color: #757575;
 }
-.search-data{
+
+.search-data {
     padding-bottom: 0;
-    
 }
-.search{
+
+.search {
     margin-bottom: 50px;
 }
-.col-xs-12{
+
+.col-xs-12 {
     width: 100%;
 }
-.hot-tagbox{
+
+.hot-tagbox {
     margin: 0 2px;
     white-space: nowrap;
     height: 40px;
@@ -22,31 +26,37 @@ b {
     overflow: hidden;
     text-overflow: ellipsis;
 }
-.hot-tagbox-item{
+
+.hot-tagbox-item {
     margin-left: 8px;
-    color:#1fb0ff;
+    color: #1fb0ff;
 }
-.hot-tagbox-item:hover{
+
+.hot-tagbox-item:hover {
     margin-left: 8px;
-    color:#0088d2;
+    color: #0088d2;
 }
-.dl-data-dt{
+
+.dl-data-dt {
     width: 8%;
     float: left;
     margin: 0 14px;
 }
-.dl-data-item{
+
+.dl-data-item {
     display: inline-block;
     margin: 0 0 5px;
     padding: 2px 5px;
     vertical-align: top;
     color: #757575;
 }
-.dl-data-item:hover{
+
+.dl-data-item:hover {
     color: #fff;
     background-color: #0088d2;
 }
-.dl-data-item-active{
+
+.dl-data-item-active {
     display: inline-block;
     margin: 0 0 5px;
     padding: 2px 5px;
@@ -54,33 +64,40 @@ b {
     color: #fff;
     background-color: #0088d2;
 }
-.btn-group{
+
+.btn-group {
     margin: 0 14px;
 }
-.search-group-btn{
+
+.search-group-btn {
     background-image: none;
     color: #333;
     background-color: #fff;
-    border-color:#ccc;
+    border-color: #ccc;
 }
-.search-group-btn:hover{
+
+.search-group-btn:hover {
     background-image: none;
     color: #fff;
     background-color: #0088d2;
-    border-color:#0088d2;
+    border-color: #0088d2;
 }
-.search-group-btn-active{
+
+.search-group-btn-active {
     background-image: none;
     color: #fff;
     background-color: #0088d2;
-    border-color:#0088d2;
+    border-color: #0088d2;
 }
+
 .search-tab-content {
     margin-top: 1.4rem;
 }
-.setpadding{
+
+.setpadding {
     padding-right: 0px;
 }
+
 .search-tab-content .card {
     display: inline-block;
     margin-right: 1.4rem;
@@ -88,9 +105,11 @@ b {
     width: 340px;
     border: 1px solid #ccc;
 }
-.setbottom{
+
+.setbottom {
     margin-bottom: 20px;
 }
+
 .search-tab-content .card-img-top {
     max-width: 100%;
     height: auto;
@@ -157,12 +176,15 @@ b {
     color: #FF5258;
     border: 1px solid #FF5258;
 }
+
 .center {
     text-align: center;
 }
+
 .pagination {
     display: inline-block;
 }
+
 .pagination a {
     color: black;
     float: left;
@@ -171,8 +193,8 @@ b {
     text-decoration: none;
     transition: background-color .3s;
 }
+
 .pagination a.active {
     background-color: #0088d2;
     color: white;
 }
-
