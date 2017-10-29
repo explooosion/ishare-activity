@@ -49,10 +49,15 @@ export class LoginComponent implements OnInit {
         result => {
           this.result = result[0];
           if (this.result) {
+
+            // 判斷使用者群組
+            this.result.logingroup = this.logingroup;
+
             Cookie.set('userCookie', JSON.stringify(this.result))
-            this.swalDialogSuccess
-              .show()
-              .then((value) => { window.location.reload(); });
+            this.swalDialogSuccess.show();
+
+            setTimeout(() => { window.location.reload(); }, 1200);
+
           } else {
             this.swalDialogError.show();
           }
