@@ -12,5 +12,9 @@
 */
 
 .text-white {
-  color: #fff !important;
+    color: #fff !important;
+}
+
+.text-gray {
+    color: #757575 !important;
 }
