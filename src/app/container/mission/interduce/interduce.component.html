@@ -1,11 +1,12 @@
 <div id="interduce">
-  <div class="container setmargin-top" *ngIf="!ischeck">
-    <div class="col-md-12 row justify-content-center">
-      <div class="col-md-2">
-        <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
-      </div>
+
+  <!-- Loading -->
+  <div class="row loading" *ngIf="!ischeck">
+    <div class="col-md-12 text-center">
+      <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
     </div>
   </div>
+
   <div class="container" *ngIf="ischeck">
     <div class="row col-md-12 setrightpadding" *ngFor="let mission of missions">
       <div class="col-md-12 setpadding setback">
@@ -54,10 +55,10 @@
                 <button *ngIf="!isJoin" type="button" class="btn btn-info btn-maxw" data-toggle="modal" data-target="#exampleModal">
                   參加活動
                 </button>
-                <button *ngIf="isJoin" type="button" class="form-group btn btn-warning  btn-maxw" >
+                <button *ngIf="isJoin" type="button" class="form-group btn btn-warning  btn-maxw">
                   參加中
                 </button>
-                <button *ngIf="isFinish" type="button" class="form-group btn btn-info btn-maxw" (click)="btnMissionart()">
+                <button *ngIf="isFinish" type="button" class="form-group btn btn-info btn-maxw" (click)="btnExperience(missionid)">
                   前往填寫心得
                 </button>
               </div>
@@ -67,6 +68,6 @@
       </div>
     </div>
   </div>
-</div>  
-<app-checkjoin [missionid] = "missionid" (onJoin)="onJoin($event)"></app-checkjoin>
+</div>
+<app-checkjoin [missionid]="missionid" (onJoin)="onJoin($event)"></app-checkjoin>
 <!-- <app-experience [missionid] = "missionid"></app-experience> -->

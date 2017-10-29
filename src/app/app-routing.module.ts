@@ -12,11 +12,9 @@ import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
 // Component - Mission
-import { SportComponent } from './container/mission/sport/sport.component';
 import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
 import { InformationComponent } from './container/mission/information/information.component';
 import { ExperienceComponent } from './container/mission/experience/experience.component';
-import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 import { PlaytourComponent } from './container/mission/playtour/playtour.component';
 import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
@@ -25,17 +23,28 @@ import { VisitExhibitionComponent } from './container/mission/visit-exhibition/v
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 
+// Mission / 心得分類
+import { TalkComponent } from './container/mission/talk/talk.component';
+import { VideoComponent } from './container/mission/video/video.component';
+import { TravelComponent } from './container/mission/travel/travel.component';
+import { SportComponent } from './container/mission/sport/sport.component';
+import { CleanComponent } from './container/mission/clean/clean.component';
+import { ArtComponent } from './container/mission/art/art.component';
+import { ShowComponent } from './container/mission/show/show.component';
+
+
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'user', component: UserComponent },
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
   { path: 'search', component: SearchComponent },
-  { path: 'mission/sport', component: SportComponent },
+
   { path: 'mission/bicycle', component: BicycleComponent },
   { path: 'mission/information', component: InformationComponent },
   { path: 'mission/experience', component: ExperienceComponent },
-  { path: 'mission/clean', component: CleanComponent },
+
+  // 底下這一包刪除或上個註解說明
   { path: 'mission/outclean', component: OutcleanComponent },
   { path: 'mission/playtour', component: PlaytourComponent },
   { path: 'mission/tourplay', component: TourplayComponent },
@@ -43,6 +52,16 @@ const routes: Routes = [
   { path: 'mission/visit-exhibition', component: VisitExhibitionComponent },
   { path: 'mission/create', component: CreateComponent },
   { path: 'mission/interduce', component: InterduceComponent },
+
+  // 心得分類
+  { path: 'mission/talk', component: TalkComponent },
+  { path: 'mission/video', component: VideoComponent },
+  { path: 'mission/travel', component: TravelComponent },
+  { path: 'mission/Sport', component: SportComponent },
+  { path: 'mission/clean', component: CleanComponent },
+  { path: 'mission/art', component: ArtComponent },
+  { path: 'mission/show', component: ShowComponent },
+
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }

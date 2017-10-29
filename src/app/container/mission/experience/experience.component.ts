@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { JoinService } from '../../../service/join/join.service';
 import { Router } from '@angular/router';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
+
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
@@ -9,10 +10,12 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
   providers: [JoinService]
 })
 export class ExperienceComponent implements OnInit {
+
   public result: any;
   public user: any;
   public experience: any;
   @Input() missionid: string;
+
   constructor(
     private router: Router,
     private joinService: JoinService,
@@ -20,7 +23,6 @@ export class ExperienceComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(Cookie.get('userCookie'));
-    console.log(this.missionid)
   }
   public async UpdateExperience() {
     let body = {
@@ -30,10 +32,10 @@ export class ExperienceComponent implements OnInit {
     };
     await this.joinService.update(body).subscribe(
       result => {
-        console.log(result)
+        console.log(result);
       }
     )
-    this.router.navigate['mission/'+this.missionid];
+    this.router.navigate['mission/' + this.missionid];
   }
-  
+
 }

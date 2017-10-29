@@ -35,6 +35,11 @@ import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
 import { ExperienceComponent } from './container/mission/experience/experience.component';
+import { TalkComponent } from './container/mission/talk/talk.component';
+import { VideoComponent } from './container/mission/video/video.component';
+import { TravelComponent } from './container/mission/travel/travel.component';
+import { ArtComponent } from './container/mission/art/art.component';
+import { ShowComponent } from './container/mission/show/show.component';
 
 enableProdMode();
 
@@ -62,7 +67,12 @@ enableProdMode();
     CreateComponent,
     InterduceComponent,
     CheckjoinComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    TalkComponent,
+    VideoComponent,
+    TravelComponent,
+    ArtComponent,
+    ShowComponent
   ],
   imports: [
     BrowserModule,
