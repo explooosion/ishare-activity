@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule, JsonpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 
+import { enableProdMode } from '@angular/core';
+
+// Plugin
 import { SweetAlert2Module } from '@toverux/ngsweetalert2';
 
 // Container
@@ -32,6 +35,8 @@ import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
 import { ExperienceComponent } from './container/mission/experience/experience.component';
+
+enableProdMode();
 
 @NgModule({
   declarations: [
