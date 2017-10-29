@@ -15,8 +15,7 @@ export class NavComponent implements OnInit {
 
   public IsLogin: Boolean = false;
   public readyLogin: Boolean = true;
-
-  public auth: Number;
+  public logingroup: Number = 0;
 
   constructor(
     private router: Router
@@ -30,7 +29,9 @@ export class NavComponent implements OnInit {
 
   public CheckLogin() {
     let cookies = JSON.parse(Cookie.get('userCookie'));
+    console.log(cookies);
     if (cookies) {
+      this.logingroup = cookies.logingroup;
       this.IsLogin = true;
       this.readyLogin = false;
     }
