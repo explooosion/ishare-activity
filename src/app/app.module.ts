@@ -9,6 +9,10 @@ import { enableProdMode } from '@angular/core';
 // Plugin
 import { SweetAlert2Module } from '@toverux/ngsweetalert2';
 
+// Primeng [元件組-僅用到此工具的上傳]
+import { AccordionModule } from 'primeng/primeng';     //accordion and accordion tab
+import { MenuItem } from 'primeng/primeng';            //api
+import { FileUploadModule } from 'primeng/primeng';
 
 // Component
 import { LoginComponent } from './component/modal/login/login.component';
@@ -75,7 +79,7 @@ enableProdMode();
     VideoComponent,
     TravelComponent,
     ArtComponent,
-    ShowComponent
+    ShowComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,7 +92,9 @@ enableProdMode();
       customClass: 'modal-content',
       confirmButtonClass: 'btn btn-lg btn-primary',
       cancelButtonClass: 'btn btn-lg'
-    })
+    }),
+    AccordionModule,
+    FileUploadModule
   ],
   providers: [],
   bootstrap: [AppComponent]

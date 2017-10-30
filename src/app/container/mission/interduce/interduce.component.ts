@@ -69,19 +69,18 @@ export class InterduceComponent implements OnInit {
    * @param {Number} id
    * @memberof InterduceComponent
    */
-  public btnExperience(id: Number) {
+  public btnExperience() {
 
     let url = null;
 
     // 有些多的心得組件要刪除
-    switch (Number(id)) {
-      case 1: url = 'talk'; break;
-      case 2: url = 'video'; break;
-      case 3: url = 'travel'; break;
-      case 4: url = 'sport'; break;
-      case 5: url = 'clean'; break;
-      case 6: url = 'art'; break;
-      case 7: url = 'show'; break;
+    switch (this.missions[0].missiontype) {
+      case '影片任務': url = 'video'; break;
+      case '展演任務': url = 'show'; break;
+      case '旅遊任務': url = 'travel'; break;
+      case '清潔任務': url = 'clean'; break;
+      case '運動任務': url = 'sport'; break;
+      case '美術任務': url = 'art'; break;
     }
 
     if (url != null) {
