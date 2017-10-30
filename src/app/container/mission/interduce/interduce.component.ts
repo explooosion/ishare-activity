@@ -54,7 +54,14 @@ export class InterduceComponent implements OnInit {
     let body = "username=" + this.userdata.childusername + "&missionid=" + this.missionid
     await this.joinService.joinfind(body).subscribe(
       result => {
-        if (result.length != 0) { this.isJoin = true; if (result[0].experience == null) { this.isFinish = true } }
+        if (result.length != 0) {
+          this.isJoin = true;
+
+          // 給了這條件, 我就不能修改心得了, 要刪除
+          // if (result[0].experience == null) {
+          this.isFinish = true
+          // }
+        }
       })
   }
 
@@ -84,7 +91,7 @@ export class InterduceComponent implements OnInit {
     }
 
     if (url != null) {
-      this.router.navigate([`mission/${url}`]);
+      this.router.navigate([`mission/${url}`], { queryParams: { id: this.missionid } });
     } else {
       // 照理說不該ERROR（除非用戶亂改網址）
       // location.reload();
