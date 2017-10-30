@@ -9,6 +9,12 @@ import { enableProdMode } from '@angular/core';
 // Plugin
 import { SweetAlert2Module } from '@toverux/ngsweetalert2';
 
+
+// Component
+import { LoginComponent } from './component/modal/login/login.component';
+import { SignupComponent } from './component/modal/signup/signup.component';
+import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
+
 // Container
 import { AppComponent } from './app.component';
 import { NavComponent } from './container/nav/nav.component';
@@ -19,13 +25,9 @@ import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
-// Component;
-import { LoginComponent } from './component/modal/login/login.component';
-import { SignupComponent } from './component/modal/signup/signup.component';
-import { SportComponent } from './container/mission/sport/sport.component';
+// Container
 import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
 import { InformationComponent } from './container/mission/information/information.component';
-import { CleanComponent } from './container/mission/clean/clean.component';
 import { OutcleanComponent } from './container/mission/outclean/outclean.component';
 import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
 import { PlaytourComponent } from './container/mission/playtour/playtour.component';
@@ -33,13 +35,15 @@ import { VisitExhibitionComponent } from './container/mission/visit-exhibition/v
 import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
-import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
 import { ExperienceComponent } from './container/mission/experience/experience.component';
-import { TalkComponent } from './container/mission/talk/talk.component';
+
+// Container / Mission
 import { VideoComponent } from './container/mission/video/video.component';
-import { TravelComponent } from './container/mission/travel/travel.component';
-import { ArtComponent } from './container/mission/art/art.component';
 import { ShowComponent } from './container/mission/show/show.component';
+import { TravelComponent } from './container/mission/travel/travel.component';
+import { CleanComponent } from './container/mission/clean/clean.component';
+import { SportComponent } from './container/mission/sport/sport.component';
+import { ArtComponent } from './container/mission/art/art.component';
 
 enableProdMode();
 
@@ -68,7 +72,6 @@ enableProdMode();
     InterduceComponent,
     CheckjoinComponent,
     ExperienceComponent,
-    TalkComponent,
     VideoComponent,
     TravelComponent,
     ArtComponent,

@@ -24,13 +24,12 @@ import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 
 // Mission / 心得分類
-import { TalkComponent } from './container/mission/talk/talk.component';
 import { VideoComponent } from './container/mission/video/video.component';
-import { TravelComponent } from './container/mission/travel/travel.component';
-import { SportComponent } from './container/mission/sport/sport.component';
-import { CleanComponent } from './container/mission/clean/clean.component';
-import { ArtComponent } from './container/mission/art/art.component';
 import { ShowComponent } from './container/mission/show/show.component';
+import { TravelComponent } from './container/mission/travel/travel.component';
+import { CleanComponent } from './container/mission/clean/clean.component';
+import { SportComponent } from './container/mission/sport/sport.component';
+import { ArtComponent } from './container/mission/art/art.component';
 
 
 const routes: Routes = [
@@ -54,13 +53,12 @@ const routes: Routes = [
   { path: 'mission/interduce', component: InterduceComponent },
 
   // 心得分類
-  { path: 'mission/talk', component: TalkComponent },
   { path: 'mission/video', component: VideoComponent },
-  { path: 'mission/travel', component: TravelComponent },
-  { path: 'mission/Sport', component: SportComponent },
-  { path: 'mission/clean', component: CleanComponent },
-  { path: 'mission/art', component: ArtComponent },
   { path: 'mission/show', component: ShowComponent },
+  { path: 'mission/travel', component: TravelComponent },
+  { path: 'mission/clean', component: CleanComponent },
+  { path: 'mission/Sport', component: SportComponent },
+  { path: 'mission/art', component: ArtComponent },
 
   // 強制跳轉至首頁 /home
   { path: '', redirectTo: '/home', pathMatch: 'full' },
