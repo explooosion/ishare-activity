@@ -33,7 +33,7 @@
     "ng2-charts": "^1.6.0",
     "ng2-cookies": "^1.0.12",
     "popper.js": "^1.12.5",
-    "primeng": "^4.3.0-rc.2",
+    "primeng": "^4.3.0",
     "reset-css": "^2.2.1",
     "rxjs": "^5.4.3",
     "sweetalert2": "^6.10.0",
