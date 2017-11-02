@@ -4,20 +4,77 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class MissionService {
-  constructor(private http: Http) { }
+  constructor(
+    private http: Http
+  ) { }
 
-  private api2 :string ='api/mission/join/update';
-  public update(index) {
-    return this.http.post(this.api2 ,index)
-      .map((mis) => {
-        return mis.json() || {}
+  /**
+   * 任務列表
+   *
+   * @param {any} id
+   * @returns
+   * @memberof MissionService
+   */
+  public getMission(id) {
+    return this.http.get(`api/mission/${id}`)
+      .map((res) => {
+        return res.json() || {}
       });
   }
-  private api4: string = 'api/mission/';
-  public Getmission(index) {
-    return this.http.get(this.api4 + index)
-      .map((mis) => {
-        return mis.json() || {}
+
+  /**
+   * 任務更新
+   *
+   * @param {any} id
+   * @returns
+   * @memberof MissionService
+   */
+  public updateMission(id) {
+    return this.http.post('api/mission/join/update', id)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
+  /**
+   * 尋找使用者參加的任務(條件查詢)
+   *
+   * @param {Object} param
+   * @returns
+   * @memberof MissionService
+   */
+  public getJoinBy(param: Object) {
+    return this.http.get(`api/mission/join?${param}`)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
+  /**
+   * 更新使用者參加的任務
+   *
+   * @param {Object} body
+   * @returns
+   * @memberof MissionService
+   */
+  public updateJoin(body: Object) {
+    return this.http.post('api/mission/join/update', body)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
+  /**
+   * 新增使用者參加的任務
+   *
+   * @param {Object} body
+   * @returns
+   * @memberof MissionService
+   */
+  public addJoin(body: Object) {
+    return this.http.post('api/mission/join/add', body)
+      .map((res) => {
+        return res.json() || {}
       });
   }
 }

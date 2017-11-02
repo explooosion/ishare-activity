@@ -59,11 +59,11 @@
       <div class="row">
         <div class="col-md-6">
           <div class="card card-main" *ngFor="let mission of missions[2].slice(0,1) ; let i= index">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img class="img-main" src="{{mission.missionpicture}}">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h5 class="card-title">{{mission.missionname}}</h5>
               </a>
               <div class="card-text">
@@ -74,7 +74,7 @@
               </div>
             </div>
             <div class="card-footer">
-              <a class="btn btn-info form-control" [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">了解詳情</a>
+              <a class="btn btn-info form-control" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">了解詳情</a>
             </div>
           </div>
         </div>
@@ -83,11 +83,11 @@
           <div class="row">
             <div class="col-md-6" *ngFor="let mission of missions[2].slice(1,3) ; let i = index">
               <div class="card" *ngIf="i<=1">
-                <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+                <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                   <img class="img-thumbnail d-block" src="{{mission.missionpicture}}">
                 </a>
                 <div class="card-block">
-                  <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+                  <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                     <h6 class="card-title card-text">{{mission.missionname}}</h6>
                   </a>
                   <div class="card-text">
@@ -101,11 +101,11 @@
           <div class="row mt-4">
             <div class="col-md-6" *ngFor="let mission of missions[2].slice(3,5) ; let i = index">
               <div class="card" *ngIf="i<=1">
-                <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+                <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                   <img class="img-thumbnail d-block" src="{{mission.missionpicture}}">
                 </a>
                 <div class="card-block">
-                  <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+                  <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                     <h6 class="card-title">{{mission.missionname}}</h6>
                   </a>
                   <div class="card-text">
@@ -134,11 +134,11 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let mission of missions[1] ; let i = index">
           <div class="card" *ngIf="i<3 ">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">
@@ -167,11 +167,11 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let mission of missions[2] ; let i= index">
           <div div class="card" *ngIf="i<3">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">
@@ -200,11 +200,11 @@
       <div class="row">
         <div class="col-md-3" *ngFor="let mission of missions[3] ; let i = index">
           <div class="card" *ngIf="i<4">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">
@@ -234,11 +234,11 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let mission of missions[5] ; let i = index">
           <div class="card" *ngIf="i<3">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">
@@ -267,11 +267,11 @@
       <div class="row">
         <div class="col-md-3" *ngFor="let mission of missions[6] ; let i = index">
           <div class="card" *ngIf="i<4">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">
@@ -300,11 +300,11 @@
       <div class="row">
         <div class="col-md-4" *ngFor="let mission of missions[4] ; let i = index">
           <div class="card" *ngIf="i<3">
-            <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/interduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h6 class="card-title"> {{ mission.missionname }}</h6>
               </a>
               <div class="card-text">

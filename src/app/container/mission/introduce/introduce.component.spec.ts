@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InterduceComponent } from './interduce.component';
+import { IntroduceComponent } from './introduce.component';
 
-describe('InterduceComponent', () => {
-  let component: InterduceComponent;
-  let fixture: ComponentFixture<InterduceComponent>;
+describe('IntroduceComponent', () => {
+  let component: IntroduceComponent;
+  let fixture: ComponentFixture<IntroduceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ InterduceComponent ]
+      declarations: [ IntroduceComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(InterduceComponent);
+    fixture = TestBed.createComponent(IntroduceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

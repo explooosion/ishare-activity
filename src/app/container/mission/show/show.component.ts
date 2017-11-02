@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { JoinService } from '../../../service/join/join.service';
+import { MissionService } from '../../../service/mission/mission.service';
 
 import { SwalComponent } from '@toverux/ngsweetalert2';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
@@ -9,7 +9,7 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
   selector: 'app-show',
   templateUrl: './show.component.html',
   styleUrls: ['./show.component.css'],
-  providers: [JoinService]
+  providers: [MissionService]
 })
 export class ShowComponent implements OnInit {
 
@@ -26,7 +26,7 @@ export class ShowComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private joinService: JoinService
+    private missionService: MissionService
   ) { }
 
   ngOnInit() {
@@ -43,7 +43,7 @@ export class ShowComponent implements OnInit {
 
     if (this.missionId) {
 
-      await this.joinService.Getmission(this.missionId).subscribe(
+      await this.missionService.getMission(this.missionId).subscribe(
         result => {
           this.missionData = result[0];
         }
@@ -51,7 +51,7 @@ export class ShowComponent implements OnInit {
 
       let query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
       console.log(query);
-      await this.joinService.joinfind(query).subscribe(
+      await this.missionService.getJoinBy(query).subscribe(
         result => {
           this.missionDetail = result[0];
           this.missionDetail.experience = this.missionDetail.experience.replace('<br>', '\n');

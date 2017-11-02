@@ -17,7 +17,6 @@ import { FileUploadModule } from 'primeng/primeng';
 // Component
 import { LoginComponent } from './component/modal/login/login.component';
 import { SignupComponent } from './component/modal/signup/signup.component';
-import { CheckjoinComponent } from './component/modal/checkjoin/checkjoin.component';
 
 // Container
 import { AppComponent } from './app.component';
@@ -31,7 +30,7 @@ import { SearchComponent } from './container/search/search.component';
 
 // Container / Mission
 import { CreateComponent } from './container/mission/create/create.component';
-import { InterduceComponent } from './container/mission/interduce/interduce.component';
+import { IntroduceComponent } from './container/mission/introduce/introduce.component';
 
 // Container / Mission / Detail
 import { VideoComponent } from './container/mission/video/video.component';
@@ -55,15 +54,14 @@ enableProdMode();
     ProfileComponent,
     PointComponent,
     SearchComponent,
-    SportComponent,
-    CleanComponent,
     CreateComponent,
-    InterduceComponent,
-    CheckjoinComponent,
+    IntroduceComponent,
     VideoComponent,
-    TravelComponent,
-    ArtComponent,
     ShowComponent,
+    SportComponent,
+    TravelComponent,
+    CleanComponent,
+    ArtComponent,
   ],
   imports: [
     BrowserModule,

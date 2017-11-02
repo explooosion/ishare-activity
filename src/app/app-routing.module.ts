@@ -13,7 +13,7 @@ import { SearchComponent } from './container/search/search.component';
 
 // Component - Mission
 import { CreateComponent } from './container/mission/create/create.component';
-import { InterduceComponent } from './container/mission/interduce/interduce.component';
+import { IntroduceComponent } from './container/mission/introduce/introduce.component';
 
 // Mission / 心得分類
 import { VideoComponent } from './container/mission/video/video.component';
@@ -33,7 +33,7 @@ const routes: Routes = [
 
   // 任務相關操作
   { path: 'mission/create', component: CreateComponent },
-  { path: 'mission/interduce', component: InterduceComponent },
+  { path: 'mission/introduce', component: IntroduceComponent },
 
   // 心得分類
   { path: 'mission/video', component: VideoComponent },
