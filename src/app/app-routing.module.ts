@@ -12,14 +12,6 @@ import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
 // Component - Mission
-import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
-import { InformationComponent } from './container/mission/information/information.component';
-import { ExperienceComponent } from './container/mission/experience/experience.component';
-import { OutcleanComponent } from './container/mission/outclean/outclean.component';
-import { PlaytourComponent } from './container/mission/playtour/playtour.component';
-import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
-import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
-import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
 
@@ -39,16 +31,7 @@ const routes: Routes = [
   { path: 'user/point', component: PointComponent },
   { path: 'search', component: SearchComponent },
 
-  { path: 'mission/bicycle', component: BicycleComponent },
-  { path: 'mission/information', component: InformationComponent },
-  { path: 'mission/experience', component: ExperienceComponent },
-
-  // 底下這一包刪除或上個註解說明
-  { path: 'mission/outclean', component: OutcleanComponent },
-  { path: 'mission/playtour', component: PlaytourComponent },
-  { path: 'mission/tourplay', component: TourplayComponent },
-  { path: 'mission/join-exhibition', component: JoinExhibitionComponent },
-  { path: 'mission/visit-exhibition', component: VisitExhibitionComponent },
+  // 任務相關操作
   { path: 'mission/create', component: CreateComponent },
   { path: 'mission/interduce', component: InterduceComponent },
 

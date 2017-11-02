@@ -29,19 +29,11 @@ import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
-// Container
-import { BicycleComponent } from './container/mission/bicycle/bicycle.component';
-import { InformationComponent } from './container/mission/information/information.component';
-import { OutcleanComponent } from './container/mission/outclean/outclean.component';
-import { TourplayComponent } from './container/mission/tourplay/tourplay.component';
-import { PlaytourComponent } from './container/mission/playtour/playtour.component';
-import { VisitExhibitionComponent } from './container/mission/visit-exhibition/visit-exhibition.component';
-import { JoinExhibitionComponent } from './container/mission/join-exhibition/join-exhibition.component';
+// Container / Mission
 import { CreateComponent } from './container/mission/create/create.component';
 import { InterduceComponent } from './container/mission/interduce/interduce.component';
-import { ExperienceComponent } from './container/mission/experience/experience.component';
 
-// Container / Mission
+// Container / Mission / Detail
 import { VideoComponent } from './container/mission/video/video.component';
 import { ShowComponent } from './container/mission/show/show.component';
 import { TravelComponent } from './container/mission/travel/travel.component';
@@ -64,18 +56,10 @@ enableProdMode();
     PointComponent,
     SearchComponent,
     SportComponent,
-    BicycleComponent,
-    InformationComponent,
     CleanComponent,
-    OutcleanComponent,
-    TourplayComponent,
-    PlaytourComponent,
-    VisitExhibitionComponent,
-    JoinExhibitionComponent,
     CreateComponent,
     InterduceComponent,
     CheckjoinComponent,
-    ExperienceComponent,
     VideoComponent,
     TravelComponent,
     ArtComponent,
@@ -88,10 +72,10 @@ enableProdMode();
     JsonpModule,
     AppRoutingModule,
     SweetAlert2Module.forRoot({
-      buttonsStyling: false,
-      customClass: 'modal-content',
-      confirmButtonClass: 'btn btn-lg btn-primary',
-      cancelButtonClass: 'btn btn-lg'
+      // buttonsStyling: false,
+      // customClass: 'modal-content',
+      // confirmButtonClass: 'btn btn-lg btn-primary',
+      // cancelButtonClass: 'btn btn-lg'
     }),
     AccordionModule,
     FileUploadModule
