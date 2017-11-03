@@ -1,4 +1,4 @@
-<div class="user-profile jumbotron bg-white">
+<div class="user-profile jumbotron bg-white pb-4">
   <div class="container">
     <div class="row">
       <div class="col-sm-2">
@@ -32,7 +32,9 @@
           <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
           <div class="row card-control">
             <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
+              <a href="#" class="img-thumbnail liked">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </a>
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
@@ -43,19 +45,25 @@
       </div>
     </div>
     <div class="tab-pane fade" id="join-tab" role="tabpanel" aria-labelledby="mission-join-tab">
-      <div class="card" *ngFor="let mission of missionlist;let i = index">
-        <img class="card-img-top" src="{{mission.missionpicture}}" alt="Card image cap">
+      <div class="card" *ngFor="let mission of missionlist ; let i = index">
+        <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
+          <img class="card-img-top" src="{{ mission.missionpicture }}">
+        </a>
         <div class="card-body">
-          <h4 class="card-title">{{mission.missionname}}</h4>
-          <p class="card-time">{{mission.missioncreatetime}}</p>
-          <p class="card-text">{{mission.missioncontent}}</p>
+          <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
+            <h4 class="card-title">{{ mission.missionname }}</h4>
+          </a>
+          <p class="card-time">{{ mission.missioncreatetime | date: 'yyyy/MM/dd' }}</p>
+          <p class="card-text">{{ mission.missioncontent }}</p>
           <div class="row card-control">
             <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked"><i class="fa fa-heart" aria-hidden="true"></i></a>
+              <a class="img-thumbnail liked">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </a>
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
-              <a href="#" class="btn btn-info" >{{missions[i].status}}</a>
+              <a class="btn btn-info" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">{{ missions[i].status }}</a>
             </div>
           </div>
         </div>
@@ -70,7 +78,9 @@
           <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
           <div class="row card-control">
             <div class="col-sm-6">
-              <a href="#" class="img-thumbnail"><i class="fa fa-heart" aria-hidden="true"></i></a>
+              <a href="#" class="img-thumbnail">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </a>
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
