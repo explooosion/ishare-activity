@@ -145,7 +145,7 @@ export class IntroduceComponent implements OnInit {
     if (url != null) {
       this.router.navigate([`mission/${url}`], { queryParams: { id: this.missionId } });
     } else {
-      location.reload();
+      console.log(this.missions.missiontype);
     }
 
   }

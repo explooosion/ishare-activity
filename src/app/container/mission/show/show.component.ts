@@ -54,7 +54,10 @@ export class ShowComponent implements OnInit {
       await this.missionService.getJoinBy(query).subscribe(
         result => {
           this.missionDetail = result[0];
-          this.missionDetail.experience = this.missionDetail.experience.replace('<br>', '\n');
+
+          if (this.missionDetail.experience) {
+            this.missionDetail.experience = this.missionDetail.experience.replace('<br>', '\n');
+          }
         }
       );
 
