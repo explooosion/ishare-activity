@@ -77,4 +77,18 @@ export class MissionService {
         return res.json() || {}
       });
   }
+
+  /**
+ * 刪除使用者參加的任務
+ *
+ * @param {any} id
+ * @returns
+ * @memberof MissionService
+ */
+  public deleteJoin(id) {
+    return this.http.post('api/mission/join/delete', id)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
 }

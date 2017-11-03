@@ -16,9 +16,11 @@ import { async } from '@angular/core/testing';
 })
 export class IntroduceComponent implements OnInit {
 
-  @ViewChild('dialogIsJoin') private swalDialogIsJoin: SwalComponent;
+  @ViewChild('dialogIsLogin') private swalDialogIsLogin: SwalComponent;
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
+  @ViewChild('dialogDelSuccess') private swalDialogDelSuccess: SwalComponent;
+  @ViewChild('dialogDelError') private swalDialogDelError: SwalComponent;
 
   public missions: any = undefined;
   public missionId: any = null;
@@ -28,7 +30,6 @@ export class IntroduceComponent implements OnInit {
   public isJoin: boolean = false;
   public isFinish: boolean = false;
   public ischeck: boolean = false;
-
 
   constructor(
     private router: Router,
@@ -57,7 +58,6 @@ export class IntroduceComponent implements OnInit {
       result => {
         this.missions = result[0];
         this.ischeck = true;
-        console.log(this.missions);
       }
     );
   }
@@ -66,44 +66,63 @@ export class IntroduceComponent implements OnInit {
    * 參加任務
    */
   public async addJoin() {
-
-    this.swalDialogIsJoin.show().then(
-      async (value) => {
-
-        if (value) {
-          let body = {
-            missionid: this.missionId,
-            childusername: this.userdata.childusername,
-            createtime: moment().format('YYYY-MM-DD hh:mm:ss'),
-            finishtime: null,
-            status: '已參加',
-            experience: null,
-            verifytime: null,
-            picture: null,
-            verifyusername: null
+    if (this.userdata) {
+      let body = {
+        missionid: this.missionId,
+        childusername: this.userdata.childusername,
+        createtime: moment().format('YYYY-MM-DD hh:mm:ss'),
+        finishtime: null,
+        status: '已參加',
+        experience: null,
+        verifytime: null,
+        picture: null,
+        verifyusername: null
+      }
+      await this.missionService.addJoin(body).subscribe(
+        result => {
+          if (result.affectedRows > 0) {
+            this.swalDialogSuccess.show();
+            this.isJoin = true;
+          } else {
+            this.swalDialogError.show();
           }
-          await this.missionService.addJoin(body).subscribe(
-            result => {
-              console.log(result);
-              this.swalDialogSuccess.show();
-            });
-        }
-
-      });
+        });
+    } else {
+      this.swalDialogIsLogin.show();
+    }
   }
 
+  public async deleteJoin() {
+    if (this.missionId && this.userdata) {
+      let body = {
+        missionid: this.missionId,
+        childusername: this.userdata.childusername
+      }
+      await this.missionService.deleteJoin(body).subscribe(
+        result => {
+          if (result.affectedRows > 0) {
+            this.swalDialogDelSuccess.show();
+            this.isJoin = false;
+          } else {
+            this.swalDialogDelError.show();
+          }
+        });
+    }
+  }
 
   /**
    * 檢查是否已經參加任務
    */
   public async chkMission() {
-    let body = "username=" + this.userdata.childusername + "&missionid=" + this.missionId
-    await this.missionService.getJoinBy(body).subscribe(
-      result => {
-        if (result.length != 0) {
-          this.isJoin = true;
-        }
-      })
+    if (this.userdata) {
+      let body = "username=" + this.userdata.childusername + "&missionid=" + this.missionId
+      await this.missionService.getJoinBy(body).subscribe(
+        result => {
+          if (result.length > 0) {
+            this.isJoin = true;
+          }
+        });
+    }
   }
 
   /**
@@ -126,9 +145,7 @@ export class IntroduceComponent implements OnInit {
     if (url != null) {
       this.router.navigate([`mission/${url}`], { queryParams: { id: this.missionId } });
     } else {
-      // 照理說不該ERROR（除非用戶亂改網址）
-      // location.reload();
-      alert('url is null');
+      location.reload();
     }
 
   }

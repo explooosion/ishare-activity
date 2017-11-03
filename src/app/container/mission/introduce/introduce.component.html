@@ -16,7 +16,7 @@
     </div>
   </div>
 
-  <div class="container mt-4 bg-white pt-4 pb-4" *ngIf="missions">
+  <div class="container mt-4 bg-white pt-3 pb-4" *ngIf="missions">
     <div class="row">
       <div class="col-md-9">
         <h4 class="mb-4">{{ missions.missionname }}</h4>
@@ -39,9 +39,9 @@
           <div class="intro-point text-white bg-secondary">{{ missions.missiontype }}</div>
           <div class="intro-point text-white bg-secondary">50點</div>
           <div *ngIf="isJoin" class="intro-point text-white bg-secondary">參加中</div>
-          <button *ngIf="!isJoin" type="button" class="form-control btn btn-info" (click)="addJoin()">參加活動</button>
+          <button *ngIf="!isJoin" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
           <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">前往填寫心得</button>
-          <button *ngIf="isJoin" type="button" class="form-control btn btn-danger">取消參加</button>
+          <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
         </div>
       </div>
     </div>
@@ -49,6 +49,12 @@
 
 </div>
 
-<swal #dialogIsJoin title="確定要參加？" type="question" [options]="{ showCancelButton: 'true' }"></swal>
+<swal #dialogIsJoin title="確定要參加？" type="question" (confirm)="addJoin()" [options]="{ showCancelButton: 'true' }"></swal>
 <swal #dialogSuccess title="參加成功" type="success" [options]="{ timer : '1000' }"></swal>
-<swal #dialogError title="參加失敗" type="error"></swal>
+<swal #dialogError title="參加失敗" type="error" [options]="{ timer : '1000' }"></swal>
+
+<swal #dialogIsDelete title="確定要取消？" type="question" (confirm)="deleteJoin()" [options]="{ showCancelButton: 'true' }"></swal>
+<swal #dialogDelSuccess title="刪除成功" type="success" [options]="{ timer : '1000' }"></swal>
+<swal #dialogDelError title="刪除失敗" type="error" [options]="{ timer : '1000' }"></swal>
+
+<swal #dialogIsLogin title="請先登入" type="warning" [options]="{ timer : '1000' }"></swal>
