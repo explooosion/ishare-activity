@@ -28,14 +28,12 @@ export class NavComponent implements OnInit {
   }
 
   public CheckLogin() {
-    let cookies = JSON.parse(Cookie.get('userCookie'));
-    console.log(cookies);
+    const cookies = JSON.parse(Cookie.get('userCookie'));
     if (cookies) {
       this.logingroup = cookies.logingroup;
       this.IsLogin = true;
       this.readyLogin = false;
-    }
-    else {
+    } else {
       this.IsLogin = false;
       this.readyLogin = true;
     }
@@ -44,7 +42,7 @@ export class NavComponent implements OnInit {
     Cookie.delete('userCookie');
     this.IsLogin = false;
     this.readyLogin = true;
-    this.router.navigate(["/storelogin"]);
+    this.router.navigate(['/storelogin']);
   }
   public btnMissioncreate() {
     this.router.navigate(['mission/create']);

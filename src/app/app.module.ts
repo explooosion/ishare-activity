@@ -10,8 +10,8 @@ import { enableProdMode } from '@angular/core';
 import { SweetAlert2Module } from '@toverux/ngsweetalert2';
 
 // Primeng [元件組-僅用到此工具的上傳]
-import { AccordionModule } from 'primeng/primeng';     //accordion and accordion tab
-import { MenuItem } from 'primeng/primeng';            //api
+import { AccordionModule } from 'primeng/primeng';
+import { MenuItem } from 'primeng/primeng';
 import { FileUploadModule } from 'primeng/primeng';
 
 // Component

@@ -27,9 +27,9 @@ export class IntroduceComponent implements OnInit {
 
   public userdata: any = null;
 
-  public isJoin: boolean = false;
-  public isFinish: boolean = false;
-  public ischeck: boolean = false;
+  public isJoin: Boolean = false;
+  public isFinish: Boolean = false;
+  public ischeck: Boolean = false;
 
   constructor(
     private router: Router,
@@ -39,12 +39,8 @@ export class IntroduceComponent implements OnInit {
 
   ngOnInit() {
     this.userdata = JSON.parse(Cookie.get('userCookie'));
-    this.getMission();   //將任務內容顯示
-    this.chkMission();    //判斷是否參加與完成心得填寫
-  }
-
-  ngAfterContentInit() {
-    window.scrollTo(0, 0);
+    this.getMission();   // 將任務內容顯示
+    this.chkMission();    // 判斷是否參加與完成心得填寫
   }
 
   /**
@@ -67,7 +63,7 @@ export class IntroduceComponent implements OnInit {
    */
   public async addJoin() {
     if (this.userdata) {
-      let body = {
+      const body = {
         missionid: this.missionId,
         childusername: this.userdata.childusername,
         createtime: moment().format('YYYY-MM-DD hh:mm:ss'),
@@ -94,7 +90,7 @@ export class IntroduceComponent implements OnInit {
 
   public async deleteJoin() {
     if (this.missionId && this.userdata) {
-      let body = {
+      const body = {
         missionid: this.missionId,
         childusername: this.userdata.childusername
       }
@@ -115,7 +111,7 @@ export class IntroduceComponent implements OnInit {
    */
   public async chkMission() {
     if (this.userdata) {
-      let body = "username=" + this.userdata.childusername + "&missionid=" + this.missionId
+      const body = 'username=' + this.userdata.childusername + '&missionid=' + this.missionId
       await this.missionService.getJoinBy(body).subscribe(
         result => {
           if (result.length > 0) {

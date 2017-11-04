@@ -49,7 +49,7 @@ export class ShowComponent implements OnInit {
         }
       );
 
-      let query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
+      const query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
       console.log(query);
       await this.missionService.getJoinBy(query).subscribe(
         result => {

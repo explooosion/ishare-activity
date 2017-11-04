@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   public userAccount: String = 'jason123';
   public userPassword: String = '123456';
   public logingroup: Number = 0;
-  public result: any = "";
+  public result: any = '';
 
   constructor(
     private userService: UserService
@@ -35,11 +35,11 @@ export class LoginComponent implements OnInit {
    */
   public async userLogin() {
 
-    if (this.logingroup == 0) {
+    if (this.logingroup === 0) {
       this.swalDialogErrorGroup.show();
     } else {
 
-      let body = {
+      const body = {
         userId: this.userAccount,
         userPwd: this.userPassword,
         logingroup: this.logingroup

@@ -23,13 +23,13 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     this.userdata = JSON.parse(Cookie.get('userCookie'));
-    if (this.userdata.childusername != undefined) {
+    if (this.userdata.childusername !== undefined) {
       this.missioncheck();
     }
   }
 
   public async missioncheck() {
-    let body = "username=" + this.userdata.childusername;
+    const body = `username=${this.userdata.childusername}`;
     await this.userService.Getmission(body).subscribe(
       result => {
         this.missions = result;
@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
 
   public async missionadd() {
     for (let i = 0; i < this.missions.length; i++) {
-      let body = this.missions[i].missionid;
+      const body = this.missions[i].missionid;
       await this.userService.Getmissionlist(body).subscribe(
         result => {
           this.missionlist.push(result[0])

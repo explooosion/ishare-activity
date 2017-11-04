@@ -33,10 +33,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  ngAfterContentInit() {
-    window.scrollTo(0, 0);
-  }
-
   /**
    * 載入所有任務
    *
@@ -44,12 +40,12 @@ export class HomeComponent implements OnInit {
    */
   public async missionLoad() {
 
-    let body = "";
+    const body = '';
 
     await this.missionService.getMission(body).subscribe(
       result => {
 
-        let arr = [
+        const arr = [
           '影片任務',
           '展演任務',
           '旅遊任務',
@@ -58,11 +54,11 @@ export class HomeComponent implements OnInit {
           '美術任務'
         ];
 
-        let temp = [];
+        const temp = [];
 
         arr.forEach(element => {
           temp.push(result.filter(function (r) {
-            return r.missiontype == element;
+            return r.missiontype === element;
           }));
         });
 
