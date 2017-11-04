@@ -4,6 +4,8 @@ import { MissionService } from '../../../service/mission/mission.service';
 
 import { SwalComponent } from '@toverux/ngsweetalert2';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { IMyDpOptions } from 'mydatepicker';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-show',
@@ -23,6 +25,16 @@ export class ShowComponent implements OnInit {
   public missionDetail: any = [];
 
   public filesPhoto: any = [];
+
+  public myDatePickerOptions: IMyDpOptions = {
+    dateFormat: 'yyyy-mm-dd',
+    satHighlight: true,
+    dayLabels: { su: '日', mo: '一', tu: '二', we: '三', th: '四', fr: '五', sa: '六' },
+    monthLabels: {
+      1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六',
+      7: '七', 8: '八', 9: '九', 10: '十', 11: '十一', 12: '十二'
+    },
+  };
 
   constructor(
     private router: Router,
@@ -58,6 +70,15 @@ export class ShowComponent implements OnInit {
           if (this.missionDetail.experience) {
             this.missionDetail.experience = this.missionDetail.experience.replace('<br>', '\n');
           }
+          if (this.missionDetail.starttime) {
+            this.missionDetail.starttime = {
+              date: {
+                year: moment(this.missionDetail.starttime).format('YYYY'),
+                month: moment(this.missionDetail.starttime).format('MM'),
+                day: moment(this.missionDetail.starttime).format('D'),
+              }
+            }
+          }
         }
       );
 
@@ -67,18 +88,37 @@ export class ShowComponent implements OnInit {
   }
 
   /**
+   * 更新任務資訊
+   */
+  public async saveMissionDetail() {
+
+    const body = {
+      submittime: moment().format('YYYY-MM-DD hh:mm:ss'),
+      starttime: this.missionDetail.starttime.formatted,
+      status: '已提交',
+      experience: this.missionDetail.experience.replace('\n', '<br>'),
+      picture: './assets/activity/h1.jpg;./assets/activity/h1.jpg',
+      missionid: this.missionId,
+      childusername: this.userdata['childusername'],
+    };
+
+    await this.missionService.updateJoin(body).subscribe(
+      result => {
+        if (result.affectedRows > 0) {
+          this.swalDialogSuccess.show();
+          setTimeout(() => {
+            this.router.navigate([`mission/show`], { queryParams: { id: this.missionId } });
+          }, 1200);
+        }
+      });
+
+  }
+
+  /**
    * 圖片上傳增減偵測
    */
   public uploadHandler(obj) {
     // 圖片增減事件是非同步
     setTimeout(() => { this.filesPhoto = obj.files; }, 100);
   }
-
-  public saveMissionDetail() {
-    this.swalDialogSuccess.show();
-    setTimeout(() => {
-      this.router.navigate([`mission/interduce`], { queryParams: { id: this.missionId } });
-    }, 1200);
-  }
-
 }

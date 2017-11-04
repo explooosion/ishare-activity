@@ -51,20 +51,6 @@ export class MissionService {
   }
 
   /**
-   * 更新使用者參加的任務
-   *
-   * @param {Object} body
-   * @returns
-   * @memberof MissionService
-   */
-  public updateJoin(body: Object) {
-    return this.http.post('api/mission/join/update', body)
-      .map((res) => {
-        return res.json() || {}
-      });
-  }
-
-  /**
    * 新增使用者參加的任務
    *
    * @param {Object} body
@@ -73,6 +59,20 @@ export class MissionService {
    */
   public addJoin(body: Object) {
     return this.http.post('api/mission/join/add', body)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
+  /**
+ * 更新使用者參加的任務
+ *
+ * @param {Object} body
+ * @returns
+ * @memberof MissionService
+ */
+  public updateJoin(body: Object) {
+    return this.http.post('api/mission/join/update', body)
       .map((res) => {
         return res.json() || {}
       });

@@ -8,6 +8,7 @@ import { enableProdMode } from '@angular/core';
 
 // Plugin
 import { SweetAlert2Module } from '@toverux/ngsweetalert2';
+import { MyDatePickerModule } from 'mydatepicker';
 
 // Primeng [元件組-僅用到此工具的上傳]
 import { AccordionModule } from 'primeng/primeng';
@@ -76,7 +77,8 @@ enableProdMode();
       // cancelButtonClass: 'btn btn-lg'
     }),
     AccordionModule,
-    FileUploadModule
+    FileUploadModule,
+    MyDatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
