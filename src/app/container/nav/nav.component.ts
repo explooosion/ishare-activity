@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   constructor(
     private router: Router
   ) {
-    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; }
+    this.router.routeReuseStrategy.shouldReuseRoute = function () { return false; }
     this.router.events.subscribe((evt) => {
       if (evt instanceof NavigationEnd) {
         this.router.navigated = false;
