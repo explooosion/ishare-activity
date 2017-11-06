@@ -1,31 +1,31 @@
 <div class="container mb-4">
   <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=Photo Demo">
-  <h2 class="mt-4">影片任務</h2>
+  <h2 class="mt-4">影片任務
+    <small *ngIf="!missionEditMode"> - 檢視模式</small>
+    <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
+  </h2>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group text-gray">
-        <i class="fa fa-star" aria-hidden="true"></i>
+        <i class="fa fa-youtube-play" aria-hidden="true"></i>
         <label>影片名稱</label>
         <span class="text-danger">*</span>
-        <input type="text" class="form-control" placeholder="請為自己的影片取名字" [(ngModel)]="videoName">
+        <input type="text" class="form-control" [(ngModel)]="missionData.missionname" readonly>
       </div>
       <div class="form-group text-gray">
-        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-        <label>影片網址</label>
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <label>觀看日期</label>
         <span class="text-danger">*</span>
-        <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-          <div class="input-group-addon">https://www.youtube.com/watch?v=</div>
-          <input type="text" class="form-control" [(ngModel)]="videoUrl" (change)="ConvertUrl()">
-        </div>
+        <my-date-picker [options]="myDatePickerOptions" [(ngModel)]="this.missionDetail.starttime" required></my-date-picker>
       </div>
       <div class="form-group text-gray">
         <i class="fa fa-pencil-square" aria-hidden="true"></i>
         <label>心得感想</label>
         <span class="text-danger">*</span>
-        <textarea class="form-control" rows="6" placeholder="請填寫心得感想" [(ngModel)]="videoExp"></textarea>
+        <textarea class="form-control" rows="6" placeholder="請填寫心得感想" [(ngModel)]="this.missionDetail.experience" [readonly]="!missionEditMode"></textarea>
       </div>
     </div>
     <div class="col-md-6">
@@ -33,12 +33,14 @@
         <i class="fa fa-eye" aria-hidden="true"></i>
         <label>影片預覽</label>
         <div class="form-control embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" [src]="videoUrlFrm"></iframe>
+          <iframe class="embed-responsive-item" [src]="videoUrlFrm" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <button type="button" class="btn btn-info form-control">送出</button>
+  <div *ngIf="missionEditMode" class="form-group">
+    <swal #dialogSuccess title="更新成功" type="success" [options]="{ timer : '1000' }"></swal>
+    <swal #dialogError title="更新失敗" type="error"></swal>
+    <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
   </div>
 </div>

@@ -40,6 +40,7 @@
         <div class="intro-label border">{{ missions.missionpoint }} 點</div>
         <div *ngIf="isJoin" class="intro-label border">{{ missionJoin.status }}</div>
         <div class="intro-action">
+          <button type="button" class="form-control btn btn-secondary" [routerLink]="['home']">返回首頁</button>
           <button *ngIf="!isJoin" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
           <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">心得專欄</button>
           <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
