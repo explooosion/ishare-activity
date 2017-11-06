@@ -63,6 +63,7 @@ export class HomeComponent implements OnInit {
         });
 
         this.missions = temp;
+        console.log(this.missions);
         this.missionssit = temp[0].slice(0, 1);
         this.missionssit2 = temp[0].slice(1, 5);
 

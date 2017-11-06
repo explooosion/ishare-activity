@@ -1,6 +1,9 @@
 <div class="container mb-4">
-  <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=Demo">
-  <h2 class="mt-4">展演任務</h2>
+  <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=1140x300">
+  <h2 class="mt-4">展演任務
+    <small *ngIf="!missionEditMode"> - 檢視模式</small>
+    <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
+  </h2>
 </div>
 
 <div class="container">
@@ -28,7 +31,7 @@
         <i class="fa fa-sticky-note-o" aria-hidden="true"></i>
         <label>心得感想</label>
         <span class="text-danger">*</span>
-        <textarea class="form-control" rows="6" [(ngModel)]="missionDetail.experience"></textarea>
+        <textarea class="form-control" rows="6" [(ngModel)]="missionDetail.experience" [readonly]="!missionEditMode"></textarea>
       </div>
     </div>
     <div class="col-md-6">
@@ -50,17 +53,26 @@
           </div>
         </div> -->
       <div class="form-group text-gray">
-        <i class="fa fa-photo" aria-hidden="true"></i>
-        <label>照片上傳（可拖曳圖片至內容處）</label>
-        <span class="text-danger">*</span>
-        <swal #dialogSuccess title="更新成功" type="success" [options]="{ timer : '1000' }"></swal>
-        <swal #dialogError title="更新失敗" type="error"></swal>
-        <p-fileUpload #fileUpload name="photoFile[]" multiple="multiple" accept="image/*" [customUpload]="true" [showUploadButton]="false"
-          (onSelect)="uploadHandler(fileUpload)" (onRemove)="uploadHandler(fileUpload)" (onClear)="uploadHandler(fileUpload)"></p-fileUpload>
+        <div *ngIf="missionEditMode">
+          <i class="fa fa-photo" aria-hidden="true"></i>
+          <label>照片上傳（可拖曳圖片至內容處）</label>
+          <span class="text-danger">*</span>
+          <swal #dialogSuccess title="更新成功" type="success" [options]="{ timer : '1000' }"></swal>
+          <swal #dialogError title="更新失敗" type="error"></swal>
+          <p-fileUpload #fileUpload name="photoFile[]" multiple="multiple" accept="image/*" [customUpload]="true" [showUploadButton]="false"
+            (onSelect)="uploadHandler(fileUpload)" (onRemove)="uploadHandler(fileUpload)" (onClear)="uploadHandler(fileUpload)"></p-fileUpload>
+        </div>
+        <div *ngIf="!missionEditMode">
+          <i class="fa fa-photo" aria-hidden="true"></i>
+          <label>照片預覽</label>
+          <div *ngFor="let p of missionPhotoList">
+            <img class="img-thumbnail d-block mb-2" [src]="p">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  <div class="form-group">
-    <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">送出</button>
+  <div *ngIf="missionEditMode" class="form-group">
+    <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
   </div>
 </div>

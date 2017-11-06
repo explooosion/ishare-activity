@@ -12,6 +12,7 @@
 
 .btn {
     border: 0;
+    cursor: pointer;
 }
 
 .btn-maxw {

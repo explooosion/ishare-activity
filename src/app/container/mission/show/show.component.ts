@@ -24,6 +24,9 @@ export class ShowComponent implements OnInit {
   public missionData: any = [];
   public missionDetail: any = [];
 
+  public missionEditMode: Boolean = false;
+  public missionPhotoList: any = [];
+
   public filesPhoto: any = [];
 
   public myDatePickerOptions: IMyDpOptions = {
@@ -34,6 +37,7 @@ export class ShowComponent implements OnInit {
       1: '一', 2: '二', 3: '三', 4: '四', 5: '五', 6: '六',
       7: '七', 8: '八', 9: '九', 10: '十', 11: '十一', 12: '十二'
     },
+    componentDisabled: true
   };
 
   constructor(
@@ -62,14 +66,19 @@ export class ShowComponent implements OnInit {
       );
 
       const query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
-      console.log(query);
+
       await this.missionService.getJoinBy(query).subscribe(
         result => {
           this.missionDetail = result[0];
+          if (this.missionDetail.status === '已參加') {
+            this.missionEditMode = true;
+            this.myDatePickerOptions.componentDisabled = false;
+          }
 
           if (this.missionDetail.experience) {
             this.missionDetail.experience = this.missionDetail.experience.replace('<br>', '\n');
           }
+
           if (this.missionDetail.starttime) {
             this.missionDetail.starttime = {
               date: {
@@ -78,6 +87,10 @@ export class ShowComponent implements OnInit {
                 day: moment(this.missionDetail.starttime).format('D'),
               }
             }
+          }
+
+          if (this.missionDetail.picture) {
+            this.missionPhotoList = String(this.missionDetail.picture).split(';');
           }
         }
       );
@@ -92,11 +105,16 @@ export class ShowComponent implements OnInit {
    */
   public async saveMissionDetail() {
 
+    let exp = this.missionDetail.experience;
+    if (exp) {
+      exp = this.missionDetail.experience.replace('\n', '<br>');
+    }
+
     const body = {
       submittime: moment().format('YYYY-MM-DD hh:mm:ss'),
       starttime: this.missionDetail.starttime.formatted,
       status: '已提交',
-      experience: this.missionDetail.experience.replace('\n', '<br>'),
+      experience: exp,
       picture: './assets/activity/h1.jpg;./assets/activity/h1.jpg',
       missionid: this.missionId,
       childusername: this.userdata['childusername'],

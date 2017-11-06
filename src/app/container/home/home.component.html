@@ -53,17 +53,17 @@
           <h4>展演講座</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary">查看更多</button>
+          <!--<button type="button" class="btn btn-secondary">查看更多</button>-->
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <div class="card card-main" *ngFor="let mission of missions[2].slice(0,1) ; let i= index">
+          <div class="card card-main" *ngFor="let mission of missions[1].slice(0,1) ; let i= index">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img class="img-main" src="{{mission.missionpicture}}">
             </a>
             <div class="card-block">
-              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
+              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                 <h5 class="card-title">{{mission.missionname}}</h5>
               </a>
               <div class="card-text">
@@ -81,7 +81,7 @@
 
         <div class="col-md-6">
           <div class="row">
-            <div class="col-md-6" *ngFor="let mission of missions[2].slice(1,3) ; let i = index">
+            <div class="col-md-6" *ngFor="let mission of missions[1].slice(1,3) ; let i = index">
               <div class="card" *ngIf="i<=1">
                 <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                   <img class="img-thumbnail d-block" src="{{mission.missionpicture}}">
@@ -99,7 +99,7 @@
             </div>
           </div>
           <div class="row mt-4">
-            <div class="col-md-6" *ngFor="let mission of missions[2].slice(3,5) ; let i = index">
+            <div class="col-md-6" *ngFor="let mission of missions[1].slice(3,5) ; let i = index">
               <div class="card" *ngIf="i<=1">
                 <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
                   <img class="img-thumbnail d-block" src="{{mission.missionpicture}}">
@@ -128,11 +128,11 @@
           <h4>影片任務</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
+          <!-- <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button> -->
         </div>
       </div>
       <div class="row">
-        <div class="col-md-4" *ngFor="let mission of missions[1] ; let i = index">
+        <div class="col-md-4" *ngFor="let mission of missions[0] ; let i = index">
           <div class="card" *ngIf="i<3 ">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
@@ -153,39 +153,6 @@
     </div>
 
 
-    <!-- 展演任務(不需要) -->
-    <!-- <div id="mission-show" class="container mb-4 mt-4">
-      <div class="row mb-3">
-        <div class="col-md-10">
-          <h4>展演任務</h4>
-        </div>
-        <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-md-4" *ngFor="let mission of missions[2] ; let i= index">
-          <div div class="card" *ngIf="i<3">
-            <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
-              <img src="{{mission.missionpicture}}" class="img-thumbnail">
-            </a>
-            <div class="card-block">
-              <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
-                <h6 class="card-title"> {{ mission.missionname }}</h6>
-              </a>
-              <div class="card-text">
-                <p>開始時間：{{mission.missioncreatetime | date: 'yyyy/MM/dd'}}</p>
-                <span>地區：{{mission.missionlocation}}</span>
-                <span>{{mission.missioncontent}}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
     <!-- 旅遊任務 -->
     <div id="mission-travel" class="container mb-4 mt-4">
       <div class="row mb-3">
@@ -193,12 +160,12 @@
           <h4>旅遊任務</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
+          <!-- <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button> -->
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-3" *ngFor="let mission of missions[3] ; let i = index">
+        <div class="col-md-3" *ngFor="let mission of missions[2] ; let i = index">
           <div class="card" *ngIf="i<4">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
@@ -227,12 +194,12 @@
           <h4>運動任務</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
+          <!-- <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button> -->
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-4" *ngFor="let mission of missions[5] ; let i = index">
+        <div class="col-md-4" *ngFor="let mission of missions[4] ; let i = index">
           <div class="card" *ngIf="i<3">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
@@ -260,12 +227,12 @@
           <h4>美術任務</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
+          <!-- <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button> -->
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-3" *ngFor="let mission of missions[6] ; let i = index">
+        <div class="col-md-3" *ngFor="let mission of missions[5] ; let i = index">
           <div class="card" *ngIf="i<4">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">
@@ -293,12 +260,12 @@
           <h4>清潔任務</h4>
         </div>
         <div class="col-md-2 text-right">
-          <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button>
+          <!-- <button type="button" class="btn btn-secondary" [routerLink]="['../search']">查看更多</button> -->
         </div>
       </div>
 
       <div class="row">
-        <div class="col-md-4" *ngFor="let mission of missions[4] ; let i = index">
+        <div class="col-md-4" *ngFor="let mission of missions[3] ; let i = index">
           <div class="card" *ngIf="i<3">
             <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
               <img src="{{mission.missionpicture}}" class="img-thumbnail">

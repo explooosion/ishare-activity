@@ -24,6 +24,7 @@ export class IntroduceComponent implements OnInit {
 
   public missions: any = undefined;
   public missionId: any = null;
+  public missionJoin: any = null;
 
   public userdata: any = null;
 
@@ -115,6 +116,7 @@ export class IntroduceComponent implements OnInit {
       await this.missionService.getJoinBy(body).subscribe(
         result => {
           if (result.length > 0) {
+            this.missionJoin = result[0];
             this.isJoin = true;
           }
         });

@@ -11,7 +11,8 @@
   <div class="container" *ngIf="missions">
     <div class="row">
       <div class="col-md-12">
-        <img class="mx-auto d-block" [src]="missions.missionpicture">
+        <!-- <img class="mx-auto d-block" [src]="missions.missionpicture"> -->
+        <img class="mx-auto d-block" src="http://fakeimg.pl/1140x300/?text=1140x300">
       </div>
     </div>
   </div>
@@ -35,12 +36,12 @@
         <p class="ml-4">{{ missions.missioncontent }}</p>
       </div>
       <div class="col-md-3">
+        <div class="intro-label border">{{ missions.missiontype }}</div>
+        <div class="intro-label border">{{ missions.missionpoint }} 點</div>
+        <div *ngIf="isJoin" class="intro-label border">{{ missionJoin.status }}</div>
         <div class="intro-action">
-          <div class="intro-point text-white bg-secondary">{{ missions.missiontype }}</div>
-          <div class="intro-point text-white bg-secondary">50點</div>
-          <div *ngIf="isJoin" class="intro-point text-white bg-secondary">參加中</div>
           <button *ngIf="!isJoin" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
-          <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">前往填寫心得</button>
+          <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">心得專欄</button>
           <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
         </div>
       </div>
