@@ -1,1 +1,66 @@
+#create {
+  margin-top: 1.4rem;
+}
 
+
+/* 引導區塊 */
+
+.nav .nav-item {
+  padding: 1rem 1rem 1rem 0;
+  font-size: 1rem;
+}
+
+
+/* 任務類別 */
+
+.create-type {
+  padding: 3rem 0 2rem;
+}
+
+.create-type h2 {
+  font-size: 1.5rem;
+}
+
+
+/* 任務名稱 */
+
+.create-main #txtMissionName {
+  padding: 0.6rem 1rem;
+  font-size: 30px;
+}
+
+
+/* 任務圖片區塊 */
+
+.create-main .create-photo {
+  width: 1080px;
+  height: 300px;
+  background-color: #ddd;
+  color: #bdbdbd;
+  text-align: center;
+}
+
+.create-main .create-photo+button {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 1rem;
+}
+
+.create-main .create-photo span:first-child {
+  padding-top: 3rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+}
+
+.create-main .create-photo span {
+  display: block;
+  font-size: 8rem;
+}
+
+
+/* 任務發佈按鈕 */
+
+.create-main #btnSave {
+  padding: 1rem;
+}

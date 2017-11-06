@@ -11,10 +11,20 @@
 */
 
 .btn {
-    border: 0;
-    cursor: pointer;
+  border: 0;
+  cursor: pointer;
 }
 
 .btn-maxw {
-    width: 100%;
+  width: 100%;
+}
+
+.btn-white {
+  color: #757575;
+  background-color: #fff;
+  border: 1px solid #bdbdbd;
+}
+
+.btn-white:hover {
+  color: #454545;
 }

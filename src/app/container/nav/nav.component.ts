@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 import { UserService } from '../../service/user/user.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
@@ -19,7 +19,15 @@ export class NavComponent implements OnInit {
 
   constructor(
     private router: Router
-  ) { }
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => { return false; }
+    this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+        this.router.navigated = false;
+        window.scrollTo(0, 0);
+      }
+    });
+  }
 
   ngOnInit() {
     this.readyLogin = true;
@@ -44,7 +52,9 @@ export class NavComponent implements OnInit {
     this.readyLogin = true;
     this.router.navigate(['/storelogin']);
   }
+
   public btnMissioncreate() {
     this.router.navigate(['mission/create']);
   }
+
 }
