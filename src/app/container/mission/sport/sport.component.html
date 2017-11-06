@@ -1,98 +1,55 @@
-<div class="container settop">
-  <div class="col-md-12 row justify-content-center">
-    <img src="./assets/activity/setpic.jpg" alt="" class="sport-settoppic col-md-8 row justify-content-center sport-settophigh">
-  </div>
-  <div class="col-md-12">
-    <div class="col-md row justify-content-center">
-      <h4>球類</h4>
-    </div>
-  </div>
-  <div class="sport-settopborder">
-  </div>
-
+<div class="container mb-4">
+  <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=1140x300">
+  <h2 class="mt-4">運動任務
+    <small *ngIf="!missionEditMode"> - 檢視模式</small>
+    <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
+  </h2>
 </div>
 
 <div class="container">
-  <form>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label ">日期：</label>
-      <div class="col-sm-3 setpadding">
-        <input type="password" class="form-control " id="inputPassword" placeholder="年 / 月 / 日 ">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group text-gray">
+        <i class="fa fa-star" aria-hidden="true"></i>
+        <label>運動名稱</label>
+        <span class="text-danger">*</span>
+        <input type="text" class="form-control" placeholder="請輸入旅遊名稱" [value]="missionData.missionname" readonly>
+      </div>
+      <div class="form-group text-gray">
+        <i class="fa fa-map-marker" aria-hidden="true"></i>
+        <label>運動場域</label>
+        <span class="text-danger">*</span>
+        <input type="text" class="form-control" placeholder="請輸入地點" [(ngModel)]="missionDetail.sportplace" [readonly]="!missionEditMode">
+      </div>
+      <div class="form-group text-gray">
+        <i class="fa fa-clock-o" aria-hidden="true"></i>
+        <label>運動日期</label>
+        <span class="text-danger">*</span>
+        <my-date-picker [options]="myDatePickerOptions" [(ngModel)]="missionDetail.sportdate" required></my-date-picker>
       </div>
     </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">運動場域：</label>
-      <div class="col-sm-3 setpadding">
-        <input type="password" class="form-control" id="inputPassword">
-      </div>
-      <small class="form-text text-muted">ex:學校、運動場、堤防</small>
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">照片上傳：</label>
-      <button type="submit" class="btn btn-secondary col-sm-1">選擇檔案</button>
-      <small class="form-text text-muted col-sm-2">未選擇任何檔案</small>
-      <small class="form-text text-muted col-sm-2">(至少一張圖片)</small>
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">預覽：</label>
-      <img src="./assets/activity/h4.jpg" alt="" class="col-sm-3 setpadding setimgsize">
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">任務分類：</label>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 運動
-            </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> 學習
-            </label>
-      </div>
-      <div class="form-check form-check-inline ">
-        <label class="form-check-label ">
-              <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> 其他
-            </label>
-      </div>
-      <div class="col-sm-2">
-        <input type="text">
+    <div class="col-md-6">
+      <div class="form-group text-gray">
+        <div *ngIf="missionEditMode">
+          <i class="fa fa-photo" aria-hidden="true"></i>
+          <label>照片上傳（可拖曳圖片至內容處）</label>
+          <span class="text-danger">*</span>
+          <p-fileUpload #fileUpload name="photoFile[]" multiple="multiple" accept="image/*" [customUpload]="true" [showUploadButton]="false"
+            (onSelect)="uploadHandler(fileUpload)" (onRemove)="uploadHandler(fileUpload)" (onClear)="uploadHandler(fileUpload)"></p-fileUpload>
+        </div>
+        <div *ngIf="!missionEditMode">
+          <i class="fa fa-photo" aria-hidden="true"></i>
+          <label>照片預覽</label>
+          <div *ngFor="let p of missionPhotoList">
+            <img class="img-thumbnail d-block mb-2" [src]="p">
+          </div>
+        </div>
       </div>
     </div>
-    <div class="form-group row">
-      <label for="inputPassword" class="col-sm-2 col-form-label">任務標籤：</label>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"> 籃球
-              </label>
-      </div>
-      <div class="form-check form-check-inline">
-        <label class="form-check-label">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2"> 足球
-              </label>
-      </div>
-      <div class="form-check form-check-inline ">
-        <label class="form-check-label ">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> 羽毛球
-              </label>
-      </div>
-      <div class="form-check form-check-inline ">
-        <label class="form-check-label ">
-                  <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> 躲避球
-                </label>
-      </div>
-      <div class="form-check form-check-inline ">
-        <label class="form-check-label ">
-                    <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3"> 其他
-                  </label>
-      </div>
-      <div class="col-sm-2">
-        <input type="text">
-      </div>
-    </div>
-    <div class="form-group col-md-12 row justify-content-center">
-      <div class="col-md-3">
-        <button type="button" class="btn btn-secondary">Secondary</button>
-      </div>
-    </div>
-  </form>
+  </div>
+  <div *ngIf="missionEditMode" class="form-group">
+    <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
+  </div>
 </div>
+<swal #dialogSuccess title="更新成功" type="success" [options]="{ timer : '1000' }"></swal>
+<swal #dialogError title="更新失敗" type="error"></swal>
