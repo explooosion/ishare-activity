@@ -47,6 +47,7 @@
     "@types/jasmine": "~2.6.2",
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "~8.0.47",
+    "@types/ramda": "github:types/npm-ramda",
     "codelyzer": "~4.0.1",
     "copy": "^0.3.1",
     "jasmine-core": "~2.8.0",

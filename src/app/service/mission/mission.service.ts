@@ -50,6 +50,21 @@ export class MissionService {
       });
   }
 
+
+  /**
+   * 尋找使用者參加的任務包含任務資訊
+   *
+   * @param {Object} param
+   * @returns
+   * @memberof MissionService
+   */
+  public getJoinByAll(param: Object) {
+    return this.http.get(`api/mission/join/all?${param}`)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
   /**
    * 新增使用者參加的任務
    *

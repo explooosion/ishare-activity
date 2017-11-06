@@ -1,49 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserService } from '../../service/user/user.service';
+import { MissionService } from '../../service/mission/mission.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { async } from '@angular/core/testing';
+import { element } from 'protractor';
+
+import * as R from 'ramda';
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css'],
-  providers: [UserService]
+  providers: [MissionService]
 })
 export class UserComponent implements OnInit {
 
   public missions: any;
-  public missionlist = [];
+  public missionStart = [];
+  public missionVerify = [];
+  public missionAll = [];
   public result: any;
   public userdata: any;
 
   constructor(
     private router: Router,
-    private userService: UserService
+    private missionService: MissionService
   ) { }
 
   ngOnInit() {
     this.userdata = JSON.parse(Cookie.get('userCookie'));
     if (this.userdata.childusername !== undefined) {
-      this.missioncheck();
+      this.missionGet();
     }
   }
 
-  public async missioncheck() {
+  /**
+   * 取得使用者任務清單包含任務基本資料
+   */
+  public async missionGet() {
     const body = `username=${this.userdata.childusername}`;
-    await this.userService.Getmission(body).subscribe(
+    await this.missionService.getJoinByAll(body).subscribe(
       result => {
-        this.missions = result;
-        this.missionadd();
+        this.missionAll = result;
+        this.missionStart = R.filter(
+          r => r.status === '已參加', this.missionAll
+        );
+        this.missionVerify = R.filter(
+          r => r.status === '已提交', this.missionAll
+        );
       });
   }
 
-  public async missionadd() {
-    for (let i = 0; i < this.missions.length; i++) {
-      const body = this.missions[i].missionid;
-      await this.userService.Getmissionlist(body).subscribe(
-        result => {
-          this.missionlist.push(result[0])
-        });
-    }
-  }
 }

@@ -14,17 +14,4 @@ export class UserService {
       });
   }
 
-  public Getmission(body) {
-    return this.http.get('api/mission/join?' + body)
-      .map((res) => {
-        return res.json() || {}
-      });
-  }
-
-  public Getmissionlist(body) {
-    return this.http.get('api/mission/' + body)
-      .map((res) => {
-        return res.json() || {}
-      });
-  }
 }

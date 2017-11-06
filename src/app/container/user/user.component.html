@@ -13,44 +13,24 @@
 <div class="container">
   <ul class="nav nav-tabs user-tab" role="tablist">
     <li class="nav-item">
-      <a class="nav-link active" id="mission-like-tab" data-toggle="tab" href="#like-tab" role="tab" aria-controls="like-tab" aria-expanded="true">喜歡的任務(5)</a>
+      <a class="nav-link active" id="mission-start-tab" data-toggle="tab" href="#start-tab" role="tab" aria-controls="start-tab"
+        aria-expanded="true">進行中的任務</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-join-tab" data-toggle="tab" href="#join-tab" role="tab" aria-controls="join-tab">參加的任務({{missionlist.length}})</a>
+      <a class="nav-link" id="mission-verify-tab" data-toggle="tab" href="#verify-tab" role="tab" aria-controls="verify-tab">審核中的任務</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-track-tab" data-toggle="tab" href="#track-tab" role="tab" aria-controls="track-tab">追蹤的主辦單位(0)</a>
+      <a class="nav-link" id="mission-all-tab" data-toggle="tab" href="#all-tab" role="tab" aria-controls="all-tab">所有參加的任務</a>
     </li>
   </ul>
   <div class="tab-content user-tab-content">
-    <div class="tab-pane fade show active" id="like-tab" role="tabpanel" aria-labelledby="mission-like-tab">
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity1.png" alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title">限時團購！【 我貼，故我在 】系列，Git 高質感貼紙</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
-          <div class="row card-control">
-            <div class="col-sm-6">
-              <a href="#" class="img-thumbnail liked">
-                <i class="fa fa-heart" aria-hidden="true"></i>
-              </a>
-              <span class="card-text">5</span>
-            </div>
-            <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="join-tab" role="tabpanel" aria-labelledby="mission-join-tab">
-      <div class="card" *ngFor="let mission of missionlist ; let i = index">
-        <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
+    <div class="tab-pane fade show active" id="start-tab" role="tabpanel" aria-labelledby="mission-start-tab">
+      <div class="card" *ngFor="let mission of missionStart">
+        <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
           <img class="card-img-top" src="{{ mission.missionpicture }}">
         </a>
         <div class="card-body">
-          <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">
+          <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
             <h4 class="card-title">{{ mission.missionname }}</h4>
           </a>
           <p class="card-time">{{ mission.missioncreatetime | date: 'yyyy/MM/dd' }}</p>
@@ -63,28 +43,58 @@
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
-              <a class="btn btn-info" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.id}">{{ missions[i].status }}</a>
+              <a class="btn btn-info" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">{{ mission.status }}</a>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="track-tab" role="tabpanel" aria-labelledby="mission-track-tab">
-      <div class="card">
-        <img class="card-img-top" src="./assets/activity/activity1.png" alt="Card image cap">
+
+    <div class="tab-pane fade" id="verify-tab" role="tabpanel" aria-labelledby="mission-verify-tab">
+      <div class="card" *ngFor="let mission of missionVerify">
+        <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
+          <img class="card-img-top" src="{{ mission.missionpicture }}">
+        </a>
         <div class="card-body">
-          <h4 class="card-title">主辦單位</h4>
-          <p class="card-time">2017-10-01(日) 00:00~00:00</p>
-          <p class="card-text">【 我貼，故我在 】系列第一波：Git 高質感貼紙，我們準備了兩款優質的貼紙設計，有「 純淨透明款」與「 萬用純白款」，適合貼在不同色系</p>
+          <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
+            <h4 class="card-title">{{ mission.missionname }}</h4>
+          </a>
+          <p class="card-time">{{ mission.missioncreatetime | date: 'yyyy/MM/dd' }}</p>
+          <p class="card-text">{{ mission.missioncontent }}</p>
           <div class="row card-control">
             <div class="col-sm-6">
-              <a href="#" class="img-thumbnail">
+              <a class="img-thumbnail liked">
                 <i class="fa fa-heart" aria-hidden="true"></i>
               </a>
               <span class="card-text">5</span>
             </div>
             <div class="col-sm-6">
-              <a href="#" class="btn btn-info">熱門中</a>
+              <a class="btn btn-info" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">{{ mission.status }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="all-tab" role="tabpanel" aria-labelledby="mission-all-tab">
+      <div class="card" *ngFor="let mission of missionAll">
+        <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
+          <img class="card-img-top" src="{{ mission.missionpicture }}">
+        </a>
+        <div class="card-body">
+          <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
+            <h4 class="card-title">{{ mission.missionname }}</h4>
+          </a>
+          <p class="card-time">{{ mission.missioncreatetime | date: 'yyyy/MM/dd' }}</p>
+          <p class="card-text">{{ mission.missioncontent }}</p>
+          <div class="row card-control">
+            <div class="col-sm-6">
+              <a class="img-thumbnail liked">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+              </a>
+              <span class="card-text">5</span>
+            </div>
+            <div class="col-sm-6">
+              <a class="btn btn-info" [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">{{ mission.status }}</a>
             </div>
           </div>
         </div>
