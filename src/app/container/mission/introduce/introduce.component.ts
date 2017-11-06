@@ -68,18 +68,14 @@ export class IntroduceComponent implements OnInit {
         missionid: this.missionId,
         childusername: this.userdata.childusername,
         createtime: moment().format('YYYY-MM-DD hh:mm:ss'),
-        finishtime: null,
-        status: '已參加',
-        experience: null,
-        verifytime: null,
-        picture: null,
-        verifyusername: null
       }
       await this.missionService.addJoin(body).subscribe(
         result => {
           if (result.affectedRows > 0) {
             this.swalDialogSuccess.show();
-            this.isJoin = true;
+            setTimeout(() => {
+              location.reload();
+            }, 1200);
           } else {
             this.swalDialogError.show();
           }
@@ -99,7 +95,9 @@ export class IntroduceComponent implements OnInit {
         result => {
           if (result.affectedRows > 0) {
             this.swalDialogDelSuccess.show();
-            this.isJoin = false;
+            setTimeout(() => {
+              location.reload();
+            }, 1200);
           } else {
             this.swalDialogDelError.show();
           }
