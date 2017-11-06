@@ -27,6 +27,7 @@ export class IntroduceComponent implements OnInit {
   public missionJoin: any = null;
 
   public userdata: any = null;
+  public userGroup: Number = 0;
 
   public isJoin: Boolean = false;
   public isFinish: Boolean = false;
@@ -39,7 +40,11 @@ export class IntroduceComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
     this.userdata = JSON.parse(Cookie.get('userCookie'));
+    if (this.userdata) {
+      this.userGroup = this.userdata.logingroup;
+    }
     this.getMission();   // 將任務內容顯示
     this.chkMission();    // 判斷是否參加與完成心得填寫
   }

@@ -6,19 +6,14 @@
 @import url('./css/text-color.css');
 @import url('./css/p-fileUpload.css');
 * {
-    /* font-family: 'Microsoft JhengHei', sans-serif; */
-    font-family: 'Noto Sans TC', sans-serif;
+  /* font-family: 'Microsoft JhengHei', sans-serif; */
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 body {
-    padding-top: 2rem;
-    line-height: 1.428571429;
-    font-size: 14px;
-    color: #333;
-    background-color: #eee;
-}
-
-.sport-setimgsize {
-    width: 300px;
-    height: 240px;
+  padding-top: 3rem;
+  line-height: 1.428571429;
+  font-size: 14px;
+  color: #333;
+  background-color: #eee;
 }
