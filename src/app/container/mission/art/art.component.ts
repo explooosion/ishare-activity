@@ -110,9 +110,7 @@ export class ArtComponent implements OnInit {
       result => {
         if (result.affectedRows > 0) {
           this.swalDialogSuccess.show();
-          setTimeout(() => {
-            location.reload();
-          }, 1200);
+          setTimeout(() => { location.reload(); }, 1200);
         }
       });
 

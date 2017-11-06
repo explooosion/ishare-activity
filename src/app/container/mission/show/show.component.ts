@@ -124,9 +124,7 @@ export class ShowComponent implements OnInit {
       result => {
         if (result.affectedRows > 0) {
           this.swalDialogSuccess.show();
-          setTimeout(() => {
-            this.router.navigate([`mission/show`], { queryParams: { id: this.missionId } });
-          }, 1200);
+          setTimeout(() => { location.reload(); }, 1200);
         }
       });
 

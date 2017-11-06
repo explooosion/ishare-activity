@@ -6,7 +6,7 @@
     padding: .75rem;
     border-radius: 3px;
     background-color: #fcfcfc;
-    box-shadow: 0 3px 0 0 #f0f0f0;
+    box-shadow: 3px 3px 0 0 #f0f0f0;
     border: 1px solid #dce0e0;
 }
 
@@ -22,4 +22,5 @@
 .intro-action button {
     margin-bottom: 1rem;
     cursor: pointer;
+    box-shadow: 3px 3px 0 0 #f0f0f0;
 }
