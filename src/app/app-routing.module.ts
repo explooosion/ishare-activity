@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'mission/show', component: ShowComponent },
   { path: 'mission/travel', component: TravelComponent },
   { path: 'mission/clean', component: CleanComponent },
-  { path: 'mission/Sport', component: SportComponent },
+  { path: 'mission/sport', component: SportComponent },
   { path: 'mission/art', component: ArtComponent },
 
   // 強制跳轉至首頁 /home
