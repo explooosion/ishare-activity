@@ -14,6 +14,7 @@ import { MyDatePickerModule } from 'mydatepicker';
 import { AccordionModule } from 'primeng/primeng';
 import { MenuItem } from 'primeng/primeng';
 import { FileUploadModule } from 'primeng/primeng';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 // Component
 import { LoginComponent } from './component/modal/login/login.component';
@@ -31,6 +32,7 @@ import { SearchComponent } from './container/search/search.component';
 
 import { TeacherCreateComponent } from './container/user/teacher-create/teacher-create.component';
 import { TeacherManageComponent } from './container/user/teacher-manage/teacher-manage.component';
+import { TeacherCheckedComponent } from './container/user/teacher-checked/teacher-checked.component';
 
 // Container / Mission
 import { CreateComponent } from './container/mission/create/create.component';
@@ -43,6 +45,7 @@ import { TravelComponent } from './container/mission/travel/travel.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { SportComponent } from './container/mission/sport/sport.component';
 import { ArtComponent } from './container/mission/art/art.component';
+
 
 enableProdMode();
 
@@ -68,6 +71,7 @@ enableProdMode();
     CleanComponent,
     TeacherCreateComponent,
     TeacherManageComponent,
+    TeacherCheckedComponent,
   ],
   imports: [
     BrowserModule,
@@ -83,7 +87,8 @@ enableProdMode();
     }),
     AccordionModule,
     FileUploadModule,
-    MyDatePickerModule
+    MyDatePickerModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

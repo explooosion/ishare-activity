@@ -1,0 +1,36 @@
+#tmanage {
+    margin-top: 1rem;
+}
+
+
+/* 選單設定 */
+
+.navbar {
+    padding: 0;
+}
+
+.navbar-nav a {
+    padding: 1.2rem;
+    color: #777;
+}
+
+.navbar-nav a:hover {
+    color: #555;
+}
+
+.navbar-nav .active a {
+    color: #555;
+    background-color: #e7e7e7;
+}
+
+
+/* 表格設定 */
+
+.table thead tr th {
+    font-weight: bold;
+}
+
+.table thead tr th:not(:nth-child(3)),
+.table tbody tr td:not(:nth-child(3)) {
+    text-align: center;
+}

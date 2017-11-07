@@ -33,6 +33,7 @@
     "mydatepicker": "^2.2.0",
     "ng2-charts": "^1.6.0",
     "ng2-cookies": "^1.0.12",
+    "ngx-pagination": "^3.0.3",
     "popper.js": "^1.12.6",
     "primeng": "^4.3.0",
     "reset-css": "^2.2.1",

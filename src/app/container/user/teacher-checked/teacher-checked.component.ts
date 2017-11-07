@@ -12,15 +12,12 @@ import { element } from 'protractor';
 import * as swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-teacher-create',
-  templateUrl: './teacher-create.component.html',
-  styleUrls: ['./teacher-create.component.css'],
+  selector: 'app-teacher-checked',
+  templateUrl: './teacher-checked.component.html',
+  styleUrls: ['./teacher-checked.component.css'],
   providers: [MissionService]
 })
-export class TeacherCreateComponent implements OnInit {
-
-  @ViewChild('dialogDeleteError') private swalDialogDeleteSuccess: SwalComponent;
-  @ViewChild('dialogDeleteError') private swalDialogDeleteError: SwalComponent;
+export class TeacherCheckedComponent implements OnInit {
 
   public userdata: any = null;
 
@@ -45,7 +42,9 @@ export class TeacherCreateComponent implements OnInit {
   public async getMission() {
     if (this.userdata.teacherusername) {
 
-      await this.missionService.getMissionByCreater(this.userdata.teacherusername).
+      const body = `missioncreateuser=${this.userdata.teacherusername}&&status=已審核`;
+
+      await this.missionService.getJoinByAll(body).
         subscribe(result => {
 
           this.datas = result;
@@ -61,10 +60,4 @@ export class TeacherCreateComponent implements OnInit {
     }
   }
 
-  /**
-   * 刪除任務
-   */
-  public DeleteMission() {
-    this.swalDialogDeleteError.show();
-  }
 }

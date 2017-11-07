@@ -20,6 +20,17 @@ export class MissionService {
   }
 
   /**
+   * 任務查詢 by 建立者
+   * @param uid
+   */
+  public getMissionByCreater(uid) {
+    return this.http.get(`api/mission/creater/${uid}`)
+      .map(res => {
+        return res.json() || {}
+      });
+  }
+
+  /**
    * 任務新增
    * @param body
    */
@@ -91,6 +102,17 @@ export class MissionService {
    */
   public deleteJoin(id) {
     return this.http.post('api/mission/join/delete', id)
+      .map((res) => {
+        return res.json() || {}
+      });
+  }
+
+  /**
+   * 審核使用者
+   * @param body
+   */
+  public verifyMission(body) {
+    return this.http.post('api/mission/verify', body)
       .map((res) => {
         return res.json() || {}
       });

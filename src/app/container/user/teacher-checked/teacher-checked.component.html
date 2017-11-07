@@ -6,10 +6,10 @@
         <li class="nav-item">
           <a class="nav-link" href="#" [routerLink]="['/user/teacher/create']">任務列表</a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item">
           <a class="nav-link" href="#" [routerLink]="['/user/teacher/manage']">待審核</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="#" [routerLink]="['/user/teacher/checked']">已審核</a>
         </li>
       </ul>
@@ -31,9 +31,9 @@
               <th>任務名稱</th>
               <th>學童帳號</th>
               <th>點數獎勵</th>
+              <th>審核時間</th>
               <th>提交時間</th>
               <th>建立時間</th>
-              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -46,13 +46,13 @@
               <th scope="row">{{ i + ( page - 1 ) * 10 + 1 }}</th>
               <td>
                 <span class="badge p-2" [ngClass]="{
-                      'badge-primary': data.missiontype == '影片任務',
-                      'badge-success': data.missiontype == '展演任務',
-                      'badge-danger': data.missiontype == '旅遊任務',
-                      'badge-warning': data.missiontype == '清潔任務',
-                      'badge-info': data.missiontype == '運動任務',
-                      'badge-secondary': data.missiontype == '美術任務'
-                    }">{{ data.missiontype }}</span>
+                          'badge-primary': data.missiontype == '影片任務',
+                          'badge-success': data.missiontype == '展演任務',
+                          'badge-danger': data.missiontype == '旅遊任務',
+                          'badge-warning': data.missiontype == '清潔任務',
+                          'badge-info': data.missiontype == '運動任務',
+                          'badge-secondary': data.missiontype == '美術任務'
+                        }">{{ data.missiontype }}</span>
               </td>
               <td>
                 <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
@@ -61,16 +61,9 @@
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
               </td>
+              <td>{{ data.verifytime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
-              <td class="text-right">
-                <swal #dialogPassSuccess title="已審核通過（功能開發中）" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogRejectSuccess title="已退回心得（功能開發中）" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogPass title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
-                <swal #dialogReject title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
-                <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">通過</button>
-                <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
-              </td>
             </tr>
           </tbody>
         </table>
@@ -83,6 +76,3 @@
       </div>
     </div>
   </div>
-
-  <swal #dialogDeleteSuccess title="刪除成功" type="success" [options]="{ timer : '1000' }"></swal>
-  <swal #dialogDeleteError title="刪除成功" type="error"></swal>
