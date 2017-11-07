@@ -30,9 +30,7 @@ import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
-import { TeacherCreateComponent } from './container/user/teacher-create/teacher-create.component';
-import { TeacherManageComponent } from './container/user/teacher-manage/teacher-manage.component';
-import { TeacherCheckedComponent } from './container/user/teacher-checked/teacher-checked.component';
+import { TeacherComponent } from './container/user/teacher/teacher.component';
 
 // Container / Mission
 import { CreateComponent } from './container/mission/create/create.component';
@@ -45,6 +43,8 @@ import { TravelComponent } from './container/mission/travel/travel.component';
 import { CleanComponent } from './container/mission/clean/clean.component';
 import { SportComponent } from './container/mission/sport/sport.component';
 import { ArtComponent } from './container/mission/art/art.component';
+
+
 
 
 enableProdMode();
@@ -69,9 +69,7 @@ enableProdMode();
     TravelComponent,
     ArtComponent,
     CleanComponent,
-    TeacherCreateComponent,
-    TeacherManageComponent,
-    TeacherCheckedComponent,
+    TeacherComponent,
   ],
   imports: [
     BrowserModule,

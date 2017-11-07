@@ -1,4 +1,4 @@
-#tmanage {
+#tcreate {
   margin-top: 1rem;
 }
 
@@ -16,6 +16,7 @@
 
 .navbar-nav a:hover {
   color: #555;
+  cursor: pointer;
 }
 
 .navbar-nav .active a {
@@ -30,7 +31,7 @@
   font-weight: bold;
 }
 
-.table thead tr th:not(:nth-child(3)),
-.table tbody tr td:not(:nth-child(3)) {
+.table thead tr th,
+.table tbody tr td {
   text-align: center;
 }

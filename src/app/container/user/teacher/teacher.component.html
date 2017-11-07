@@ -1,0 +1,290 @@
+<div id="tcreate">
+
+  <nav class="navbar navbar-expand-lg navbar-default bg-light">
+    <div class="container collapse navbar-collapse">
+      <ul class="navbar-nav">
+        <li class="nav-item" [ngClass]="{ 'active': tab == 0 }">
+          <a class="nav-link" (click)="tab = 0">任務列表
+            <span class="text-secondary">({{ datas.length }})</span>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{ 'active': tab == 1 }">
+          <a class="nav-link" (click)="tab = 1">待審核
+            <span class="text-danger">({{ datasVerify.length }})</span>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{ 'active': tab == 2 }">
+          <a class="nav-link" (click)="tab = 2">轉退回
+            <span class="text-danger">({{ datasReject.length }})</span>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{ 'active': tab == 3 }">
+          <a class="nav-link" (click)="tab = 3">已審核
+            <span class="text-secondary">({{ datasFinish.length }})</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <!-- Mission-Create -->
+  <div *ngIf="tab == 0" class="container-fluid pt-4 pb-4">
+    <div class="card mb-2">
+      <div class="card-footer small text-muted">
+        共 {{ datas.length }} 筆資料
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive table-striped table-border table-button">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>任務類別</th>
+              <th class="text-left">任務名稱</th>
+              <th>點數獎勵</th>
+              <th>開放日期</th>
+              <th>截止日期</th>
+              <th>建立日期</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="isLoading" class="text-center">
+              <td colspan="9">
+                <i class="fa fa-spinner fa-3x fa-spin"></i>
+              </td>
+            </tr>
+            <tr *ngFor="let data of datas | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index">
+              <th scope="row">{{ i + ( page - 1 ) * 10 + 1 }}</th>
+              <td>
+                <span class="badge p-2" [ngClass]="{
+                    'badge-primary': data.missiontype == '影片任務',
+                    'badge-success': data.missiontype == '展演任務',
+                    'badge-danger': data.missiontype == '旅遊任務',
+                    'badge-warning': data.missiontype == '清潔任務',
+                    'badge-info': data.missiontype == '運動任務',
+                    'badge-secondary': data.missiontype == '美術任務'
+                  }">{{ data.missiontype }}</span>
+              </td>
+              <td class="text-left">
+                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.id}">{{ data.missionname }}</a>
+              </td>
+              <td>
+                <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
+              </td>
+              <td>{{ data.missionexperiencetime | date: 'yyyy/MM/dd' }}</td>
+              <td>{{ data.missionfinaltime | date: 'yyyy/MM/dd' }}</td>
+              <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
+              <td class="text-right">
+                <swal #dialogDeleteError title="功能暫未開放，仍有爭議。" type="error" [options]="{ timer : '1000' }"></swal>
+                <swal #dialogDelete title="確定要刪除？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="DeleteMission()"></swal>
+                <button type="button" class="btn btn-primary mr-2">編輯</button>
+                <button type="button" class="btn btn-secondary mr-2" (click)="dialogDelete.show()">刪除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="has-text-centered text-center">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">
+        共 {{ datas.length }} 筆資料
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mission-Verify -->
+  <div *ngIf="tab == 1" class="container-fluid pt-4 pb-4">
+    <div class="card mb-2">
+      <div class="card-footer small text-muted">
+        共 {{ datasVerify.length }} 筆資料
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive table-striped table-border table-button">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>任務類別</th>
+              <th>學童帳號</th>
+              <th class="text-left">任務名稱</th>
+              <th>點數獎勵</th>
+              <th>提交時間</th>
+              <th>建立日期</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="isLoading" class="text-center">
+              <td colspan="9">
+                <i class="fa fa-spinner fa-3x fa-spin"></i>
+              </td>
+            </tr>
+            <tr *ngFor="let data of datasVerify | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index">
+              <th scope="row">{{ i + ( page - 1 ) * 10 + 1 }}</th>
+              <td>
+                <span class="badge p-2" [ngClass]="{
+                              'badge-primary': data.missiontype == '影片任務',
+                              'badge-success': data.missiontype == '展演任務',
+                              'badge-danger': data.missiontype == '旅遊任務',
+                              'badge-warning': data.missiontype == '清潔任務',
+                              'badge-info': data.missiontype == '運動任務',
+                              'badge-secondary': data.missiontype == '美術任務'
+                            }">{{ data.missiontype }}</span>
+              </td>
+              <td>{{ data.childusername }}</td>
+              <td class="text-left">
+                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+              </td>
+              <td>
+                <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
+              </td>
+              <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
+              <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
+              <td class="text-right">
+                <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
+                <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
+                <swal #dialogPass title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogReject title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
+                <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">認可</button>
+                <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="has-text-centered text-center">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">
+        共 {{ datasVerify.length }} 筆資料
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Mission-Reject -->
+  <div *ngIf="tab == 2" class="container-fluid pt-4 pb-4">
+    <div class="card mb-2">
+      <div class="card-footer small text-muted">
+        共 {{ datasReject.length }} 筆資料
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive table-striped table-border table-button">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>任務類別</th>
+              <th>學童帳號</th>
+              <th class="text-left">任務名稱</th>
+              <th>點數獎勵</th>
+              <th>審核時間</th>
+              <th>提交時間</th>
+              <th>建立日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="isLoading" class="text-center">
+              <td colspan="9">
+                <i class="fa fa-spinner fa-3x fa-spin"></i>
+              </td>
+            </tr>
+            <tr *ngFor="let data of datasReject | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index">
+              <th scope="row">{{ i + ( page - 1 ) * 10 + 1 }}</th>
+              <td>
+                <span class="badge p-2" [ngClass]="{
+                                        'badge-primary': data.missiontype == '影片任務',
+                                        'badge-success': data.missiontype == '展演任務',
+                                        'badge-danger': data.missiontype == '旅遊任務',
+                                        'badge-warning': data.missiontype == '清潔任務',
+                                        'badge-info': data.missiontype == '運動任務',
+                                        'badge-secondary': data.missiontype == '美術任務'
+                                      }">{{ data.missiontype }}</span>
+              </td>
+              <td>{{ data.childusername }}</td>
+              <td class="text-left">
+                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+              </td>
+              <td>
+                <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
+              </td>
+              <td>{{ data.verifytime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
+              <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
+              <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="has-text-centered text-center">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">
+        共 {{ datasReject.length }} 筆資料
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Mission-Finish -->
+  <div *ngIf="tab == 3" class="container-fluid pt-4 pb-4">
+
+    <div class="card mb-2">
+      <div class="card-footer small text-muted">
+        共 {{ datasFinish.length }} 筆資料
+      </div>
+      <div class="card-body">
+        <table class="table table-responsive table-striped table-border table-button">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>任務類別</th>
+              <th>學童帳號</th>
+              <th class="text-left">任務名稱</th>
+              <th>點數獎勵</th>
+              <th>審核時間</th>
+              <th>提交時間</th>
+              <th>建立日期</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngIf="isLoading" class="text-center">
+              <td colspan="9">
+                <i class="fa fa-spinner fa-3x fa-spin"></i>
+              </td>
+            </tr>
+            <tr *ngFor="let data of datasFinish | paginate: { itemsPerPage: 10, currentPage: page } ; let i = index">
+              <th scope="row">{{ i + ( page - 1 ) * 10 + 1 }}</th>
+              <td>
+                <span class="badge p-2" [ngClass]="{
+                                  'badge-primary': data.missiontype == '影片任務',
+                                  'badge-success': data.missiontype == '展演任務',
+                                  'badge-danger': data.missiontype == '旅遊任務',
+                                  'badge-warning': data.missiontype == '清潔任務',
+                                  'badge-info': data.missiontype == '運動任務',
+                                  'badge-secondary': data.missiontype == '美術任務'
+                                }">{{ data.missiontype }}</span>
+              </td>
+              <td>{{ data.childusername }}</td>
+              <td class="text-left">
+                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+              </td>
+              <td>
+                <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
+              </td>
+              <td>{{ data.verifytime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
+              <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
+              <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="has-text-centered text-center">
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+        </div>
+      </div>
+      <div class="card-footer small text-muted">
+        共 {{ datasFinish.length }} 筆資料
+      </div>
+    </div>
+  </div>

@@ -12,12 +12,15 @@ import { element } from 'protractor';
 import * as swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-teacher-manage',
-  templateUrl: './teacher-manage.component.html',
-  styleUrls: ['./teacher-manage.component.css'],
+  selector: 'app-teacher',
+  templateUrl: './teacher.component.html',
+  styleUrls: ['./teacher.component.css'],
   providers: [MissionService]
 })
-export class TeacherManageComponent implements OnInit {
+export class TeacherComponent implements OnInit {
+
+  @ViewChild('dialogDeleteError') private swalDialogDeleteSuccess: SwalComponent;
+  @ViewChild('dialogDeleteError') private swalDialogDeleteError: SwalComponent;
 
   @ViewChild('dialogPassSuccess') private swalDialogPassSuccess: SwalComponent;
   @ViewChild('dialogRejectSuccess') private swalDialogRejectSuccess: SwalComponent;
@@ -25,9 +28,15 @@ export class TeacherManageComponent implements OnInit {
   public userdata: any = null;
 
   public datas: any = [];
+  public datasAll: any = [];      // 所有任務
+  public datasVerify: any = [];   // 待審核 
+  public datasFinish: any = [];   // 已審核
+  public datasReject: any = [];   // 轉退回
 
+  public tab: Number = 0;
   public page: Number = 1;
   public isLoading: Boolean = true;
+
 
   constructor(
     private router: Router,
@@ -39,7 +48,12 @@ export class TeacherManageComponent implements OnInit {
     if (this.userdata.logingroup !== 3) {
       this.router.navigate(['/home']);
     }
+
+    // Default Tab
+    this.tab = Number(this.router.parseUrl(this.router.url).queryParams['tab']);
+
     this.getMission();
+    this.getMissionAll();
   }
 
   /**
@@ -48,9 +62,7 @@ export class TeacherManageComponent implements OnInit {
   public async getMission() {
     if (this.userdata.teacherusername) {
 
-      const body = `missioncreateuser=${this.userdata.teacherusername}&&status=已提交`;
-
-      await this.missionService.getJoinByAll(body).
+      await this.missionService.getMissionByCreater(this.userdata.teacherusername).
         subscribe(result => {
 
           this.datas = result;
@@ -65,6 +77,46 @@ export class TeacherManageComponent implements OnInit {
         });
     }
   }
+
+  public async getMissionAll() {
+    if (this.userdata.teacherusername) {
+
+      const body = `missioncreateuser=${this.userdata.teacherusername}`;
+
+      await this.missionService.getJoinByAll(body).
+        subscribe(result => {
+
+          this.datasAll = result;
+
+          // Sort Data by id desc
+          const reg = R.sortWith([
+            R.descend(R.prop('id'))
+          ]);
+          this.datasAll = reg(this.datasAll);
+
+          // Filter Data by status
+          this.datasVerify = R.filter(
+            r => r.status === '已提交', this.datasAll
+          );
+          this.datasFinish = R.filter(
+            r => r.status === '已審核', this.datasAll
+          );
+          this.datasReject = R.filter(
+            r => r.status === '已退回', this.datasAll
+          );
+
+          this.isLoading = false;
+        });
+    }
+  }
+
+  /**
+   * 刪除任務
+   */
+  public DeleteMission() {
+    this.swalDialogDeleteError.show();
+  }
+
 
   /**
    * 通過任務

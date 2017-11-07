@@ -14,19 +14,32 @@
   <ul class="nav nav-tabs user-tab" role="tablist">
     <li class="nav-item">
       <a class="nav-link active" id="mission-start-tab" data-toggle="tab" href="#start-tab" role="tab" aria-controls="start-tab"
-        aria-expanded="true">進行中的任務</a>
+        aria-expanded="true">進行中的任務
+        <span class="text-secondary">({{ missionStart.length }})</span>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-verify-tab" data-toggle="tab" href="#verify-tab" role="tab" aria-controls="verify-tab">審核中的任務</a>
+      <a class="nav-link" id="mission-verify-tab" data-toggle="tab" href="#verify-tab" role="tab" aria-controls="verify-tab">審核中的任務
+        <span class="text-danger">({{ missionVerify.length }})</span>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-finish-tab" data-toggle="tab" href="#finish-tab" role="tab" aria-controls="all-tab">已完成的任務</a>
+      <a class="nav-link" id="mission-reject-tab" data-toggle="tab" href="#reject-tab" role="tab" aria-controls="reject-tab">被退回的任務
+        <span class="text-danger">
+          ({{ missionReject.length }})</span>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-reject-tab" data-toggle="tab" href="#reject-tab" role="tab" aria-controls="reject-tab">被退回的任務</a>
+      <a class="nav-link" id="mission-finish-tab" data-toggle="tab" href="#finish-tab" role="tab" aria-controls="all-tab">已完成的任務
+        <span class="text-secondary">
+          ({{ missionFinish.length }})</span>
+      </a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" id="mission-all-tab" data-toggle="tab" href="#all-tab" role="tab" aria-controls="all-tab">所有參加的任務</a>
+      <a class="nav-link" id="mission-all-tab" data-toggle="tab" href="#all-tab" role="tab" aria-controls="all-tab">所有參加的任務
+        <span class="text-secondary">
+          ({{ missionAll.length }})</span>
+      </a>
     </li>
   </ul>
   <div class="tab-content user-tab-content">
@@ -80,8 +93,8 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="finish-tab" role="tabpanel" aria-labelledby="mission-finish-tab">
-      <div class="card" *ngFor="let mission of missionFinish">
+    <div class="tab-pane fade" id="reject-tab" role="tabpanel" aria-labelledby="mission-reject-tab">
+      <div class="card" *ngFor="let mission of missionReject">
         <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
           <img class="card-img-top" src="{{ mission.missionpicture }}">
         </a>
@@ -105,8 +118,8 @@
         </div>
       </div>
     </div>
-    <div class="tab-pane fade" id="reject-tab" role="tabpanel" aria-labelledby="mission-reject-tab">
-      <div class="card" *ngFor="let mission of missionReject">
+    <div class="tab-pane fade" id="finish-tab" role="tabpanel" aria-labelledby="mission-finish-tab">
+      <div class="card" *ngFor="let mission of missionFinish">
         <a [routerLink]="['../mission/introduce']" [queryParams]="{id:mission.missionid}">
           <img class="card-img-top" src="{{ mission.missionpicture }}">
         </a>

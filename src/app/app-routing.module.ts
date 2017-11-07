@@ -8,10 +8,7 @@ import { HomeComponent } from './container/home/home.component';
 import { UserComponent } from './container/user/user.component';
 import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
-import { TeacherCreateComponent } from './container/user/teacher-create/teacher-create.component';
-import { TeacherManageComponent } from './container/user/teacher-manage/teacher-manage.component';
-import { TeacherCheckedComponent } from './container/user/teacher-checked/teacher-checked.component';
-
+import { TeacherComponent } from './container/user/teacher/teacher.component';
 
 import { SearchComponent } from './container/search/search.component';
 
@@ -34,9 +31,7 @@ const routes: Routes = [
   { path: 'user', component: UserComponent },
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
-  { path: 'user/teacher/create', component: TeacherCreateComponent },
-  { path: 'user/teacher/manage', component: TeacherManageComponent },
-  { path: 'user/teacher/checked', component: TeacherCheckedComponent },
+  { path: 'user/teacher', component: TeacherComponent },
 
   { path: 'search', component: SearchComponent },
 
