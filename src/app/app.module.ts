@@ -29,6 +29,9 @@ import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
 import { SearchComponent } from './container/search/search.component';
 
+import { TeacherCreateComponent } from './container/user/teacher-create/teacher-create.component';
+import { TeacherManageComponent } from './container/user/teacher-manage/teacher-manage.component';
+
 // Container / Mission
 import { CreateComponent } from './container/mission/create/create.component';
 import { IntroduceComponent } from './container/mission/introduce/introduce.component';
@@ -61,8 +64,10 @@ enableProdMode();
     ShowComponent,
     SportComponent,
     TravelComponent,
-    CleanComponent,
     ArtComponent,
+    CleanComponent,
+    TeacherCreateComponent,
+    TeacherManageComponent,
   ],
   imports: [
     BrowserModule,

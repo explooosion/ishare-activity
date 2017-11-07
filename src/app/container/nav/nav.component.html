@@ -49,8 +49,8 @@
             <!-- 老師區塊 -->
             <div *ngIf="IsLogin && logingroup == 3">
               <h6 class="dropdown-header">管理任務</h6>
-              <a class="dropdown-item" href="#">我建立的任務</a>
-              <a class="dropdown-item" href="#">審核學童任務</a>
+              <a class="dropdown-item" href="#" [routerLink]="['/user/teacher/create']">我建立的任務</a>
+              <a class="dropdown-item" href="#" [routerLink]="['/user/teacher/manage']">審核學童任務</a>
             </div>
 
             <!-- 共通設定 -->

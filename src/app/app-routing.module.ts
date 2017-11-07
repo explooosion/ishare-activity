@@ -8,6 +8,9 @@ import { HomeComponent } from './container/home/home.component';
 import { UserComponent } from './container/user/user.component';
 import { ProfileComponent } from './container/user/profile/profile.component';
 import { PointComponent } from './container/user/point/point.component';
+import { TeacherCreateComponent } from './container/user/teacher-create/teacher-create.component';
+import { TeacherManageComponent } from './container/user/teacher-manage/teacher-manage.component';
+
 
 import { SearchComponent } from './container/search/search.component';
 
@@ -23,12 +26,16 @@ import { CleanComponent } from './container/mission/clean/clean.component';
 import { SportComponent } from './container/mission/sport/sport.component';
 import { ArtComponent } from './container/mission/art/art.component';
 
-
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+
+  // 使用者組件
   { path: 'user', component: UserComponent },
   { path: 'user/profile', component: ProfileComponent },
   { path: 'user/point', component: PointComponent },
+  { path: 'user/teacher/create', component: TeacherCreateComponent },
+  { path: 'user/teacher/manage', component: TeacherManageComponent },
+
   { path: 'search', component: SearchComponent },
 
   // 任務相關操作
