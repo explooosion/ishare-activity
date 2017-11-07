@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { MissionService } from '../../../service/mission/mission.service';
 
 import { SwalComponent } from '@toverux/ngsweetalert2';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { IMyDpOptions } from 'mydatepicker';
 import * as moment from 'moment';
 
@@ -20,11 +21,13 @@ export class CreateComponent implements OnInit {
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
   @ViewChild('dialogErrorType') private swalDialogErrorType: SwalComponent;
 
+  public userdata: any = null;
+
   public mission: Mission = new Mission();
   public missionType: Number = 0;
 
   // 開始時間
-  public missionStartDate: any = {
+  public missionCreateDate: any = {
     date: {
       year: moment().format('YYYY'),
       month: moment().format('MM'),
@@ -33,7 +36,7 @@ export class CreateComponent implements OnInit {
   };
 
   // 結束時間
-  public missionEndDate: any = {
+  public missionFinalDate: any = {
     date: {
       year: moment().format('YYYY'),
       month: moment().format('MM'),
@@ -42,7 +45,7 @@ export class CreateComponent implements OnInit {
   };
 
   // 開放填寫時間
-  public missionOpenDate: any = {
+  public missionExpDate: any = {
     date: {
       year: moment().format('YYYY'),
       month: moment().format('MM'),
@@ -69,6 +72,10 @@ export class CreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.userdata = JSON.parse(Cookie.get('userCookie'));
+    if (this.userdata) {
+      this.mission.missioncreateuser = this.userdata.teacherusername;
+    }
   }
 
   /**
@@ -95,15 +102,36 @@ export class CreateComponent implements OnInit {
   }
 
   /**
-   * 發佈任務
+   * 填寫任務基本資訊
    */
   public ToStep2() {
     this.step = 2;
     window.scroll(0, 0);
   }
 
-  public ToStep3() {
-    this.swalDialogSuccess.show();
+  /**
+   * 個別任務項目設定
+   */
+  public async ToStep3() {
+
+    this.mission.missionpicture = 'assets/activity/h7.jpg';
+    this.mission.missioncreatetime = this.missionCreateDate.formatted;
+    this.mission.missionfinaltime = this.missionFinalDate.formatted;
+    this.mission.missionexperiencetime = this.missionExpDate.formatted;
+
+    const body = this.mission;
+
+    await this.missionService.addMission(body).
+      subscribe(result => {
+        if (result.affectedRows > 0) {
+          this.swalDialogSuccess.show();
+          setTimeout(() => {
+            this.router.navigate([`/home`]);
+          }, 1200);
+        } else {
+          this.swalDialogError.show();
+        }
+      });
   }
 
   public BackStep() {

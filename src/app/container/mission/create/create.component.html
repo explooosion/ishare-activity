@@ -118,10 +118,10 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionStartDate" required></my-date-picker>
+                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionCreateDate" required></my-date-picker>
               </div>
               <div class="col-md-6">
-                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionEndDate" required></my-date-picker>
+                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionFinalDate" required></my-date-picker>
               </div>
             </div>
 
@@ -141,7 +141,7 @@
             </div>
             <div class="row">
               <div class="col-md-6">
-                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionOpenDate" required></my-date-picker>
+                <my-date-picker [options]="DatePickerOption" placeholder="選擇日期" [(ngModel)]="missionExpDate" required></my-date-picker>
               </div>
               <div class="col-md-6">
                 <input type="number" class="form-control" [(ngModel)]="mission.missionpoint" required>
@@ -189,13 +189,13 @@
             <i class="fa fa-clock-o" aria-hidden="true"></i>
             <label>影片任務網址</label>
             <span class="text-danger">*</span>
-            <input type="number" class="form-control" [(ngModel)]="mission.missionpoint" required>
+            <input type="text" class="form-control" [(ngModel)]="mission.missionlink" required>
           </div>
           <div class="form-group text-gray">
             <i class="fa fa-plane" aria-hidden="true"></i>
-            <label>旅遊任務地點</label>
+            <label>旅遊交通工具</label>
             <span class="text-danger">*</span>
-            <input type="number" class="form-control" [(ngModel)]="mission.missionpoint" required>
+            <input type="text" class="form-control" [(ngModel)]="mission.missiontraffic" required>
           </div>
         </div>
 

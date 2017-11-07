@@ -9,41 +9,45 @@
 
   <!-- Banner -->
   <div class="container" *ngIf="missions">
+    <img class="mx-auto d-block w-100" src="http://fakeimg.pl/1080x300/?text=1080x300">
     <div class="row">
       <div class="col-md-12">
         <!-- <img class="mx-auto d-block" [src]="missions.missionpicture"> -->
-        <img class="mx-auto d-block" src="http://fakeimg.pl/1140x300/?text=1140x300">
       </div>
     </div>
   </div>
 
-  <div class="container mt-4 bg-white pt-3 pb-4" *ngIf="missions">
-    <div class="row">
-      <div class="col-md-9">
-        <h4 class="mb-4">{{ missions.missionname }}</h4>
-        <h6>
-          <i class="fa fa-calendar mr-2" aria-hidden="true"></i>任務時間：
-        </h6>
-        <p class="ml-4">{{ missions.missioncreatetime | date: 'yyyy/MM/dd' }} ~ {{ missions.missionexperiencetime | date: 'yyyy/MM/dd' }}</p>
-        <h6>
-          <i class="fa fa-map-marker mr-2" aria-hidden="true"></i>任務地點：
-        </h6>
-        <p class="ml-4">{{ missions.missionlocation }}</p>
-        <hr>
-        <h6>
-          <i class="fa fa-scribd mr-2" aria-hidden="true"></i>任務內容：
-        </h6>
-        <p class="ml-4">{{ missions.missioncontent }}</p>
-      </div>
-      <div class="col-md-3">
-        <div class="intro-label border">{{ missions.missiontype }}</div>
-        <div class="intro-label border">{{ missions.missionpoint }} 點</div>
-        <div *ngIf="isJoin" class="intro-label border">{{ missionJoin.status }}</div>
-        <div class="intro-action">
-          <button type="button" class="form-control btn btn-secondary" [routerLink]="['home']">返回首頁</button>
-          <button *ngIf="!isJoin && userGroup !== 3" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
-          <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">心得專欄</button>
-          <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
+  <div class="container mt-4 mb-4" *ngIf="missions">
+    <div class="container pt-3 pb-4 bg-white">
+      <div class="row">
+        <div class="col-md-9">
+          <h4 class="mb-4">{{ missions.missionname }}</h4>
+          <h6>
+            <i class="fa fa-calendar mr-2" aria-hidden="true"></i>任務時間：
+          </h6>
+          <p class="ml-4">{{ missions.missioncreatetime | date: 'yyyy/MM/dd' }} ~ {{ missions.missionexperiencetime | date: 'yyyy/MM/dd'
+            }}
+          </p>
+          <h6>
+            <i class="fa fa-map-marker mr-2" aria-hidden="true"></i>任務地點：
+          </h6>
+          <p class="ml-4">{{ missions.missionlocation }}</p>
+          <hr>
+          <h6>
+            <i class="fa fa-scribd mr-2" aria-hidden="true"></i>任務內容：
+          </h6>
+          <p class="ml-4">{{ missions.missioncontent }}</p>
+        </div>
+        <div class="col-md-3">
+          <div class="intro-label border">{{ missions.missiontype }}</div>
+          <div class="intro-label border">{{ missions.missionpoint }} 點</div>
+          <div *ngIf="isJoin" class="intro-label border">{{ missionJoin.status }}</div>
+          <div class="intro-action">
+            <button type="button" class="form-control btn btn-secondary" [routerLink]="['home']">返回首頁</button>
+            <button *ngIf="!isJoin && userGroup !== 3" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
+            <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">心得專欄</button>
+            <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
+          </div>
         </div>
       </div>
     </div>
