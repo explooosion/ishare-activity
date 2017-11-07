@@ -16,7 +16,6 @@ import { Mission } from '../.././../class/mission/mission';
 })
 export class CreateComponent implements OnInit {
 
-
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
   @ViewChild('dialogErrorType') private swalDialogErrorType: SwalComponent;
@@ -24,9 +23,36 @@ export class CreateComponent implements OnInit {
   public mission: Mission = new Mission();
   public missionType: Number = 0;
 
+  // 開始時間
+  public missionStartDate: any = {
+    date: {
+      year: moment().format('YYYY'),
+      month: moment().format('MM'),
+      day: moment().add(1, 'd').format('D'),
+    }
+  };
+
+  // 結束時間
+  public missionEndDate: any = {
+    date: {
+      year: moment().format('YYYY'),
+      month: moment().format('MM'),
+      day: moment().add(7, 'd').format('D'),
+    }
+  };
+
+  // 開放填寫時間
+  public missionOpenDate: any = {
+    date: {
+      year: moment().format('YYYY'),
+      month: moment().format('MM'),
+      day: moment().add(7, 'd').format('D'),
+    }
+  };
+
   public step: Number = 0;
 
-  public myDatePickerOptions: IMyDpOptions = {
+  public DatePickerOption: IMyDpOptions = {
     dateFormat: 'yyyy-mm-dd',
     satHighlight: true,
     dayLabels: { su: '日', mo: '一', tu: '二', we: '三', th: '四', fr: '五', sa: '六' },
@@ -43,13 +69,12 @@ export class CreateComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
   }
 
   /**
    * 選擇任務類別
    */
-  public ChooseGroup() {
+  public ToStep1() {
 
     switch (this.missionType) {
       case 1: this.mission.missiontype = '影片任務'; break;
@@ -62,6 +87,7 @@ export class CreateComponent implements OnInit {
 
     if (this.missionType !== 0) {
       this.step = 1;
+      window.scroll(0, 0);
     } else {
       this.step = 0;
       this.swalDialogErrorType.show();
@@ -71,9 +97,17 @@ export class CreateComponent implements OnInit {
   /**
    * 發佈任務
    */
-  public PublishMission() {
-    this.swalDialogSuccess.show();
-    // 導到老師所建立的任務清單頁面
+  public ToStep2() {
+    this.step = 2;
+    window.scroll(0, 0);
   }
 
+  public ToStep3() {
+    this.swalDialogSuccess.show();
+  }
+
+  public BackStep() {
+    this.step = Number(this.step) - 1;
+    window.scroll(0, 0);
+  }
 }
