@@ -32,7 +32,7 @@
               <th>任務名稱</th>
               <th>點數獎勵</th>
               <th>提交時間</th>
-              <th>建立時間</th>
+              <th>建立日期</th>
               <th></th>
             </tr>
           </thead>
@@ -54,7 +54,7 @@
                       'badge-secondary': data.missiontype == '美術任務'
                     }">{{ data.missiontype }}</span>
               </td>
-              <td>{{ data.childusername }}</td>
+              <td>{{ data.childusername }} - {{ data.status }}</td>
               <td>
                 <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
               </td>
@@ -64,11 +64,11 @@
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td class="text-right">
-                <swal #dialogPassSuccess title="已審核通過（功能開發中）" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogRejectSuccess title="已退回心得（功能開發中）" type="success" [options]="{ timer : '1000' }"></swal>
+                <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
+                <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
                 <swal #dialogPass title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
                 <swal #dialogReject title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
-                <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">通過</button>
+                <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">認可</button>
                 <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
               </td>
             </tr>
@@ -83,6 +83,3 @@
       </div>
     </div>
   </div>
-
-  <swal #dialogDeleteSuccess title="刪除成功" type="success" [options]="{ timer : '1000' }"></swal>
-  <swal #dialogDeleteError title="刪除成功" type="error"></swal>

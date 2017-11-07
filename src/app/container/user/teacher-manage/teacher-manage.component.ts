@@ -36,6 +36,9 @@ export class TeacherManageComponent implements OnInit {
 
   ngOnInit() {
     this.userdata = JSON.parse(Cookie.get('userCookie'));
+    if (this.userdata.logingroup !== 3) {
+      this.router.navigate(['/home']);
+    }
     this.getMission();
   }
 
@@ -78,10 +81,10 @@ export class TeacherManageComponent implements OnInit {
       };
       await this.missionService.verifyMission(body)
         .subscribe(result => {
-
-          console.log(result);
-          this.swalDialogPassSuccess.show();
-          this.getMission();
+          if (result.affectedRows > 0) {
+            this.swalDialogPassSuccess.show();
+            this.getMission();
+          }
         });
     }
 
@@ -90,7 +93,25 @@ export class TeacherManageComponent implements OnInit {
   /**
    * 退回任務
    */
-  public RejectMission(mid: Number, cname: String) {
-    this.swalDialogRejectSuccess.show();
+  public async RejectMission(mid: Number, cname: String) {
+
+    if (this.userdata) {
+      const body = {
+        status: '已退回',
+        verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
+        verifyusername: this.userdata.teacherusername,
+        missionid: mid,
+        childusername: cname
+      };
+      await this.missionService.verifyMission(body)
+        .subscribe(result => {
+          console.log(result);
+          if (result.affectedRows > 0) {
+            this.swalDialogRejectSuccess.show();
+            this.getMission();
+          }
+        });
+    }
+
   }
 }

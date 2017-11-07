@@ -33,6 +33,9 @@ export class TeacherCheckedComponent implements OnInit {
 
   ngOnInit() {
     this.userdata = JSON.parse(Cookie.get('userCookie'));
+    if (this.userdata.logingroup !== 3) {
+      this.router.navigate(['/home']);
+    }
     this.getMission();
   }
 

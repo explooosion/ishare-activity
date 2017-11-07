@@ -18,6 +18,8 @@ export class UserComponent implements OnInit {
   public missions: any;
   public missionStart = [];
   public missionVerify = [];
+  public missionFinish = [];
+  public missionReject = [];
   public missionAll = [];
   public result: any;
   public userdata: any;
@@ -47,6 +49,12 @@ export class UserComponent implements OnInit {
         );
         this.missionVerify = R.filter(
           r => r.status === '已提交', this.missionAll
+        );
+        this.missionFinish = R.filter(
+          r => r.status === '已審核', this.missionAll
+        );
+        this.missionReject = R.filter(
+          r => r.status === '已退回', this.missionAll
         );
       });
   }
