@@ -28,8 +28,8 @@
             <tr>
               <th>#</th>
               <th>任務類別</th>
-              <th>任務名稱</th>
               <th>學童帳號</th>
+              <th>任務名稱</th>
               <th>點數獎勵</th>
               <th>審核時間</th>
               <th>提交時間</th>
@@ -54,10 +54,10 @@
                           'badge-secondary': data.missiontype == '美術任務'
                         }">{{ data.missiontype }}</span>
               </td>
+              <td>{{ data.childusername }}</td>
               <td>
                 <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
               </td>
-              <td>{{ data.childusername }}</td>
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
               </td>
