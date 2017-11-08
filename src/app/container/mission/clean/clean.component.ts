@@ -18,6 +18,7 @@ export class CleanComponent implements OnInit {
 
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
+  @ViewChild('dialogErrorCheck') private swalDialogErrorCkeck: SwalComponent;
 
   public userdata: Object = [];
   public missionId: Number = null;
@@ -119,7 +120,7 @@ export class CleanComponent implements OnInit {
     const body = {
       submittime: moment().format('YYYY-MM-DD hh:mm:ss'),
       cleanplace: this.missionDetail.cleanplace,
-      cleandate: this.missionDetail.cleandate.formatted,
+      cleandate: this.missionDetail.cleandate ? this.missionDetail.cleandate.formatted : null,
       status: '已提交',
       experience: exp,
       picture: './assets/activity/h4.jpg;./assets/activity/h5.jpg',
@@ -127,13 +128,22 @@ export class CleanComponent implements OnInit {
       childusername: this.userdata['childusername'],
     };
 
-    await this.missionService.updateJoin(body).subscribe(
-      result => {
-        if (result.affectedRows > 0) {
-          this.swalDialogSuccess.show();
-          setTimeout(() => { location.reload(); }, 1200);
-        }
-      });
+    let bodyChk = true;
+    R.forEachObjIndexed((value, key) => {
+      bodyChk = R.or(value === null, value === '') ? false : bodyChk;
+    }, body);
+
+    if (bodyChk) {
+      await this.missionService.updateJoin(body).subscribe(
+        result => {
+          if (result.affectedRows > 0) {
+            this.swalDialogSuccess.show();
+            setTimeout(() => { location.reload(); }, 1200);
+          }
+        });
+    } else {
+      this.swalDialogErrorCkeck.show();
+    }
 
   }
 

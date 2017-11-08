@@ -18,6 +18,7 @@ export class SportComponent implements OnInit {
 
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
+  @ViewChild('dialogErrorCheck') private swalDialogErrorCkeck: SwalComponent;
 
   public userdata: Object = [];
   public missionId: Number = null;
@@ -113,20 +114,29 @@ export class SportComponent implements OnInit {
     const body = {
       submittime: moment().format('YYYY-MM-DD hh:mm:ss'),
       sportplace: this.missionDetail.sportplace,
-      sportdate: this.missionDetail.sportdate.formatted,
+      sportdate: this.missionDetail.sportdate ? this.missionDetail.sportdate.formatted : null,
       status: '已提交',
       picture: './assets/activity/h4.jpg;./assets/activity/h6.jpg',
       missionid: this.missionId,
       childusername: this.userdata['childusername'],
     };
 
-    await this.missionService.updateJoin(body).subscribe(
-      result => {
-        if (result.affectedRows > 0) {
-          this.swalDialogSuccess.show();
-          setTimeout(() => { location.reload(); }, 1200);
-        }
-      });
+    let bodyChk = true;
+    R.forEachObjIndexed((value, key) => {
+      bodyChk = R.or(value === null, value === '') ? false : bodyChk;
+    }, body);
+
+    if (bodyChk) {
+      await this.missionService.updateJoin(body).subscribe(
+        result => {
+          if (result.affectedRows > 0) {
+            this.swalDialogSuccess.show();
+            setTimeout(() => { location.reload(); }, 1200);
+          }
+        });
+    } else {
+      this.swalDialogErrorCkeck.show();
+    }
 
   }
 

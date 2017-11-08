@@ -90,5 +90,6 @@
     <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
   </div>
 </div>
-<swal #dialogSuccess title="更新成功" type="success" [options]="{ timer : '1000' }"></swal>
-<swal #dialogError title="更新失敗" type="error"></swal>
+<swal #dialogSuccess title="更新成功！" type="success" [options]="{ timer : '1000' }"></swal>
+<swal #dialogError title="更新失敗！" type="error" [options]="{ timer : '1000' }"></swal>
+<swal #dialogErrorCheck title="資料沒有填完整唷！" type="error" [options]="{ timer : '1000' }"> </swal>
