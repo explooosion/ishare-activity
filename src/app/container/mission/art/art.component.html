@@ -20,31 +20,40 @@
         <label>作品類別</label>
         <span class="text-danger">*</span>
         <div class="form-group">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="彩繪" [checked]="artType['彩繪']" (change)="this.artType[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">彩繪</span>
-          </label>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="雕刻" [checked]="artType['雕刻']" (change)="this.artType[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">雕刻</span>
-          </label>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="捏塑" [checked]="artType['捏塑']" (change)="this.artType[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">捏塑</span>
-          </label>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="平面設計" [checked]="artType['平面設計']" (change)="this.artType[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">平面設計</span>
-          </label>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="立體設計" [checked]="artType['立體設計']" (change)="this.artType[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">立體設計</span>
-          </label>
+          <div *ngIf="!missionEditMode">
+            <span *ngIf="artType['彩繪']" class="badge badge-info p-2 mr-2">彩繪</span>
+            <span *ngIf="artType['雕刻']" class="badge badge-info p-2 mr-2">雕刻</span>
+            <span *ngIf="artType['捏塑']" class="badge badge-info p-2 mr-2">捏塑</span>
+            <span *ngIf="artType['平面設計']" class="badge badge-info p-2 mr-2">平面設計</span>
+            <span *ngIf="artType['立體設計']" class="badge badge-info p-2 mr-2">立體設計</span>
+          </div>
+          <div *ngIf="missionEditMode">
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="彩繪" [checked]="artType['彩繪']" (change)="artType[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">彩繪</span>
+            </label>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="雕刻" [checked]="artType['雕刻']" (change)="artType[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">雕刻</span>
+            </label>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="捏塑" [checked]="artType['捏塑']" (change)="artType[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">捏塑</span>
+            </label>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="平面設計" [checked]="artType['平面設計']" (change)="artType[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">平面設計</span>
+            </label>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="立體設計" [checked]="artType['立體設計']" (change)="artType[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">立體設計</span>
+            </label>
+          </div>
         </div>
       </div>
       <div class="form-group text-gray">
