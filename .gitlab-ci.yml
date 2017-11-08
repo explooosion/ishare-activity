@@ -6,8 +6,8 @@ cache:
   
 before_script:
   - ls
-  - yum -y update
-  - yum -y install wget
+  - apk update
+  - apk upgrade
   - npm install
   - npm install @angular/cli
   
