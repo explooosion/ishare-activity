@@ -74,8 +74,12 @@ export class TravelComponent implements OnInit {
         result => {
 
           this.missionDetail = result[0];
+          const checkStatus = R.or(
+            this.missionDetail.status === '已參加',
+            this.missionDetail.status === '已退回'
+          );
 
-          if (this.missionDetail.status === '已參加') {
+          if (checkStatus) {
             this.missionEditMode = true;
             this.myDatePickerOptions.componentDisabled = false;
           }

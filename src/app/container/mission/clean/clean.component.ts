@@ -6,6 +6,7 @@ import { SwalComponent } from '@toverux/ngsweetalert2';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { IMyDpOptions } from 'mydatepicker';
 import * as moment from 'moment';
+import * as R from 'ramda';
 
 @Component({
   selector: 'app-clean',
@@ -70,7 +71,12 @@ export class CleanComponent implements OnInit {
       await this.missionService.getJoinBy(query).subscribe(
         result => {
           this.missionDetail = result[0];
-          if (this.missionDetail.status === '已參加') {
+          const checkStatus = R.or(
+            this.missionDetail.status === '已參加',
+            this.missionDetail.status === '已退回'
+          );
+
+          if (checkStatus) {
             this.missionEditMode = true;
             this.myDatePickerOptions.componentDisabled = false;
           }

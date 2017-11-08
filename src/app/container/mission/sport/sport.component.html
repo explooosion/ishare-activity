@@ -1,9 +1,16 @@
 <div class="container mb-4">
   <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=1140x300">
-  <h2 class="mt-4">運動任務
-    <small *ngIf="!missionEditMode"> - 檢視模式</small>
+  <h3 class="mt-4">運動任務
     <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
-  </h2>
+  </h3>
+  <h5>
+    <span class="badge p-2" [ngClass]=" { 
+      'badge-info': missionDetail.status == '已參加',
+      'badge-primary': missionDetail.status == '已提交',
+      'badge-danger': missionDetail.status == '已退回',
+      'badge-success': missionDetail.status == '已審核'
+     }">{{ missionDetail.status }}</span>
+  </h5>
 </div>
 
 <div class="container">
