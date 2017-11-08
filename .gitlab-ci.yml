@@ -1,15 +1,8 @@
 image: node:8
 
-cache:
-  paths:
-  - node_modules/
-  
 before_script:
-  - ls
-  - apk update
-  - apk upgrade
   - npm install
-  - npm install @angular/cli
+  - npm install --save-dev @angular/cli@latest
   
 test:
   script:
