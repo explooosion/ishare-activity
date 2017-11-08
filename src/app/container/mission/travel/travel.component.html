@@ -41,16 +41,22 @@
         <label>隨行成員</label>
         <span class="text-danger">*</span>
         <div class="form-group">
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="家人" [checked]="missionMember['家人']" (change)="this.missionMember[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">家人</span>
-          </label>
-          <label class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" value="朋友" [checked]="missionMember['朋友']" (change)="this.missionMember[$event.target.value] = $event.target.checked">
-            <span class="custom-control-indicator"></span>
-            <span class="custom-control-description">朋友</span>
-          </label>
+          <div *ngIf="!missionEditMode">
+            <span *ngIf="missionMember['家人']" class="badge badge-info p-2 mr-2">家人</span>
+            <span *ngIf="missionMember['朋友']" class="badge badge-info p-2 mr-2">朋友</span>
+          </div>
+          <div *ngIf="missionEditMode">
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="家人" [checked]="missionMember['家人']" (change)="missionMember[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">家人</span>
+            </label>
+            <label class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" value="朋友" [checked]="missionMember['朋友']" (change)="missionMember[$event.target.value] = $event.target.checked">
+              <span class="custom-control-indicator"></span>
+              <span class="custom-control-description">朋友</span>
+            </label>
+          </div>
         </div>
       </div>
       <div class="form-group text-gray">
