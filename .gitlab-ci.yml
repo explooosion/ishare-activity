@@ -5,8 +5,11 @@ cache:
   - node_modules/
   
 before_script:
-  - sudo npm install
-  - sudo npm install -g @angular/cli
+  - ls
+  - yum -y update
+  - yum -y install wget
+  - npm install
+  - npm install @angular/cli
   
 test:
   script:
