@@ -76,9 +76,9 @@
               <td>{{ data.missionfinaltime | date: 'yyyy/MM/dd' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td class="text-right">
-                <swal #dialogDeleteError title="功能暫未開放，仍有爭議。" type="error" [options]="{ timer : '1000' }"></swal>
                 <swal #dialogDelete title="確定要刪除？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="DeleteMission()"></swal>
-                <button type="button" class="btn btn-primary mr-2">編輯</button>
+                <swal #dialogDeleteError title="功能暫未開放，仍有爭議。" type="error" [options]="{ timer : '1000' }"></swal>
+                <button type="button" class="btn btn-primary mr-2" (click)="dialogDeleteError.show()">編輯</button>
                 <button type="button" class="btn btn-secondary mr-2" (click)="dialogDelete.show()">刪除</button>
               </td>
             </tr>
@@ -143,10 +143,10 @@
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td class="text-right">
-                <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
                 <swal #dialogPass title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
                 <swal #dialogReject title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
                 <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">認可</button>
                 <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
               </td>
@@ -183,6 +183,7 @@
               <th>審核時間</th>
               <th>提交時間</th>
               <th>建立日期</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -213,6 +214,11 @@
               <td>{{ data.verifytime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
+              <td>
+                <swal #dialogRevert title="要還原成待審？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RevertMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogRevertSuccess title="已還原完成" type="success" [options]="{ timer : '1000' }"></swal>
+                <button type="button" class="btn btn-secondary mr-2" (click)="dialogRevert.show()">還原</button>
+              </td>
             </tr>
           </tbody>
         </table>
