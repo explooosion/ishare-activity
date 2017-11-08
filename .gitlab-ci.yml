@@ -5,8 +5,8 @@ cache:
   - node_modules/
   
 before_script:
-  - npm install
-  - npm install @angular/cli
+  - sudo npm install
+  - sudo npm install -g @angular/cli
   
 test:
   script:
