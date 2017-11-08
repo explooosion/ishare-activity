@@ -145,8 +145,8 @@
               <td class="text-right">
                 <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
                 <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogPass title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
-                <swal #dialogReject title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogPass title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
+                <swal #dialogReject title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
                 <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">認可</button>
                 <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
               </td>
