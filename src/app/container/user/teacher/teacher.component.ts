@@ -29,10 +29,10 @@ export class TeacherComponent implements OnInit {
   public userdata: any = null;
 
   public datas: any = [];
-  public datasAll: any = [];      // 所有任務
-  public datasVerify: any = [];   // 待審核 
-  public datasFinish: any = [];   // 已審核
-  public datasReject: any = [];   // 轉退回
+  public datasAll: any = [];
+  public datasVerify: any = [];
+  public datasFinish: any = [];
+  public datasReject: any = [];
 
   public tab: Number = 0;
   public page: Number = 1;
