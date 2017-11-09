@@ -20,8 +20,11 @@ export class VideoComponent implements OnInit {
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
   @ViewChild('dialogErrorCheck') private swalDialogErrorCkeck: SwalComponent;
+  @ViewChild('dialogPassSuccess') private swalDialogPassSuccess: SwalComponent;
+  @ViewChild('dialogRejectSuccess') private swalDialogRejectSuccess: SwalComponent;
+  @ViewChild('dialogRevertSuccess') private swalDialogRevertSuccess: SwalComponent;
 
-  public userdata: Object = [];
+  public userdata: any = [];
   public missionId: Number = null;
 
   public missionData: any = [];
@@ -152,12 +155,86 @@ export class VideoComponent implements OnInit {
   }
 
 
+  /**
+   * 通過任務
+   * @param mid 任務編號
+   * @param cuid 學童帳號
+   */
+  public async PassMission(mid: Number, cuid: String) {
+    if (this.userdata) {
+      const body = {
+        status: '已審核',
+        verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
+        verifyusername: this.userdata.teacherusername,
+        missionid: mid,
+        childusername: cuid
+      };
+      await this.missionService.verifyMission(body)
+        .subscribe(result => {
+          if (result.affectedRows > 0) {
+            this.swalDialogPassSuccess.show();
+            this.getMission();
+          }
+        });
+    }
+  }
+
+  /**
+   * 退回任務
+   * @param mid 任務編號
+   * @param cuid 學童帳號
+   */
+  public async RejectMission(mid: Number, cuid: String) {
+    if (this.userdata) {
+      const body = {
+        status: '已退回',
+        verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
+        verifyusername: this.userdata.teacherusername,
+        missionid: mid,
+        childusername: cuid
+      };
+      await this.missionService.verifyMission(body)
+        .subscribe(result => {
+          console.log(result);
+          if (result.affectedRows > 0) {
+            this.swalDialogRejectSuccess.show();
+            this.getMission();
+          }
+        });
+    }
+  }
+
+  /**
+ * 還原任務(轉為待審)
+ * @param mid 任務編號
+ * @param cuid 學童帳號
+ */
+  public async RevertMission(mid: Number, cuid: String) {
+    if (this.userdata) {
+      const body = {
+        status: '已提交',
+        verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
+        verifyusername: this.userdata.teacherusername,
+        missionid: mid,
+        childusername: cuid
+      };
+      await this.missionService.verifyMission(body)
+        .subscribe(result => {
+          console.log(result);
+          if (result.affectedRows > 0) {
+            this.swalDialogRevertSuccess.show();
+            this.getMission();
+          }
+        });
+    }
+  }
+
 
   /**
    * 網址轉換
    */
-  public ConvertUrl() {
-    this.videoUrlFrm = this.domSanitizer
+  public async ConvertUrl() {
+    this.videoUrlFrm = await this.domSanitizer
       .bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.missionData.missionlink}`);
   }
 

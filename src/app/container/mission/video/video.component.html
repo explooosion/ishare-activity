@@ -1,56 +1,94 @@
 <div class="container mb-4">
-  <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=Photo Demo">
-  <h3 class="mt-4">影片任務
-    <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
-  </h3>
-  <h5>
-    <span class="badge p-2" [ngClass]=" { 
-    'badge-info': missionDetail.status == '已參加',
-    'badge-primary': missionDetail.status == '已提交',
-    'badge-danger': missionDetail.status == '已退回',
-    'badge-success': missionDetail.status == '已審核'
-  }">{{ missionDetail.status }}</span>
-  </h5>
+  <img class="img-thumbnail w-100" src="http://fakeimg.pl/1080x300/?text=1080x300">
+  <div class="row mt-4">
+    <div class="col-md-10">
+      <h3>
+        <a href="#" [routerLink]="['/mission/introduce']" [queryParams]="{ id : missionData.id }">{{ missionData.missionname }}</a>
+      </h3>
+    </div>
+    <div class="col-md-2 text-right">
+      <div class="h5">
+        <span class="badge p-2 mr-1 mt-1" [ngClass]="{
+                          'badge-primary': missionData.missiontype == '影片任務',
+                          'badge-success': missionData.missiontype == '展演任務',
+                          'badge-danger': missionData.missiontype == '旅遊任務',
+                          'badge-warning': missionData.missiontype == '清潔任務',
+                          'badge-info': missionData.missiontype == '運動任務',
+                          'badge-secondary': missionData.missiontype == '美術任務'
+                        }">{{ missionData.missiontype }}</span>
+        <span class="badge p-2 mr-1 mt-1" [ngClass]=" {
+                          'badge-info': missionDetail.status == '已參加',
+                          'badge-primary': missionDetail.status == '已提交',
+                          'badge-danger': missionDetail.status == '已退回',
+                          'badge-success': missionDetail.status == '已審核'
+                        }">{{ missionDetail.status }}</span>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div *ngIf="userdata['teacherusername']" class="row mt-4">
+    <div *ngIf="missionDetail.status == '已提交'" class="col-sm-3 col-lg-2 form-group">
+      <button class="btn btn-lg btn-success form-control" type="button" (click)="dialogPass.show()">
+        <i class="fa fa-check-circle mr-2" aria-hidden="true"></i>心得核准</button>
+    </div>
+    <div *ngIf="missionDetail.status == '已提交'" class="col-sm-3 col-lg-2 form-group">
+      <button class="btn btn-lg btn-secondary form-control" type="button" (click)="dialogReject.show()">
+        <i class="fa fa-times-circle mr-2" aria-hidden="true"></i>心得退回</button>
+    </div>
+    <div *ngIf="missionDetail.status == '已退回'" class="col-sm-3 col-lg-2 form-group">
+      <button class="btn btn-lg btn-secondary form-control" type="button" (click)="dialogRevert.show()">
+        <i class="fa fa-times-circle mr-2" aria-hidden="true"></i>還原待審</button>
+    </div>
+    <div class="col-sm-3 col-lg-2 form-group" [ngClass]="{ 'offset-lg-8': missionDetail.status == '已退回', 'offset-lg-6': missionDetail.status == '已提交', 'offset-lg-10': missionDetail.status == '已審核' }">
+      <button class="btn btn-lg btn-info form-control" type="button" [routerLink]="['/user/teacher']" [queryParams]="{ tab : 1 }">
+        <i class="fa fa-arrow-circle-left mr-2" aria-hidden="true"></i>返回列表</button>
+    </div>
+  </div>
 </div>
 
 <div class="container">
   <div class="row">
     <div class="col-md-6">
       <div class="form-group text-gray">
-        <i class="fa fa-youtube-play" aria-hidden="true"></i>
-        <label>影片名稱</label>
-        <span class="text-danger">*</span>
-        <input type="text" class="form-control" [(ngModel)]="missionData.missionname" readonly>
-      </div>
-      <div class="form-group text-gray">
         <i class="fa fa-clock-o" aria-hidden="true"></i>
         <label>觀看日期</label>
         <span class="text-danger">*</span>
-        <input *ngIf="!missionEditMode && missionDetail.starttime" class="form-control" type="text" [value]="missionDetail.starttime.formatted"
-          readonly>
-        <my-date-picker [hidden]="!missionEditMode" [options]="myDatePickerOptions" [(ngModel)]="missionDetail.starttime" required></my-date-picker>
+        <input *ngIf="( !missionEditMode || userdata['teacherusername'] ) && missionDetail.starttime" class="form-control" type="text"
+          [value]="missionDetail.starttime.formatted" readonly>
+        <my-date-picker [hidden]="!missionEditMode || userdata['teacherusername']" [options]="myDatePickerOptions" [(ngModel)]="missionDetail.starttime"
+          required></my-date-picker>
       </div>
       <div class="form-group text-gray">
         <i class="fa fa-pencil-square" aria-hidden="true"></i>
         <label>心得感想</label>
         <span class="text-danger">*</span>
-        <textarea class="form-control" rows="6" placeholder="請填寫心得感想" [(ngModel)]="this.missionDetail.experience" [readonly]="!missionEditMode"></textarea>
+        <textarea class="form-control" rows="6" placeholder="請填寫心得感想" [(ngModel)]="this.missionDetail.experience" [readonly]="!missionEditMode || userdata['teacherusername']"></textarea>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group text-gray">
         <i class="fa fa-eye" aria-hidden="true"></i>
         <label>影片預覽</label>
-        <div class="form-control embed-responsive embed-responsive-16by9">
+        <div *ngIf="!videoUrlFrm" class="container text-center mt-5">
+          <i class="fa fa-spinner fa-spin fa-5x" aria-hidden="true"></i>
+        </div>
+        <div *ngIf="videoUrlFrm" class="form-control embed-responsive embed-responsive-16by9">
           <iframe class="embed-responsive-item" [src]="videoUrlFrm" allowfullscreen></iframe>
         </div>
       </div>
     </div>
   </div>
-  <div *ngIf="missionEditMode" class="form-group">
+  <div *ngIf="missionEditMode && userdata['childusername']" class="form-group">
     <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
   </div>
 </div>
 <swal #dialogSuccess title="更新成功！" type="success" [options]="{ timer : '1000' }"></swal>
 <swal #dialogError title="更新失敗！" type="error" [options]="{ timer : '1000' }"></swal>
-<swal #dialogErrorCheck title="資料沒有填完整唷！" type="error" [options]="{ timer : '1000' }"> </swal>
+<swal #dialogErrorCheck title="資料沒有填完整唷！" type="error" [options]="{ timer : '1000' }"></swal>
+
+<swal type="question" title="確定要通過？" #dialogPass [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(missionDetail.missionid, missionDetail.childusername)"></swal>
+<swal type="success" title="已審核完成" #dialogPassSuccess [options]="{ timer : '1000' }"></swal>
+<swal type="question" title="確定要退回？" #dialogReject [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(missionDetail.missionid, missionDetail.childusername)"></swal>
+<swal type="success" title="已退回心得" #dialogRejectSuccess [options]="{ timer : '1000' }"></swal>
+<swal type="question" title="要還原成待審？" #dialogRevert [options]="{ showCancelButton: 'true' }" (confirm)="RevertMission(missionDetail.missionid, missionDetail.childusername)"></swal>
+<swal type="success" title="已還原完成" #dialogRevertSuccess [options]="{ timer : '1000' }"></swal>
