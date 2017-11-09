@@ -70,7 +70,12 @@ export class VideoComponent implements OnInit {
         }
       );
 
-      const query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
+      // 判斷學生檢視心得還是老師
+      const udata = R.isNil(this.userdata['childusername']) ?
+        this.router.parseUrl(this.router.url).queryParams['childusername'] :
+        this.userdata['childusername'];
+
+      const query = `username=${udata}&missionid=${this.missionId}`;
 
       await this.missionService.getJoinBy(query).subscribe(
         result => {

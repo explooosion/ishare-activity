@@ -1,16 +1,22 @@
 <div class="container mb-4">
   <img class="img-thumbnail" src="http://fakeimg.pl/1140x300/?text=1140x300">
-  <h3 class="mt-4">美術任務
-    <button type="button" class="float-right btn btn-info" [routerLink]="['/mission/introduce']" [queryParams]="{id:missionData.id}">返回資訊</button>
-  </h3>
-  <h5>
-    <span class="badge p-2" [ngClass]=" { 
-      'badge-info': missionDetail.status == '已參加',
-      'badge-primary': missionDetail.status == '已提交',
-      'badge-danger': missionDetail.status == '已退回',
-      'badge-success': missionDetail.status == '已審核'
-     }">{{ missionDetail.status }}</span>
-  </h5>
+   <div class="row mt-4">
+    <div class="col-md-10">
+      <h3>美術任務</h3>
+      <h5>
+        <span class="badge p-2" [ngClass]=" {
+          'badge-info': missionDetail.status == '已參加',
+          'badge-primary': missionDetail.status == '已提交',
+          'badge-danger': missionDetail.status == '已退回',
+          'badge-success': missionDetail.status == '已審核'
+         }">{{ missionDetail.status }}</span>
+      </h5>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-info form-control mb-1" type="button" [routerLink]="['/user/teacher']" [queryParams]="{ tab : 1 }">返回批改</button>
+      <button class="btn btn-secondary form-control" type="button" [routerLink]="['/mission/introduce']" [queryParams]="{ id : missionData.id }">返回資訊</button>
+    </div>
+  </div>
 </div>
 
 <div class="container">
@@ -20,7 +26,7 @@
         <i class="fa fa-star" aria-hidden="true"></i>
         <label>美術名稱</label>
         <span class="text-danger">*</span>
-        <input type="text" class="form-control" placeholder="請輸入美術名稱" [value]="missionData.missionname" readonly>
+        <input class="form-control" type="text" placeholder="請輸入美術名稱" [value]="missionData.missionname" readonly>
       </div>
       <div class="form-group text-gray">
         <i class="fa fa-user" aria-hidden="true"></i>
@@ -28,35 +34,35 @@
         <span class="text-danger">*</span>
         <div class="form-group">
           <div *ngIf="!missionEditMode">
-            <span *ngIf="artType['彩繪']" class="badge badge-info p-2 mr-2">彩繪</span>
-            <span *ngIf="artType['雕刻']" class="badge badge-info p-2 mr-2">雕刻</span>
-            <span *ngIf="artType['捏塑']" class="badge badge-info p-2 mr-2">捏塑</span>
-            <span *ngIf="artType['平面設計']" class="badge badge-info p-2 mr-2">平面設計</span>
-            <span *ngIf="artType['立體設計']" class="badge badge-info p-2 mr-2">立體設計</span>
+            <span class="badge badge-info p-2 mr-2" *ngIf="artType['彩繪']">彩繪</span>
+            <span class="badge badge-info p-2 mr-2" *ngIf="artType['雕刻']">雕刻</span>
+            <span class="badge badge-info p-2 mr-2" *ngIf="artType['捏塑']">捏塑</span>
+            <span class="badge badge-info p-2 mr-2" *ngIf="artType['平面設計']">平面設計</span>
+            <span class="badge badge-info p-2 mr-2" *ngIf="artType['立體設計']">立體設計</span>
           </div>
           <div *ngIf="missionEditMode">
             <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" value="彩繪" [checked]="artType['彩繪']" (change)="artType[$event.target.value] = $event.target.checked">
+              <input class="custom-control-input" type="checkbox" value="彩繪" [checked]="artType['彩繪']" (change)="artType[$event.target.value] = $event.target.checked">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">彩繪</span>
             </label>
             <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" value="雕刻" [checked]="artType['雕刻']" (change)="artType[$event.target.value] = $event.target.checked">
+              <input class="custom-control-input" type="checkbox" value="雕刻" [checked]="artType['雕刻']" (change)="artType[$event.target.value] = $event.target.checked">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">雕刻</span>
             </label>
             <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" value="捏塑" [checked]="artType['捏塑']" (change)="artType[$event.target.value] = $event.target.checked">
+              <input class="custom-control-input" type="checkbox" value="捏塑" [checked]="artType['捏塑']" (change)="artType[$event.target.value] = $event.target.checked">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">捏塑</span>
             </label>
             <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" value="平面設計" [checked]="artType['平面設計']" (change)="artType[$event.target.value] = $event.target.checked">
+              <input class="custom-control-input" type="checkbox" value="平面設計" [checked]="artType['平面設計']" (change)="artType[$event.target.value] = $event.target.checked">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">平面設計</span>
             </label>
             <label class="custom-control custom-checkbox">
-              <input type="checkbox" class="custom-control-input" value="立體設計" [checked]="artType['立體設計']" (change)="artType[$event.target.value] = $event.target.checked">
+              <input class="custom-control-input" type="checkbox" value="立體設計" [checked]="artType['立體設計']" (change)="artType[$event.target.value] = $event.target.checked">
               <span class="custom-control-indicator"></span>
               <span class="custom-control-description">立體設計</span>
             </label>
@@ -76,8 +82,7 @@
           <i class="fa fa-photo" aria-hidden="true"></i>
           <label>照片上傳（可拖曳圖片至內容處）</label>
           <span class="text-danger">*</span>
-          <p-fileUpload #fileUpload name="photoFile[]" multiple="multiple" accept="image/*" [customUpload]="true" [showUploadButton]="false"
-            (onSelect)="uploadHandler(fileUpload)" (onRemove)="uploadHandler(fileUpload)" (onClear)="uploadHandler(fileUpload)"></p-fileUpload>
+          <p-fileUpload name="photoFile[]" #fileUpload multiple="multiple" accept="image/*" [customUpload]="true" [showUploadButton]="false" (onSelect)="uploadHandler(fileUpload)" (onRemove)="uploadHandler(fileUpload)" (onClear)="uploadHandler(fileUpload)"></p-fileUpload>
         </div>
         <div *ngIf="!missionEditMode">
           <i class="fa fa-photo" aria-hidden="true"></i>
@@ -89,10 +94,10 @@
       </div>
     </div>
   </div>
-  <div *ngIf="missionEditMode" class="form-group">
-    <button type="button" class="btn btn-info form-control" (click)="saveMissionDetail()">提交心得</button>
+  <div class="form-group" *ngIf="missionEditMode">
+    <button class="btn btn-info form-control" type="button" (click)="saveMissionDetail()">提交心得</button>
   </div>
 </div>
-<swal #dialogSuccess title="更新成功！" type="success" [options]="{ timer : '1000' }"></swal>
-<swal #dialogError title="更新失敗！" type="error" [options]="{ timer : '1000' }"></swal>
-<swal #dialogErrorCheck title="資料沒有填完整唷！" type="error" [options]="{ timer : '1000' }"> </swal>
+<swal type="success" title="更新成功！" #dialogSuccess [options]="{ timer : '1000' }"></swal>
+<swal type="error" title="更新失敗！" #dialogError [options]="{ timer : '1000' }"></swal>
+<swal type="error" title="資料沒有填完整唷！" #dialogErrorCheck [options]="{ timer : '1000' }"> </swal>

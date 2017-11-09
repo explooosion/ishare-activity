@@ -7,6 +7,8 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { IMyDpOptions } from 'mydatepicker';
 import * as moment from 'moment';
 import * as R from 'ramda';
+import { ifError } from 'assert';
+import { callbackify } from 'util';
 
 @Component({
   selector: 'app-art',
@@ -15,7 +17,6 @@ import * as R from 'ramda';
   providers: [MissionService]
 })
 export class ArtComponent implements OnInit {
-
 
   @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
@@ -59,12 +60,22 @@ export class ArtComponent implements OnInit {
         }
       );
 
-      const query = `username=${this.userdata['childusername']}&missionid=${this.missionId}`;
+      // 判斷學生檢視心得還是老師
+      const udata = R.isNil(this.userdata['childusername']) ?
+        this.router.parseUrl(this.router.url).queryParams['childusername'] :
+        this.userdata['childusername'];
+
+      const query = `username=${udata}&missionid=${this.missionId}`;
 
       await this.missionService.getJoinBy(query).subscribe(
         result => {
           this.missionDetail = result[0];
-          if (this.missionDetail.status === '已參加') {
+          const checkStatus = R.or(
+            this.missionDetail.status === '已參加',
+            this.missionDetail.status === '已退回'
+          );
+
+          if (checkStatus) {
             this.missionEditMode = true;
           }
 
