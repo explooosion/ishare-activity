@@ -147,7 +147,7 @@
                 <swal type="success" title="已審核完成" #dialogPassSuccess [options]="{ timer : '1000' }"></swal>
                 <swal type="question" title="確定要退回？" #dialogReject [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
                 <swal type="success" title="已退回心得" #dialogRejectSuccess [options]="{ timer : '1000' }"></swal>
-                <button class="btn btn-primary mr-2" type="button" (click)="correctMission(data.missionid, data.missiontype, data.childusername)">批改</button>
+                <button class="btn btn-primary mr-2" type="button" (click)="correctMission(data.missionid, data.missiontype, data.childusername)">瀏覽</button>
                 <button class="btn btn-success mr-2" type="button" (click)="dialogPass.show()">認可</button>
                 <button class="btn btn-secondary mr-2" type="button" (click)="dialogReject.show()">退回</button>
               </td>
@@ -218,6 +218,7 @@
               <td>
                 <swal type="question" title="要還原成待審？" #dialogRevert [options]="{ showCancelButton: 'true' }" (confirm)="RevertMission(data.missionid, data.childusername)"></swal>
                 <swal type="success" title="已還原完成" #dialogRevertSuccess [options]="{ timer : '1000' }"></swal>
+                <button class="btn btn-primary mr-2" type="button" (click)="correctMission(data.missionid, data.missiontype, data.childusername)">瀏覽</button>
                 <button class="btn btn-secondary mr-2" type="button" (click)="dialogRevert.show()">還原</button>
               </td>
             </tr>
