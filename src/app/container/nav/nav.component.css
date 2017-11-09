@@ -1,18 +1,17 @@
-.form-inline h6,
 .form-inline a {
-    font-size: 1rem;
+  font-size: 1rem;
 }
 
 .form-inline a:hover {
-    color: #2ab3fc;
+  color: #2ab3fc;
 }
 
 .navbar-group i {
-    margin-right: 3px;
+  margin-right: 3px;
 }
 
 @media screen and (max-width:768px) {
-    .navbar>.container {
-        all: unset;
-    }
+  .navbar>.container {
+    all: unset;
+  }
 }
