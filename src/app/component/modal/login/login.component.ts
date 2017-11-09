@@ -12,14 +12,13 @@ import { Cookie } from 'ng2-cookies/ng2-cookies';
 })
 export class LoginComponent implements OnInit {
 
-  @ViewChild('dialogSuccess') private swalDialogSuccess: SwalComponent;
   @ViewChild('dialogError') private swalDialogError: SwalComponent;
   @ViewChild('dialogErrorGroup') private swalDialogErrorGroup: SwalComponent;
 
   public userAccount: String = 'jason123';
   public userPassword: String = '123456';
   public logingroup: Number = 0;
-  public result: any = '';
+  public result: any = null;
 
   constructor(
     private userService: UserService
@@ -30,8 +29,6 @@ export class LoginComponent implements OnInit {
 
   /**
    * 使用者登入
-   *
-   * @memberof LoginComponent
    */
   public async userLogin() {
 
@@ -49,15 +46,10 @@ export class LoginComponent implements OnInit {
         result => {
           this.result = result[0];
           if (this.result) {
-
             // 判斷使用者群組
             this.result.logingroup = this.logingroup;
-
-            Cookie.set('userCookie', JSON.stringify(this.result))
-            this.swalDialogSuccess.show();
-
+            Cookie.set('userCookie', JSON.stringify(this.result));
             setTimeout(() => { window.location.reload(); }, 1200);
-
           } else {
             this.swalDialogError.show();
           }

@@ -33,18 +33,10 @@
               required>
           </div>
         </div>
-
         <div class="modal-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 form-group">
-                <swal #dialogSuccess title="登入成功" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogError title="登入失敗" type="error"></swal>
-                <swal #dialogErrorGroup title="請選擇登入身分" type="warning"></swal>
-                <button type="submit" class="btn btn-info form-control" (click)="userLogin();">登入</button>
-              </div>
-            </div>
-          </div>
+          <swal #dialogError title="登入失敗" type="error"></swal>
+          <swal #dialogErrorGroup title="請選擇登入身分" type="warning"></swal>
+          <button type="submit" class="btn btn-info form-control" (click)="userLogin();">登入</button>
         </div>
 
       </div>
