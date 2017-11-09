@@ -10,6 +10,7 @@ import * as R from 'ramda';
 import { async } from '@angular/core/testing';
 import { element } from 'protractor';
 import * as swal from 'sweetalert2';
+import { Stream } from 'stream';
 
 @Component({
   selector: 'app-teacher',
@@ -110,27 +111,40 @@ export class TeacherComponent implements OnInit {
     }
   }
 
+
   /**
-   * 刪除任務
+   * 批改心得
+   * @param mid 任務編號
+   * @param mtype 任務類別
+   * @param cuid 學童帳號
    */
-  public DeleteMission() {
-    this.getMission();
-    this.swalDialogDeleteError.show();
+  public correctMission(mid: Number, mtype: String, cuid: String) {
+    let url = null;
+    // 有些多的心得組件要刪除
+    switch (mtype) {
+      case '影片任務': url = 'video'; break;
+      case '展演任務': url = 'show'; break;
+      case '旅遊任務': url = 'travel'; break;
+      case '清潔任務': url = 'clean'; break;
+      case '運動任務': url = 'sport'; break;
+      case '美術任務': url = 'art'; break;
+    }
+    this.router.navigate([`mission/${url}`], { queryParams: { id: mid, childusername: cuid } });
   }
 
   /**
    * 通過任務
    * @param mid 任務編號
-   * @param cname 學童帳號
+   * @param cuid 學童帳號
    */
-  public async PassMission(mid: Number, cname: String) {
+  public async PassMission(mid: Number, cuid: String) {
     if (this.userdata) {
       const body = {
         status: '已審核',
         verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
         verifyusername: this.userdata.teacherusername,
         missionid: mid,
-        childusername: cname
+        childusername: cuid
       };
       await this.missionService.verifyMission(body)
         .subscribe(result => {
@@ -145,16 +159,16 @@ export class TeacherComponent implements OnInit {
   /**
    * 退回任務
    * @param mid 任務編號
-   * @param cname 學童帳號
+   * @param cuid 學童帳號
    */
-  public async RejectMission(mid: Number, cname: String) {
+  public async RejectMission(mid: Number, cuid: String) {
     if (this.userdata) {
       const body = {
         status: '已退回',
         verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
         verifyusername: this.userdata.teacherusername,
         missionid: mid,
-        childusername: cname
+        childusername: cuid
       };
       await this.missionService.verifyMission(body)
         .subscribe(result => {
@@ -170,16 +184,16 @@ export class TeacherComponent implements OnInit {
   /**
    * 還原任務(轉為待審)
    * @param mid 任務編號
-   * @param cname 學童帳號
+   * @param cuid 學童帳號
    */
-  public async RevertMission(mid: Number, cname: String) {
+  public async RevertMission(mid: Number, cuid: String) {
     if (this.userdata) {
       const body = {
         status: '已提交',
         verifytime: moment().format('YYYY-MM-DD hh:mm:ss'),
         verifyusername: this.userdata.teacherusername,
         missionid: mid,
-        childusername: cname
+        childusername: cuid
       };
       await this.missionService.verifyMission(body)
         .subscribe(result => {
@@ -190,5 +204,13 @@ export class TeacherComponent implements OnInit {
           }
         });
     }
+  }
+
+  /**
+   * 刪除任務
+   */
+  public DeleteMission() {
+    this.getMission();
+    this.swalDialogDeleteError.show();
   }
 }

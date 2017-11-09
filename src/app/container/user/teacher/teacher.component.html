@@ -29,7 +29,7 @@
 
 
   <!-- Mission-Create -->
-  <div *ngIf="tab == 0" class="container-fluid pt-4 pb-4">
+  <div class="container-fluid pt-4 pb-4" *ngIf="tab == 0">
     <div class="card mb-2">
       <div class="card-footer small text-muted">
         共 {{ datas.length }} 筆資料
@@ -49,7 +49,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngIf="isLoading" class="text-center">
+            <tr class="text-center" *ngIf="isLoading">
               <td colspan="9">
                 <i class="fa fa-spinner fa-3x fa-spin"></i>
               </td>
@@ -67,7 +67,7 @@
                   }">{{ data.missiontype }}</span>
               </td>
               <td class="text-left">
-                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.id}">{{ data.missionname }}</a>
+                <a href="#" target="_blank" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.id}">{{ data.missionname }}</a>
               </td>
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
@@ -76,10 +76,10 @@
               <td>{{ data.missionfinaltime | date: 'yyyy/MM/dd' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td class="text-right">
-                <swal #dialogDelete title="確定要刪除？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="DeleteMission()"></swal>
-                <swal #dialogDeleteError title="功能暫未開放，仍有爭議。" type="error" [options]="{ timer : '1000' }"></swal>
-                <button type="button" class="btn btn-primary mr-2" (click)="dialogDeleteError.show()">編輯</button>
-                <button type="button" class="btn btn-secondary mr-2" (click)="dialogDelete.show()">刪除</button>
+                <swal type="question" title="確定要刪除？" #dialogDelete [options]="{ showCancelButton: 'true' }" (confirm)="DeleteMission()"></swal>
+                <swal type="error" title="功能暫未開放，仍有爭議。" #dialogDeleteError [options]="{ timer : '1000' }"></swal>
+                <button class="btn btn-primary mr-2" type="button" (click)="dialogDeleteError.show()">編輯</button>
+                <button class="btn btn-secondary mr-2" type="button" (click)="dialogDelete.show()">刪除</button>
               </td>
             </tr>
           </tbody>
@@ -96,7 +96,7 @@
 
 
   <!-- Mission-Verify -->
-  <div *ngIf="tab == 1" class="container-fluid pt-4 pb-4">
+  <div class="container-fluid pt-4 pb-4" *ngIf="tab == 1">
     <div class="card mb-2">
       <div class="card-footer small text-muted">
         共 {{ datasVerify.length }} 筆資料
@@ -116,7 +116,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngIf="isLoading" class="text-center">
+            <tr class="text-center" *ngIf="isLoading">
               <td colspan="9">
                 <i class="fa fa-spinner fa-3x fa-spin"></i>
               </td>
@@ -135,7 +135,7 @@
               </td>
               <td>{{ data.childusername }}</td>
               <td class="text-left">
-                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+                <a href="#" target="_blank" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
               </td>
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
@@ -143,12 +143,13 @@
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td class="text-right">
-                <swal #dialogPass title="確定要通過？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
-                <swal #dialogPassSuccess title="已審核完成" type="success" [options]="{ timer : '1000' }"></swal>
-                <swal #dialogReject title="確定要退回？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
-                <swal #dialogRejectSuccess title="已退回心得" type="success" [options]="{ timer : '1000' }"></swal>
-                <button type="button" class="btn btn-primary mr-2" (click)="dialogPass.show()">認可</button>
-                <button type="button" class="btn btn-secondary mr-2" (click)="dialogReject.show()">退回</button>
+                <swal type="question" title="確定要通過？" #dialogPass [options]="{ showCancelButton: 'true' }" (confirm)="PassMission(data.missionid, data.childusername)"></swal>
+                <swal type="success" title="已審核完成" #dialogPassSuccess [options]="{ timer : '1000' }"></swal>
+                <swal type="question" title="確定要退回？" #dialogReject [options]="{ showCancelButton: 'true' }" (confirm)="RejectMission(data.missionid, data.childusername)"></swal>
+                <swal type="success" title="已退回心得" #dialogRejectSuccess [options]="{ timer : '1000' }"></swal>
+                <button class="btn btn-primary mr-2" type="button" (click)="correctMission(data.missionid, data.missiontype, data.childusername)">批改</button>
+                <button class="btn btn-success mr-2" type="button" (click)="dialogPass.show()">認可</button>
+                <button class="btn btn-secondary mr-2" type="button" (click)="dialogReject.show()">退回</button>
               </td>
             </tr>
           </tbody>
@@ -166,7 +167,7 @@
 
 
   <!-- Mission-Reject -->
-  <div *ngIf="tab == 2" class="container-fluid pt-4 pb-4">
+  <div class="container-fluid pt-4 pb-4" *ngIf="tab == 2">
     <div class="card mb-2">
       <div class="card-footer small text-muted">
         共 {{ datasReject.length }} 筆資料
@@ -187,7 +188,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngIf="isLoading" class="text-center">
+            <tr class="text-center" *ngIf="isLoading">
               <td colspan="9">
                 <i class="fa fa-spinner fa-3x fa-spin"></i>
               </td>
@@ -206,7 +207,7 @@
               </td>
               <td>{{ data.childusername }}</td>
               <td class="text-left">
-                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+                <a href="#" target="_blank" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
               </td>
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
@@ -215,9 +216,9 @@
               <td>{{ data.submittime | date: 'yyyy/MM/dd hh:mm:ss' }}</td>
               <td>{{ data.missioncreatetime | date: 'yyyy/MM/dd' }}</td>
               <td>
-                <swal #dialogRevert title="要還原成待審？" type="question" [options]="{ showCancelButton: 'true' }" (confirm)="RevertMission(data.missionid, data.childusername)"></swal>
-                <swal #dialogRevertSuccess title="已還原完成" type="success" [options]="{ timer : '1000' }"></swal>
-                <button type="button" class="btn btn-secondary mr-2" (click)="dialogRevert.show()">還原</button>
+                <swal type="question" title="要還原成待審？" #dialogRevert [options]="{ showCancelButton: 'true' }" (confirm)="RevertMission(data.missionid, data.childusername)"></swal>
+                <swal type="success" title="已還原完成" #dialogRevertSuccess [options]="{ timer : '1000' }"></swal>
+                <button class="btn btn-secondary mr-2" type="button" (click)="dialogRevert.show()">還原</button>
               </td>
             </tr>
           </tbody>
@@ -234,7 +235,7 @@
 
 
   <!-- Mission-Finish -->
-  <div *ngIf="tab == 3" class="container-fluid pt-4 pb-4">
+  <div class="container-fluid pt-4 pb-4" *ngIf="tab == 3">
 
     <div class="card mb-2">
       <div class="card-footer small text-muted">
@@ -255,7 +256,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngIf="isLoading" class="text-center">
+            <tr class="text-center" *ngIf="isLoading">
               <td colspan="9">
                 <i class="fa fa-spinner fa-3x fa-spin"></i>
               </td>
@@ -274,7 +275,7 @@
               </td>
               <td>{{ data.childusername }}</td>
               <td class="text-left">
-                <a target="_blank" href="#" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
+                <a href="#" target="_blank" [routerLink]="['/mission/introduce']" [queryParams]="{id:data.missionid}">{{ data.missionname }}</a>
               </td>
               <td>
                 <span class="badge badge-danger p-2 rounded-circle">{{ data.missionpoint }}</span>
@@ -294,3 +295,4 @@
       </div>
     </div>
   </div>
+</div>
