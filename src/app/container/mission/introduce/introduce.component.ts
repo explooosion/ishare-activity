@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { async } from '@angular/core/testing';
 
 import { MissionService } from '../../../service/mission/mission.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { SwalComponent } from '@toverux/ngsweetalert2';
 
 import * as moment from 'moment';
-import { async } from '@angular/core/testing';
+import * as R from 'ramda';
 
 @Component({
   selector: 'app-introduce',

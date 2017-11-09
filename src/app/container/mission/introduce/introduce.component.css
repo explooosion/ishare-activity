@@ -16,7 +16,11 @@
 }
 
 .intro-action button {
-  margin-bottom: 1rem;
   cursor: pointer;
   box-shadow: 3px 3px 0 0 #f0f0f0;
 }
+
+.intro-action button:not(:last-child){
+    margin-bottom: 1rem;
+}
+  

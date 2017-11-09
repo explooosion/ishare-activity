@@ -46,7 +46,8 @@
             <button type="button" class="form-control btn btn-secondary" [routerLink]="['home']">返回首頁</button>
             <button *ngIf="!isJoin && userGroup !== 3" type="button" class="form-control btn btn-info" (click)="dialogIsJoin.show()">參加活動</button>
             <button *ngIf="isJoin" type="button" class="form-control btn btn-info" (click)="btnExperience()">心得專欄</button>
-            <button *ngIf="isJoin" type="button" class="form-control btn btn-danger" (click)="dialogIsDelete.show()">取消參加</button>
+            <button *ngIf="isJoin && missionJoin.status !== '已審核'" type="button" class="form-control btn btn-danger"
+              (click)="dialogIsDelete.show()">取消參加</button>
           </div>
         </div>
       </div>
